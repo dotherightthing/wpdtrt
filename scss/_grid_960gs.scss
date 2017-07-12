@@ -1,0 +1,58 @@
+/**
+ * SCSS 960gs Grid Generator
+ *
+ * @author dotherightthingnz <dev@dotherightthing.co.nz>
+ * @param {string} $container - Container width
+ * @param {string} $columns - Number of columns
+ * @param {string} $gutter - Width of gutters between columns
+ *
+ * @package DTRT Framework - Theme
+ * @since 0.1.0
+ * @version 0.1.0
+ */
+@mixin grid_960gs($container, $columns, $gutter) {
+
+  .row {
+    width: $container;
+  }
+
+  @for $i from 1 through $columns {
+
+    .grid-#{$i} {
+      width: ( ( $container / ($columns/$i) ) - (2 * $gutter) );
+      margin-left: $gutter;
+      margin-right: $gutter;
+    }
+  }
+}
+
+@mixin grid_960gs_mobile_parent {
+  width: (100% - $responsive_grid_gutter_horz - $responsive_grid_gutter_horz);
+  margin-left: $responsive_grid_gutter_horz;
+  margin-right: $responsive_grid_gutter_horz;
+}
+
+@mixin grid_960gs_mobile_child {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+@mixin grid_960gs_mobile($columns) {
+
+  .row {
+    width: 100%;
+  }
+
+  @for $i from 1 through $columns {
+
+    .grid-#{$i} {
+       @include grid_960gs_mobile_parent();
+
+      // reset child grids
+      [class^="grid"] {
+        @include grid_960gs_mobile_child();
+      }
+    }
+  }
+}

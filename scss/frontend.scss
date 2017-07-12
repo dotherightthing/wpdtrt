@@ -1,0 +1,29 @@
+/**
+ * Front-end styles
+ * SCSS -> CSS conversion is handled by gulpfile.js
+ * Prefixes are handled by gulpfile.js and configured
+ * with browserlist in package.json
+ * @see https://github.com/ai/browserslist#queries
+ *
+ * Prepend JS related fixes with .js
+ *
+ * @package DTRT Framework - Theme
+ * @since 0.1.0
+ * @version 0.1.0
+ */
+
+@import "variables";
+@import "mixins";
+@import "extends";
+
+// page blocks
+@import "theme-requirements";
+//@import "name";
+
+// plugins
+// omitting the extension makes the classes available for extend
+// https://stackoverflow.com/questions/7111610/import-regular-css-file-in-scss-file/30279590#30279590
+//@import "../vendor/pluginname/pluginname";
+
+// grids - last
+//@import "grid_960gs";

@@ -1,0 +1,37 @@
+{
+  "name": "wp-dtrt-fwt",
+  "version": "0.1.0",
+  "description": "A framework for WordPress themes (fwt)",
+  "main": "readme.txt",
+  "person": {
+    "name" : "Dan Smith",
+    "email" : "dev@dotherightthing.co.nz",
+    "url" : "http://dotherightthing.co.nz"
+  },
+  "devDependencies": {
+    "generator-wp-theme-boilerplate": "git+https://github.com/dotherightthing/generator-wp-theme-boilerplate.git",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean-css": "^3.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-phplint": "^0.3.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-uglify": "^3.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:dotherightthing/wp-dtrt-fwt.git"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie >= 11"
+  ],
+  "license": "ISC",
+  "homepage": "http://dotherightthing.co.nz",
+  "srcDir": "/Volumes/DanBackup/Websites/wp-dtrt-fwt"
+}

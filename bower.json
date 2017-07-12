@@ -1,0 +1,22 @@
+{
+  "name": "wp-dtrt-fwt",
+  "version": "0.1.0",
+  "description": "A framework for WordPress themes (fwt)",
+  "main": "readme.txt",
+  "authors": [
+    "Dan Smith <dev@dotherightthing.co.nz>"
+  ],
+  "devDependencies": {
+    "WordPress Theme Boilerplate Generator": "https://github.com/dotherightthing/generator-wp-theme-boilerplate"
+    "WordPress-Admin-Style": "https://github.com/bueltge/WordPress-Admin-Style.git#^1.4.1",
+    "jquery-validation": "^1.16.0"
+  },
+  "license": "All Rights Reserved",
+  "homepage": "http://dotherightthing.co.nz",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "vendor"
+  ],
+  "private": true
+}
