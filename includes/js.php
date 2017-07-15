@@ -3,7 +3,7 @@
  * JavaScript (JS)
  *
  * @package DTRT Framework - Theme
- * @subpackage DTRT Framework - Theme Theme Functions
+ * @subpackage DTRT Framework - Theme Functions
  * @since 0.1.0
  * @version 0.1.0
  */
@@ -14,9 +14,9 @@
   *
   * @link https://wordpress.org/support/topic/how-to-add-js-files-to-child-theme?replies=7
   */
-add_action( 'wp_enqueue_scripts', 'wp_dtrt_fwt__js' );
+add_action( 'wp_enqueue_scripts', 'wpdtrt__js' );
 
-function wp_dtrt_fwt__js() {
+function wpdtrt__js() {
 
   /**
    * Link assets to theme version
@@ -45,17 +45,17 @@ function wp_dtrt_fwt__js() {
   remove_action('wp_head', 'wp_enqueue_scripts', 1);
 
   // scripts.js
-  wp_register_script('wp_dtrt_fwt__js',
+  wp_register_script('wpdtrt__js',
     get_template_directory_uri() . '/js/frontend.js',
     array('jquery'),
     $theme_version,
     $attach_to_footer
   );
 
-  // make wp_dtrt_fwt__template_directory_uri available as a JS variable
-  wp_localize_script( 'wp_dtrt_fwt__js', 'wp_dtrt_fwt__template_directory_uri', get_template_directory_uri() );
-  //wp_add_inline_script('wp_dtrt_fwt__js', 'alert('test'));
-  wp_enqueue_script('wp_dtrt_fwt__js');
+  // make wpdtrt__template_directory_uri available as a JS variable
+  wp_localize_script( 'wpdtrt__js', 'wpdtrt__template_directory_uri', get_template_directory_uri() );
+  //wp_add_inline_script('wpdtrt__js', 'alert('test'));
+  wp_enqueue_script('wpdtrt__js');
 
   /**
    * Comment reply

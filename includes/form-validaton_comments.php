@@ -3,7 +3,7 @@
  * Form Validation: Comment
  *
  * @package DTRT Framework - Theme
- * @subpackage DTRT Framework - Theme Theme Functions
+ * @subpackage DTRT Framework - Theme Functions
  * @since 0.1.0
  * @version 0.1.0
  */
@@ -14,7 +14,7 @@
  * where $name is the key used in the array of fields.
  * Source: https://developer.wordpress.org/reference/functions/comment_form/
  *
- * See also wp_dtrt_fwt__ui.comment_validation() in functions.js
+ * See also wpdtrt__ui.comment_validation() in functions.js
  */
 
 /* Comment field
@@ -24,14 +24,14 @@
  * Use custom error message rather than "This field is required"
  */
 
-function wp_dtrt_fwt__comment_form_field_comment__validation( $content ) {
+function wpdtrt__comment_form_field_comment__validation( $content ) {
   $content = str_ireplace('<label for="comment">Comment</label>', '<label for="comment">Comment <span class="required">*</span></label>', $content);
   $content = str_ireplace('<textarea', '<textarea data-errors="comment-validation" data-msg-required="Please enter a comment"', $content);
   $content = str_ireplace('</p>', '<span id="comment-validation" class="validation"></span></p>', $content);
   return $content;
 }
 
-add_filter( 'comment_form_field_comment', 'wp_dtrt_fwt__comment_form_field_comment__validation' );
+add_filter( 'comment_form_field_comment', 'wpdtrt__comment_form_field_comment__validation' );
 
 /* Author field
  * jQuery Validation automatically adds aria-invalid and aria-describedby when invalid
@@ -39,13 +39,13 @@ add_filter( 'comment_form_field_comment', 'wp_dtrt_fwt__comment_form_field_comme
  * Use custom error message rather than "This field is required"
  */
 
-function wp_dtrt_fwt__comment_form_field_author__validation( $content ) {
+function wpdtrt__comment_form_field_author__validation( $content ) {
   $content = str_ireplace('<input', '<input data-errors="author-validation" data-msg-required="Please enter your name"', $content);
   $content = str_ireplace('</p>', '<span id="author-validation" class="validation"></span></p>', $content);
   return $content;
 }
 
-add_filter( 'comment_form_field_author', 'wp_dtrt_fwt__comment_form_field_author__validation' );
+add_filter( 'comment_form_field_author', 'wpdtrt__comment_form_field_author__validation' );
 
 /* Email field
  * jQuery Validation automatically adds aria-invalid and aria-describedby when invalid (and handles multiple aria-describedby values)
@@ -53,12 +53,12 @@ add_filter( 'comment_form_field_author', 'wp_dtrt_fwt__comment_form_field_author
  * Use custom error message rather than "This field is required"
  */
 
-function wp_dtrt_fwt__comment_form_field_email__validation( $content ) {
+function wpdtrt__comment_form_field_email__validation( $content ) {
   $content = str_ireplace('<input', '<input data-errors="email-validation" data-msg-required="Please enter a valid email address"', $content);
   $content = str_ireplace('</p>', '<span id="email-validation" class="validation"></span></p>', $content);
   return $content;
 }
 
-add_filter( 'comment_form_field_email', 'wp_dtrt_fwt__comment_form_field_email__validation' );
+add_filter( 'comment_form_field_email', 'wpdtrt__comment_form_field_email__validation' );
 
 ?>

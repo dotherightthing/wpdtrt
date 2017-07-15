@@ -10,7 +10,7 @@ Framework child themes may be built on top of this theme.
 
 ## WordPress Framework Helper plugins (`fwh`)
 
-Generic theme functionality deemed appropriate to plugins will be moved into framework helper plugins.
+Generic theme functionality deemed appropriate to plugins will be promoted to framework helper plugins.
 
 These can then be used with themes or in tandem with specialised plugins.
 

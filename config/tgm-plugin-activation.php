@@ -13,15 +13,14 @@
  * @license    http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
  * @link       https://github.com/TGMPA/TGM-Plugin-Activation
  */
-require_once get_template_directory() . '/inc/tgm-plugin-activation/class-tgm-plugin-activation.php';
 
-add_action( 'tgmpa_register', 'wp_dtrt_fwt__register_required_plugins' );
+add_action( 'tgmpa_register', 'wpdtrt__register_required_plugins' );
 
 /**
  * Register the required plugins for this theme.
  * @see includes/tgm-plugin-activation/example.php
  */
-function wp_dtrt_fwt__register_required_plugins() {
+function wpdtrt__register_required_plugins() {
   /*
    * Array of plugin arrays. Required keys are name and slug.
    * If the source is NOT from the .org repo, then source is also required.

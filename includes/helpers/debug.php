@@ -3,7 +3,7 @@
  * Debugging
  *
  * @package DTRT Framework - Theme
- * @subpackage DTRT Framework - Theme Theme Functions
+ * @subpackage DTRT Framework - Theme Functions
  * @since 0.1.0
  * @version 0.1.0
  */
@@ -15,16 +15,18 @@
  *
  * @link http://www.stumiller.me/sending-output-to-the-wordpress-debug-log/
  */
-if ( !function_exists('write_log') ) {
-  function write_log ( $log )  {
-    if ( true === WP_DEBUG ) {
-      if ( is_array( $log ) || is_object( $log ) ) {
-        error_log( print_r( $log, true ) );
-      } else {
-        error_log( $log );
-      }
-    }
-  }
+if ( !function_exists('wpdtrt__log') ) {
+
+	function wpdtrt__log ( $log )  {
+		if ( true === WP_DEBUG ) {
+			if ( is_array( $log ) || is_object( $log ) ) {
+				error_log( print_r( $log, true ) );
+			} else {
+				error_log( $log );
+			}
+		}
+	}
+
 }
 
 ?>

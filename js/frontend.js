@@ -10,7 +10,7 @@
  * @version 0.1.0
  */
 
-var wp_dtrt_fwt__ui = {};
+var wpdtrt__ui = {};
 
 /**
  * WebFontLoader (Page Speed optimisation)
@@ -26,7 +26,7 @@ var wp_dtrt_fwt__ui = {};
  * Choose fonts: https://fonts.google.com
  */
 
-wp_dtrt_fwt__ui.webfontloader = function($) {
+wpdtrt__ui.webfontloader = function($) {
 
   WebFontConfig = {
     google: {
@@ -47,7 +47,7 @@ wp_dtrt_fwt__ui.webfontloader = function($) {
 
 };
 
-wp_dtrt_fwt__ui.editor = function($) {
+wpdtrt__ui.editor = function($) {
 
   var $pre = jQuery("pre").eq(0);
   var height = $pre.height();
@@ -60,9 +60,9 @@ wp_dtrt_fwt__ui.editor = function($) {
   editor.getSession().setMode("ace/mode/javascript");
 };
 
-wp_dtrt_fwt__ui.get_source_title = function($) {
+wpdtrt__ui.get_source_title = function($) {
 
-  if ( ! wp_dtrt_fwt__template_directory_uri ) {
+  if ( ! wpdtrt__template_directory_uri ) {
     return;
   }
 
@@ -72,7 +72,7 @@ wp_dtrt_fwt__ui.get_source_title = function($) {
   if ( $kb_source_url.text() !== '' ) {
 
     $.ajax({
-      url: wp_dtrt_fwt__template_directory_uri + '/ajax/get_page_title.php',
+      url: wpdtrt__template_directory_uri + '/ajax/get_page_title.php',
       data: { url: $kb_source_url.text() },
       type: 'post',
       cache: false,
@@ -130,15 +130,15 @@ if (xmlHttpReq.readyState == 4) {
  * Init UI
  */
 
-wp_dtrt_fwt__ui.init = function($) {
+wpdtrt__ui.init = function($) {
 
   document.addEventListener("touchstart", function() {
     // nada, this is just a hack to make :focus state render on touch
   }, false);
 
-  wp_dtrt_fwt__ui.webfontloader($);
-  wp_dtrt_fwt__ui.get_source_title($);
-  //wp_dtrt_fwt__ui.editor($);
+  wpdtrt__ui.webfontloader($);
+  wpdtrt__ui.get_source_title($);
+  //wpdtrt__ui.editor($);
 };
 
 /**
@@ -146,7 +146,7 @@ wp_dtrt_fwt__ui.init = function($) {
  */
 
 jQuery(document).ready( function($) {
-  wp_dtrt_fwt__ui.init($);
+  wpdtrt__ui.init($);
 });
 
 (function($) {

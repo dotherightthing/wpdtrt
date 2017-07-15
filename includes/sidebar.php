@@ -3,7 +3,7 @@
  * Sidebar (Widgets)
  *
  * @package DTRT Framework - Theme
- * @subpackage DTRT Framework - Theme Theme Functions
+ * @subpackage DTRT Framework - Theme Functions
  * @since 0.1.0
  * @version 0.1.0
  */
@@ -11,9 +11,9 @@
 /**
  * Register a widget ready sidebar
  */
-add_action( 'widgets_init', 'wp_dtrt_fwt__widgets_init' );
+add_action( 'widgets_init', 'wpdtrt__widgets_init' );
 
-function wp_dtrt_fwt__widgets_init() {
+function wpdtrt__widgets_init() {
 
   register_sidebar( array(
     'name'          => __( 'Sidebar', 'wp-dtrt-fwt' ),

@@ -4,7 +4,7 @@
  * Simple content manipulation that doesn't justify a plugin
  *
  * @package DTRT Framework - Theme
- * @subpackage DTRT Framework - Theme Theme Functions
+ * @subpackage DTRT Framework - Theme Functions
  * @since 0.1.0
  * @version 0.1.0
  */
