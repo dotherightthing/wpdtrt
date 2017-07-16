@@ -1,5 +1,6 @@
-docs
 generators
-logs
 node_modules
 vendor
+.DS_Store
+debug.log
+*.sublime*

@@ -6,6 +6,17 @@
  * @version 0.1.0
  */
 
-.font-sharpen {
- 	-webkit-font-smoothing: antialiased;
+.font-sharpen,
+.text-sharpen {
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.text-outline_white {
+	text-shadow:
+		-1px -1px 0 #fff,
+		1px -1px 0 #fff,
+		-1px 1px 0 #fff,
+		 1px 1px 0 #fff;
 }

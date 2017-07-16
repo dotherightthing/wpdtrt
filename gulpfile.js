@@ -1,5 +1,7 @@
 /**
  * Gulp Task Runner
+ * Compile, concatenate and minify front-end resources
+ *
  * @example gulp default
  * @example gulp css
  * @example gulp js
@@ -23,18 +25,19 @@ var uglify = require('gulp-uglify'); // JS minifier
 
 // source directories
 
+// do this in JS file so this script can be run from child theme
 var jsSrc = [
   // we use the unminified versions
   // and then minify them
   // so that we can debug them using sourcemaps
-  './vendor/enquire/dist/enquire.js',
-  './vendor/responsive-nav/responsive-nav.js',
-  './vendor/jquery.mobile.custom/jquery.mobile.custom.js',
+//  './vendor/enquire/dist/enquire.js',
+//  './vendor/responsive-nav/responsive-nav.js',
+//  './vendor/jquery.mobile.custom/jquery.mobile.custom.js',
   //'./vendor/jquery-ui-1.12.1.custom/jquery-ui.js', // accordion
-  './js/frontend.js'
+  './js/wpdtrt__parent.js'
 ];
-var phpSrc = '**/*.php';
-var sassSrc = './scss/*.scss';
+var phpDir = '**/*.php';
+var scssDir = './scss/wpdtrt__parent.scss';
 
 // target directories
 
@@ -45,7 +48,7 @@ var jsDir = './js';
 
 gulp.task('css', function () {
   return gulp
-    .src(sassSrc)
+    .src(scssDir)
     //.pipe(sourcemaps.init()) // not for production as adds many kb
     .pipe(sass({outputStyle: 'expanded'}))
     .pipe(autoprefixer({
@@ -69,7 +72,7 @@ gulp.task('js', function () {
 
 gulp.task('php', function () {
   return gulp
-    .src([phpSrc])
+    .src([phpDir])
 
     // validate PHP
     // The linter ships with PHP

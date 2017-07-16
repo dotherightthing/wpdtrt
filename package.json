@@ -4,9 +4,9 @@
   "description": "A framework for WordPress themes (fwt)",
   "main": "readme.txt",
   "person": {
-    "name" : "Dan Smith",
-    "email" : "dev@dotherightthing.co.nz",
-    "url" : "http://dotherightthing.co.nz"
+    "name": "Dan Smith",
+    "email": "dev@dotherightthing.co.nz",
+    "url": "http://dotherightthing.co.nz"
   },
   "devDependencies": {
     "generator-wp-theme-boilerplate": "git+https://github.com/dotherightthing/generator-wp-theme-boilerplate.git",
@@ -14,6 +14,7 @@
     "gulp-autoprefixer": "^4.0.0",
     "gulp-clean-css": "^3.4.0",
     "gulp-concat": "^2.6.1",
+    "gulp-importjs": "^0.1.8",
     "gulp-phplint": "^0.3.4",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
