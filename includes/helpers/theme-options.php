@@ -79,7 +79,13 @@ function wpdtrt_theme_setup() {
    * Allows the use of HTML5 markup for the search forms, comment forms, comment lists, gallery, and caption
    * @since WordPress 3.6
    */
-  add_theme_support('html5');
+  add_theme_support( 'html5', array(
+    'search-form',
+    'comment-form',
+    'comment-list',
+    'gallery', // affects wpdtrt-dbth presentation
+    'caption',
+  ) );
 
   /**
    * Enables Post Formats support for a theme
@@ -91,7 +97,7 @@ function wpdtrt_theme_setup() {
    * Enables Post Thumbnails support for a theme, or certain post types
    * @since WordPress 3.1
    */
-  //add_theme_support('post-thumbnails');
+  add_theme_support('post-thumbnails');
 
   /**
    * Enables plugins and themes to manage the document title tag. This should be used in place of wp_title() function

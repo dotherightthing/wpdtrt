@@ -7,18 +7,35 @@
  * @version 0.1.0
  */
 
-// Dependencies / Config
+/**
+ * Helpers
+ * @todo Make plugins, or move to symlinked Cookbook
+ */
 
+require_once( __DIR__ . '/includes/helpers/acf.php');
+require_once( __DIR__ . '/includes/helpers/attachment.php');
+require_once( __DIR__ . '/includes/helpers/content.php');
 require_once( __DIR__ . '/includes/helpers/css.php');
-//require_once( __DIR__ . '/includes/form-validaton_comments.php');
-require_once( __DIR__ . '/includes/js.php');
 require_once( __DIR__ . '/includes/helpers/debug.php');
-//require_once( __DIR__ . '/includes/editor.php');
-//require_once( __DIR__ . '/includes/menus.php');
-//require_once( __DIR__ . '/includes/shortcodes.php');
+require_once( __DIR__ . '/includes/helpers/dom.php');
+require_once( __DIR__ . '/includes/helpers/form-validaton_comments.php');
+require_once( __DIR__ . '/includes/helpers/js.php');
+require_once( __DIR__ . '/includes/helpers/media.php');
+require_once( __DIR__ . '/includes/helpers/menus.php');
+require_once( __DIR__ . '/includes/helpers/post-type.php');
 require_once( __DIR__ . '/includes/helpers/sidebar.php');
-
+require_once( __DIR__ . '/includes/helpers/taxonomy.php');
+require_once( __DIR__ . '/includes/helpers/template-tags.php');
 require_once( __DIR__ . '/includes/helpers/theme-options.php');
+require_once( __DIR__ . '/includes/shortcodes/tip.php');
+
+/**
+ * Weather
+ * @todo Make plugin
+ */
+require_once( __DIR__ . '/includes/helpers/weather.php');
+require_once( __DIR__ . '/vendor/bower_components/wp-darksky/wp-darksky.php');
+require_once( __DIR__ . '/vendor/bower_components/12e9915ad81d62a6991c/wp-darksky-weather-icon-forecast.php');
 
 // Config
 require_once( __DIR__ . '/vendor/tgm-plugin-activation/class-tgm-plugin-activation.php');

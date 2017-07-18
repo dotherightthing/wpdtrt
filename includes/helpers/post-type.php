@@ -136,7 +136,7 @@ function wpdtrt_post_type_register_all() {
          * The default is "Add New" for both hierarchical and non-hierarchical post types.
          * I18n: Use a gettext context matching your post type: _x('Add New', 'text-domain');
          */
-        'add_new' => _x( ( 'Add New', $post_type['label_single'] ), 'wpdtrt' ),
+        'add_new' => _x( ( 'Add New' . $post_type['label_single'] ), 'wpdtrt' ),
 
         /**
          * Default: Add New Post/Add New Page.

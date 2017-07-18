@@ -34,5 +34,8 @@
   ],
   "license": "ISC",
   "homepage": "http://dotherightthing.co.nz",
-  "srcDir": "/Volumes/DanBackup/Websites/wp-dtrt-fwt"
+  "srcDir": "/Volumes/DanBackup/Websites/wp-dtrt-fwt",
+  "dependencies": {
+    "gulp-importjs": "^0.1.8"
+  }
 }

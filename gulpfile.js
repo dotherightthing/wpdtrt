@@ -18,9 +18,10 @@ var gulp = require('gulp');
 var autoprefixer = require('gulp-autoprefixer'); // CSS prefixes
 var cleanCSS = require('gulp-clean-css'); // CSS minifier
 var concat = require('gulp-concat'); // concatenate files
+var importjs = require('gulp-importjs'); // js imports
+var rename = require('gulp-rename'); // File renamer
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps'); // CSS debugging
-var rename = require('gulp-rename'); // File renamer
 var uglify = require('gulp-uglify'); // JS minifier
 
 // source directories
@@ -36,19 +37,22 @@ var jsSrc = [
   //'./vendor/jquery-ui-1.12.1.custom/jquery-ui.js', // accordion
   './js/wpdtrt_parent.js'
 ];
-var phpDir = '**/*.php';
-var scssDir = './scss/wpdtrt_parent.scss';
 
-// target directories
+// theme source directories
+
+// do this in JS file so this script can be run from child theme
+var jsSrc = './js/*.jsrc';
+var scssSrc = './scss/*.scss';
 
 var cssDir = './css/';
 var jsDir = './js';
+var phpDir = '**/*.php';
 
 // tasks
 
 gulp.task('css', function () {
   return gulp
-    .src(scssDir)
+    .src(scssSrc)
     //.pipe(sourcemaps.init()) // not for production as adds many kb
     .pipe(sass({outputStyle: 'expanded'}))
     .pipe(autoprefixer({
@@ -62,12 +66,11 @@ gulp.task('css', function () {
 
 gulp.task('js', function () {
   return gulp
-    .src(jsSrc)
-    .pipe(concat('frontend.js'))
-    //.pipe(sourcemaps.init()) // not for production as adds many kb
-    .pipe(uglify())
-    //.pipe(sourcemaps.write()) // not for production as adds many kb
-    .pipe(gulp.dest(jsDir));
+    .src( jsSrc )
+    .pipe( importjs() )
+    //.pipe( uglify() )
+    .pipe( rename({ extname: '.min.js' }) )
+    .pipe( gulp.dest( jsDir ) );
 });
 
 /*

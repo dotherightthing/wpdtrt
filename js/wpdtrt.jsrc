@@ -1,0 +1,7 @@
+// UI manipulation for DBTH child theme
+/* globals jQuery, Waypoint, URI, WebFontConfig, dbth_config */
+
+var wpdtrt_ui = {};
+
+@import "/js/_init.js";
+@import "/js/_webfont-loader.js";

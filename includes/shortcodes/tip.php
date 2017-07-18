@@ -1,5 +1,15 @@
 <?php
 /**
+ * Shortcodes
+ * Simple content manipulation that doesn't justify a plugin
+ *
+ * @package DTRT Framework - Theme
+ * @subpackage DTRT Framework - Theme Functions
+ * @since 0.1.0
+ * @version 0.1.0
+ */
+
+/**
   * Tip shortcode
   * @see https://codex.wordpress.org/Shortcode_API#Enclosing_vs_self-closing_shortcodes
   */

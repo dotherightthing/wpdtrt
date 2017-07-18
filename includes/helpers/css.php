@@ -17,22 +17,13 @@ add_action( 'wp_enqueue_scripts', 'wpdtrt_css' );
 function wpdtrt_css() {
 
   $theme_version = wp_get_theme()->Version;
-  $parent_style = 'wpdtrt_parent';
-  $child_style = 'wpdtrt_child';
+  $parent_style = 'wpdtrt';
 
   wp_enqueue_style( $parent_style,
     get_template_directory_uri() . '/css/' . $parent_style . '.min.css',
     array(),
     $theme_version
   );
-
-  /*
-  wp_enqueue_style( $child_style,
-    get_template_directory_uri() . '/css/' . $child_style . '.min.css',
-    array($parent_style),
-    $theme_version
-  );
-  */
 
   //$wpdtrt_inline_css = '';
   //wp_add_inline_style( $theme_style, $wpdtrt_inline_css );

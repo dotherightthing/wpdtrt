@@ -7,9 +7,11 @@
     "Dan Smith <dev@dotherightthing.co.nz>"
   ],
   "devDependencies": {
-    "WordPress Theme Boilerplate Generator": "https://github.com/dotherightthing/generator-wp-theme-boilerplate"
     "WordPress-Admin-Style": "https://github.com/bueltge/WordPress-Admin-Style.git#^1.4.1",
-    "jquery-validation": "^1.16.0"
+    "jquery-validation": "^1.16.0",
+    "wp-darksky": "https://github.com/joshuadavidnelson/wp-darksky.git#^1.1.0",
+    "12e9915ad81d62a6991c": "https://gist.github.com/12e9915ad81d62a6991c.git",
+    "weather-icons": "https://github.com/erikflowers/weather-icons.git#^2.0.10"
   },
   "license": "All Rights Reserved",
   "homepage": "http://dotherightthing.co.nz",

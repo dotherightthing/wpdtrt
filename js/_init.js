@@ -23,7 +23,7 @@ wpdtrt_ui.init = function($) {
   }, false);
 
   wpdtrt_ui.webfontloader($);
-  wpdtrt_ui.get_source_title($);
+  //wpdtrt_ui.get_source_title($);
   //wpdtrt_ui.editor($);
 };
 
