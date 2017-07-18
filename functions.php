@@ -21,7 +21,7 @@ require_once( __DIR__ . '/includes/helpers/sidebar.php');
 require_once( __DIR__ . '/includes/helpers/theme-options.php');
 
 // Config
-require_once( __DIR__ . '/includes/tgm-plugin-activation/class-tgm-plugin-activation.php');
+require_once( __DIR__ . '/vendor/tgm-plugin-activation/class-tgm-plugin-activation.php');
 require_once( __DIR__ . '/config/tgm-plugin-activation.php');
 
 ?>
