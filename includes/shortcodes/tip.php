@@ -4,9 +4,9 @@
   * @see https://codex.wordpress.org/Shortcode_API#Enclosing_vs_self-closing_shortcodes
   */
 
-if ( ! function_exists('wpdtrt__tip_shortcode') ) {
+if ( ! function_exists('wpdtrt_tip_shortcode') ) {
 
-  function wpdtrt__tip_shortcode( $atts, $content = null ) {
+  function wpdtrt_tip_shortcode( $atts, $content = null ) {
 
     $html = '';
     $html .= '<div>'; // float/margins
@@ -19,6 +19,6 @@ if ( ! function_exists('wpdtrt__tip_shortcode') ) {
     return $html;
   }
 
-  add_shortcode( 'tip', 'wpdtrt__tip_shortcode' );
+  add_shortcode( 'tip', 'wpdtrt_tip_shortcode' );
 }
 ?>

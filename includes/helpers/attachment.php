@@ -9,11 +9,11 @@
 
 include_once( ABSPATH . 'wp-admin/includes/image.php' ); // for access to wp_read_image_metadata
 
-if ( ! function_exists('wpdtrt__add_geolocation_exif_to_attachment_metadata') ) {
+if ( ! function_exists('wpdtrt_add_geolocation_exif_to_attachment_metadata') ) {
 
-  add_filter('wp_read_image_metadata', 'wpdtrt__add_geolocation_exif_to_attachment_metadata','',3);
+  add_filter('wp_read_image_metadata', 'wpdtrt_add_geolocation_exif_to_attachment_metadata','',3);
 
-  function wpdtrt__add_geolocation_exif_to_attachment_metadata( $meta, $file, $sourceImageType ) {
+  function wpdtrt_add_geolocation_exif_to_attachment_metadata( $meta, $file, $sourceImageType ) {
 
     $exif = @exif_read_data( $file );
 

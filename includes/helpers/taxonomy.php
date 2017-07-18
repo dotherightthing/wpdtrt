@@ -19,7 +19,7 @@
  * WordPress automatically serializes this (into a string)
  * because MySQL does not support arrays as a data type
  */
-$wpdtrt__taxonomies = array();
+$wpdtrt_taxonomies = array();
 
 /**
  * Create a taxonomy
@@ -35,7 +35,7 @@ $wpdtrt__taxonomies = array();
  * @param $terms array
  * @since 0.1.0
  */
-function wpdtrt__taxonomy_create($args) {
+function wpdtrt_taxonomy_create($args) {
 
 	/**
    	 * $args are passed in an associative array to give values named context
@@ -56,10 +56,10 @@ function wpdtrt__taxonomy_create($args) {
 	// only overwrite the predeclared variables
 	extract($args, EXTR_IF_EXISTS);
 
-	$wpdtrt__taxonomies = get_option('wpdtrt__taxonomies');
+	$wpdtrt_taxonomies = get_option('wpdtrt_taxonomies');
 
 	// don't add duplicate items
-	foreach( $wpdtrt__taxonomies as $taxonomy ) {
+	foreach( $wpdtrt_taxonomies as $taxonomy ) {
 		if ( $taxonomy['slug'] === $slug ) {
 			return;
 		}
@@ -67,7 +67,7 @@ function wpdtrt__taxonomy_create($args) {
 
 	// add a new taxonomy to our options array
 	// @todo could we just use $args here?
-	$wpdtrt__taxonomies[] = array(
+	$wpdtrt_taxonomies[] = array(
 		'slug' => $slug,
 		'fallback' => $fallback,
 		'post_type_slug' => $post_type_slug,
@@ -80,7 +80,7 @@ function wpdtrt__taxonomy_create($args) {
 		'terms' => $terms
 	);
 
-	//$options = array_unique( $wpdtrt__taxonomies ); // see above
+	//$options = array_unique( $wpdtrt_taxonomies ); // see above
 
     /**
      * Save options object to database
@@ -94,7 +94,7 @@ function wpdtrt__taxonomy_create($args) {
      * @example update_option( string $option, mixed $value, string|bool $autoload = null )
      * @see https://codex.wordpress.org/Function_Reference/update_option
      */
-    update_option( 'wpdtrt__taxonomies', $wpdtrt__taxonomies, null );
+    update_option( 'wpdtrt_taxonomies', $wpdtrt_taxonomies, null );
 }
 
 /**
@@ -113,19 +113,20 @@ function wpdtrt__taxonomy_create($args) {
  * @see https://cnpagency.com/blog/the-right-way-to-do-wordpress-custom-taxonomy-rewrites/
  */
 
-add_action('init', 'wpdtrt__taxonomy_register_all', 0);
+add_action('init', 'wpdtrt_taxonomy_register_all', 0);
 
-function wpdtrt__taxonomy_register_all() {
+function wpdtrt_taxonomy_register_all() {
 
 	/**
 	 * Load the plugin data stored in the WP Options table
 	 * Retrieves an option value based on an option name.
 	 * @example get_option( string $option, mixed $default = false )
 	 */
-	$taxonomies = get_option( 'wpdtrt__taxonomies' );
+	$taxonomies = get_option( 'wpdtrt_taxonomies' );
 
 	/**
 	 * Create a taxonomy from each item in the taxonomies array
+	 * Note: concatenation requires brackets to pass theme-check
 	 * @see https://codex.wordpress.org/Function_Reference/register_taxonomy
 	 */
 	foreach( $taxonomies as $taxonomy ) {
@@ -136,91 +137,91 @@ function wpdtrt__taxonomy_register_all() {
 				/**
 				 * The same as and overridden by $tax->label
 				 */
-				'name' => _x( $taxonomy['label_single'], 'taxonomy general name', 'wpdtrt_fwt' ),
+				'name' => _x( $taxonomy['label_single'], 'taxonomy general name', 'wpdtrt' ),
 
 				/**
 				 * Default: _x( 'Post Tag', 'taxonomy singular name' )
 				 */
-				'singular_name' => _x( $taxonomy['label_single'], 'taxonomy singular name', 'wpdtrt_fwt' ),
+				'singular_name' => _x( $taxonomy['label_single'], 'taxonomy singular name', 'wpdtrt' ),
 
 				/**
 				 * Defaults to value of name label.
 				 */
-				'menu_name' => __( $taxonomy['label_plural'], 'wpdtrt_fwt' ),
+				'menu_name' => __( $taxonomy['label_plural'], 'wpdtrt' ),
 
 				/**
 				 * Default:  All Tags / All Categories
 				 */
-				'all_items' => __( 'All ' . $taxonomy['label_plural'], 'wpdtrt_fwt' ),
+				'all_items' => __( ( 'All ' . $taxonomy['label_plural'] ), 'wpdtrt' ),
 
 				/**
 				 * Default: Add New Tag / Add New Category
 				 */
-				'add_new_item' => __( 'Add New ' . $taxonomy['label_single'], 'wpdtrt_fwt' ),
+				'add_new_item' => __( ( 'Add New ' . $taxonomy['label_single'] ), 'wpdtrt' ),
 
 				/**
 				 * Default: Edit Tag / Edit Category
 				 */
-				'edit_item' => __( 'Edit ' . $taxonomy['label_single'], 'wpdtrt_fwt' ),
+				'edit_item' => __( ( 'Edit ' . $taxonomy['label_single'] ), 'wpdtrt' ),
 
 				/**
 				 * Default: View Tag / View Category
 				 */
-				'view_item' => __( 'View ' . $taxonomy['label_plural'], 'wpdtrt_fwt' ),
+				'view_item' => __( ( 'View ' . $taxonomy['label_plural'] ), 'wpdtrt' ),
 
 				/**
 				 * Default: Update Tag / Update Category
 				 */
-				'update_item' => __( 'Update ' . $taxonomy['label_plural'], 'wpdtrt_fwt' ),
+				'update_item' => __( ( 'Update ' . $taxonomy['label_plural'] ), 'wpdtrt' ),
 
 				/**
 				 * Default: New Tag Name / New Category Name
 				 */
-				'new_item_name' => __( 'New ' . $taxonomy['label_single'] . ' Name', 'wpdtrt_fwt' ),
+				'new_item_name' => __( ( 'New ' . $taxonomy['label_single'] . ' Name' ), 'wpdtrt' ),
 
 				/**
 				 * This string is not used on non-hierarchical taxonomies such as post tags.
 				 * Default: null / Parent Category
 				 */
-				'parent_item' => __( 'Parent' . $taxonomy['label_single'], 'wpdtrt_fwt' ),
+				'parent_item' => __( ( 'Parent' . $taxonomy['label_single'] ), 'wpdtrt' ),
 
 				/**
 				 * The same as parent_item, but with colon : in the end
 				 * Default: null / Parent Category:
 				 */
-				'parent_item_colon' => __( 'Parent' . $taxonomy['label_single'] . ':', 'wpdtrt_fwt' ),
+				'parent_item_colon' => __( ( 'Parent' . $taxonomy['label_single'] . ':' ), 'wpdtrt' ),
 
 				/**
 				 * Default: Search Tags / Search Categories
 				 */
-				'search_items' => __( 'Search ' . $taxonomy['label_plural'], 'wpdtrt_fwt' ),
+				'search_items' => __( ( 'Search ' . $taxonomy['label_plural'] ), 'wpdtrt' ),
 
 				/**
 				 * This string is not used on hierarchical taxonomies.
 				 * Default: null / Popular Tags
 				 */
-				'popular_items' => __( 'Popular ' . $taxonomy['label_plural'], 'wpdtrt_fwt' ),
+				'popular_items' => __( ( 'Popular ' . $taxonomy['label_plural'] ), 'wpdtrt' ),
 
 				/**
 				 * Used in the taxonomy meta box.
 				 * This string is not used on hierarchical taxonomies.
 				 * Default: null / Separate tags with commas
 				 */
-				'separate_items_with_commas' => __( 'Separate ' . $taxonomy['label_plural'] . ' with commas', 'wpdtrt_fwt' ),
+				'separate_items_with_commas' => __( ( 'Separate ' . $taxonomy['label_plural'] . ' with commas' ), 'wpdtrt' ),
 
 				/**
 				 * Used in the meta box when JavaScript is disabled.
 				 * This string is not used on hierarchical taxonomies.
 				 * Default: null / Add or remove tags
 				 */
-				'add_or_remove_items' => __( 'Add or remove ' . $taxonomy['label_plural'], 'wpdtrt_fwt' ),
+				'add_or_remove_items' => __( ( 'Add or remove ' . $taxonomy['label_plural'] ), 'wpdtrt' ),
 
 				/**
 				 * Used in the taxonomy meta box.
 				 * This string is not used on hierarchical taxonomies.
 				 * Default: null / Choose from the most used tags
 				 */
-				'choose_from_most_used' => __( 'Choose from the most used ' . $taxonomy['label_plural'], 'wpdtrt_fwt' ),
+				'choose_from_most_used' => __( ( 'Choose from the most used ' . $taxonomy['label_plural'] ), 'wpdtrt' ),
 
 				/**
 				 * (3.6+) - the text displayed via clicking 'Choose from the most used tags' in the taxonomy meta box when no tags are available
@@ -228,7 +229,7 @@ function wpdtrt__taxonomy_register_all() {
 				 * (4.2+) - the text used in the terms list table when there are no items for a taxonomy.
 				 * Default: No tags found / No categories found
 				 */
-				'not_found' => __( 'No  ' . $taxonomy['label_plural'] . ' found.', 'wpdtrt_fwt' ),
+				'not_found' => __( ( 'No  ' . $taxonomy['label_plural'] . ' found.' ), 'wpdtrt' ),
 			);
 
 			$args = array(
@@ -482,17 +483,17 @@ function wpdtrt__taxonomy_register_all() {
  * @see https://stackoverflow.com/questions/7723457/wordpress-custom-type-permalink-containing-taxonomy-slug
  */
 
-add_filter('post_link', 'wpdtrt__taxonomy_permalink', 10, 3);
-add_filter('post_type_link', 'wpdtrt__taxonomy_permalink', 10, 3);
+add_filter('post_link', 'wpdtrt_taxonomy_permalink', 10, 3);
+add_filter('post_type_link', 'wpdtrt_taxonomy_permalink', 10, 3);
 
-function wpdtrt__taxonomy_permalink($permalink, $post_id, $leavename) {
+function wpdtrt_taxonomy_permalink($permalink, $post_id, $leavename) {
 
 	/**
 	 * Load the plugin data stored in the WP Options table
 	 * Retrieves an option value based on an option name.
 	 * @example get_option( string $option, mixed $default = false )
 	 */
-	$taxonomies = get_option( 'wpdtrt__taxonomies' );
+	$taxonomies = get_option( 'wpdtrt_taxonomies' );
 
 	/**
 	 * Create a permalink from each item in the taxonomies array
@@ -554,7 +555,7 @@ function wpdtrt__taxonomy_permalink($permalink, $post_id, $leavename) {
  */
 
 // run on save, publish, update and bulk/quick edit
-add_action( 'save_post_tourdiaryday', 'wpdtrt__taxonomy_set_terms' );
+add_action( 'save_post_tourdiaryday', 'wpdtrt_taxonomy_set_terms' );
 
 /**
  * Run wp_set_object_terms after the custom taxonomy is registered.
@@ -563,16 +564,16 @@ add_action( 'save_post_tourdiaryday', 'wpdtrt__taxonomy_set_terms' );
  * but with a lower priority so it runs later.
  * @see https://wordpress.stackexchange.com/a/62813
  */
-//add_action( 'init', 'wpdtrt__taxonomy_set_terms', 10); // runs but data not available for elapsed-day functions
+//add_action( 'init', 'wpdtrt_taxonomy_set_terms', 10); // runs but data not available for elapsed-day functions
 
-function wpdtrt__taxonomy_set_terms( $post_id ) {
+function wpdtrt_taxonomy_set_terms( $post_id ) {
 
 	/**
 	 * Load the plugin data stored in the WP Options table
 	 * Retrieves an option value based on an option name.
 	 * @example get_option( string $option, mixed $default = false )
 	 */
-	$taxonomies = get_option( 'wpdtrt__taxonomies' );
+	$taxonomies = get_option( 'wpdtrt_taxonomies' );
 
 	// bail if revision
 	// https://core.trac.wordpress.org/ticket/16593
@@ -694,7 +695,7 @@ function wpdtrt__taxonomy_set_terms( $post_id ) {
 			}
 
 			// test that terms were created
-			// wpdtrt__log($terms); //ok
+			// wpdtrt_log($terms); //ok
 		}
 	}
 

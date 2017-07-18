@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Content
  *
@@ -14,10 +15,10 @@
  * @see https://core.trac.wordpress.org/ticket/31157
  */
 
-add_filter('the_excerpt', 'wpdtrt__remove_nonbreaking_spaces', 99);
-add_filter('the_content', 'wpdtrt__remove_nonbreaking_spaces', 99);
+add_filter('the_excerpt', 'wpdtrt_remove_nonbreaking_spaces', 99);
+add_filter('the_content', 'wpdtrt_remove_nonbreaking_spaces', 99);
 
-function wpdtrt__remove_nonbreaking_spaces($string) {
+function wpdtrt_remove_nonbreaking_spaces($string) {
   // the non-breaking space character, got you!
   // http://www.utf8-chartable.de/unicode-utf8-table.pl?start=128&number=128&utf8=string-literal&unicodeinhtml=hex
   return str_replace("\xc2\xa0", " ", $string);
@@ -29,48 +30,11 @@ function wpdtrt__remove_nonbreaking_spaces($string) {
  * @see https://developer.wordpress.org/reference/hooks/default_content/
  */
 
-//add_filter( 'default_content', 'wpdtrt__default_content' );
+//add_filter( 'default_content', 'wpdtrt_default_content' );
 
-function wpdtrt__default_content( $post_content ) {
+function wpdtrt_default_content( $post_content ) {
   $post_content = "TODO";
   return $post_content;
-}
-
-/**
- * Wrap content in section elements with id and class attributes
- * for compatibility with stickyNavbar.js
- * This repurposes the anchors injected by the
- * better-anchor-links plugin
- * Dependent on Better Anchor Links
- * @todo Make this reusable/optional
- */
-
-add_filter( 'the_content', 'add_content_sections' );
-
-function add_content_sections($content) {
-  $regex = '/<a class=[\"\']mwm-aal-item[\"\'] name=\"(?P<anchor_name>[0-9a-z-]+)\"><\/a>/im';
-  // $regex = "/<a class=[\"\']mwm-aal-item[\"\'] name=\"(?P<anchor_name>[0-9a-z-]+)\"><\/a>+(?P<section_content>[\s\S]+)(?P<next_anchor>class=[\"\']mwm-aal-item[\"\'])/im";
-
-  $anchor_after_all = preg_split($regex, $content); // excludes anchors
-  $anchor_after_first = array_shift( $anchor_after_all ); // the first item is held (removed) here, the remainder are in $anchor_after_all
-  preg_match_all($regex, $content, $matches); // $matches['anchor_name'] is just the anchors
-
-  $content_sectioned = '';
-  $content_sectioned .= $anchor_after_first . "\n";
-  $content_sectioned .= '<div class="clear"></div>' . "\n";
-
-  $array_index = 0;
-
-  foreach( $matches['anchor_name'] as $anchor_name ) {
-    // tabindex="-1" works better in JAWS 17
-    $content_sectioned .= '<section id="' . $anchor_name . '" class="scrollto" tabindex="-1">' . "\n";
-    $content_sectioned .= $anchor_after_all[$array_index] . "\n";
-    $content_sectioned .= '</section>' . "\n";
-
-    $array_index++;
-  }
-
-  return $content_sectioned;
 }
 
 /**
@@ -79,7 +43,7 @@ function add_content_sections($content) {
  * @todo Make this reusable and document the options
  */
 
-function wpdtrt__h2_wrapper_start() {
+function wpdtrt_h2_wrapper_start() {
   $str = '';
   $str .= '<div class="stack stack_link_viewer gallery-viewer h2-viewer" id="[]-viewer" data-has-image="false" data-expanded="false">';
   $str .= '<div class="gallery-viewer--header">';
@@ -88,7 +52,7 @@ function wpdtrt__h2_wrapper_start() {
   return $str;
 }
 
-function wpdtrt__h2_wrapper_end() {
+function wpdtrt_h2_wrapper_end() {
   $str = '';
   $str .= '</h2>';
   $str .= '</div>';
@@ -107,18 +71,18 @@ function wpdtrt__h2_wrapper_end() {
   return $str;
 }
 
-add_filter( 'the_content', 'wpdtrt__content_h2_liner' );
+add_filter( 'the_content', 'wpdtrt_content_h2_liner' );
 
-function wpdtrt__content_h2_liner($content) {
-  $content = str_replace('<h2>', wpdtrt__h2_wrapper_start(), $content);
-  $content = str_replace('</h2>', wpdtrt__h2_wrapper_end(), $content);
+function wpdtrt_content_h2_liner($content) {
+  $content = str_replace('<h2>', wpdtrt_h2_wrapper_start(), $content);
+  $content = str_replace('</h2>', wpdtrt_h2_wrapper_end(), $content);
 
   return $content;
 }
 
-add_filter( 'the_content', 'wpdtrt__content_gallery_heading', 3 );
+add_filter( 'the_content', 'wpdtrt_content_gallery_heading', 3 );
 
-function wpdtrt__content_gallery_heading($content) {
+function wpdtrt_content_gallery_heading($content) {
   $content = str_replace("<div id='gallery'>", "<h3>Gallery</h3><div id='gallery'>", $content);
 
   return $content;

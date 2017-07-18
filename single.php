@@ -54,7 +54,7 @@
                              * @link https://make.wordpress.org/themes/handbook/review/required/#templates
                              */
                             wp_link_pages( array(
-                                'before'      => '<div class="page-links">' . __( 'Pages:', 'wp-dtrt-fwt' ),
+                                'before'      => '<div class="page-links">' . __( 'Pages:', 'wpdtrt' ),
                                 'after'       => '</div>',
                                 'link_before' => '<span class="page-number">',
                                 'link_after'  => '</span>',

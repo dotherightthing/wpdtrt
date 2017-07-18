@@ -157,12 +157,12 @@
  * @see https://codex.wordpress.org/Plugin_API/Filter_Reference/gettext_with_context
  */
 
-add_filter( 'gettext', 'wpdtrt__text_substitutions', 20, 3 );
+add_filter( 'gettext', 'wpdtrt_text_substitutions', 20, 3 );
 
-function wpdtrt__text_substitutions( $translated_text, $text, $text_domain ) {
+function wpdtrt_text_substitutions( $translated_text, $text, $text_domain ) {
 	switch ( $translated_text ) {
 		case 'Related Products' :
-			$translated_text = __( 'Check out these related products', 'PLUGIN_DOMAIN' );
+			$translated_text = __( 'Check out these related products', 'wpdtrt' );
 			break;
 	}
 	return $translated_text;
@@ -175,9 +175,9 @@ function wpdtrt__text_substitutions( $translated_text, $text, $text_domain ) {
  * @uses https://stackoverflow.com/questions/27346747/wordpress-4-wplang-deprecated-how-to-change-language-programmatically
  */
 
-add_filter( 'locale', 'wpdtrt__set_locale' );
+add_filter( 'locale', 'wpdtrt_set_locale' );
 
-function wpdtrt__set_locale( $default_locale ) {
+function wpdtrt_set_locale( $default_locale ) {
     if ( isset( $_SESSION['WPLANG'] ) ) {
     	return $_SESSION['WPLANG'];
     }

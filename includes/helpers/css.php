@@ -12,13 +12,13 @@
  * Style frontend content & UI
  * @link https://wordpress.org/ideas/topic/add-theme-version-number-to-stylesheet-url-not-wp-version
  */
-add_action( 'wp_enqueue_scripts', 'wpdtrt__css' );
+add_action( 'wp_enqueue_scripts', 'wpdtrt_css' );
 
-function wpdtrt__css() {
+function wpdtrt_css() {
 
   $theme_version = wp_get_theme()->Version;
-  $parent_style = 'wpdtrt__parent';
-  $child_style = 'wpdtrt__child';
+  $parent_style = 'wpdtrt_parent';
+  $child_style = 'wpdtrt_child';
 
   wp_enqueue_style( $parent_style,
     get_template_directory_uri() . '/css/' . $parent_style . '.min.css',
@@ -26,22 +26,24 @@ function wpdtrt__css() {
     $theme_version
   );
 
+  /*
   wp_enqueue_style( $child_style,
     get_template_directory_uri() . '/css/' . $child_style . '.min.css',
     array($parent_style),
     $theme_version
   );
+  */
 
-  //$wpdtrt__inline_css = '';
-  //wp_add_inline_style( $theme_style, $wpdtrt__inline_css );
+  //$wpdtrt_inline_css = '';
+  //wp_add_inline_style( $theme_style, $wpdtrt_inline_css );
 }
 
 /**
  * Style back-end UI
  */
-add_action( 'admin_enqueue_scripts', 'wpdtrt__admin_css' );
+add_action( 'admin_enqueue_scripts', 'wpdtrt_admin_css' );
 
-function wpdtrt__admin_css() {
+function wpdtrt_admin_css() {
 
   $theme_version = wp_get_theme()->Version;
 
@@ -62,9 +64,9 @@ function wpdtrt__admin_css() {
  * @link https://developer.wordpress.org/reference/functions/add_editor_style/#Description
  * @since Version 3.0.
  */
-add_action( 'init', 'wpdtrt__editor_css' );
+add_action( 'init', 'wpdtrt_editor_css' );
 
-function wpdtrt__editor_css() {
+function wpdtrt_editor_css() {
     add_editor_style( get_template_directory_uri() . '/css/editor-style.css' );
 }
 

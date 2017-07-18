@@ -19,7 +19,7 @@
  * WordPress automatically serializes this (into a string)
  * because MySQL does not support arrays as a data type
  */
-$wpdtrt__post_types = array();
+$wpdtrt_post_types = array();
 
 /**
  * Create a custom post type
@@ -34,7 +34,7 @@ $wpdtrt__post_types = array();
  * @param $public boolean
  * @since 0.1.0
  */
-function wpdtrt__post_type_create($args) {
+function wpdtrt_post_type_create($args) {
 
   /**
    * $args are passed in an associative array to give values named context
@@ -54,17 +54,17 @@ function wpdtrt__post_type_create($args) {
   // only overwrite the predeclared variables
   extract($args, EXTR_IF_EXISTS);
 
-  $wpdtrt__post_types = get_option('wpdtrt__post_types');
+  $wpdtrt_post_types = get_option('wpdtrt_post_types');
 
   // don't add duplicate items
-  foreach( $wpdtrt__post_types as $post_type ) {
+  foreach( $wpdtrt_post_types as $post_type ) {
     if ( $post_type['slug'] === $slug ) {
       return;
     }
   }
 
   // add a new taxonomy to our options array
-  $wpdtrt__post_types[] = array(
+  $wpdtrt_post_types[] = array(
     'slug' => $slug,
     'rewrite_slug' => $rewrite_slug,
     'description' => $description,
@@ -76,7 +76,7 @@ function wpdtrt__post_type_create($args) {
     'public' => $public
   );
 
-  //$options = array_unique( $wpdtrt__tax_options ); // see above
+  //$options = array_unique( $wpdtrt_tax_options ); // see above
 
     /**
      * Save options object to database
@@ -90,7 +90,7 @@ function wpdtrt__post_type_create($args) {
      * @example update_option( string $option, mixed $value, string|bool $autoload = null )
      * @see https://codex.wordpress.org/Function_Reference/update_option
      */
-    update_option( 'wpdtrt__post_types', $wpdtrt__post_types, null );
+    update_option( 'wpdtrt_post_types', $wpdtrt_post_types, null );
 }
 
 /**
@@ -100,19 +100,20 @@ function wpdtrt__post_type_create($args) {
  * @see https://premium.wpmudev.org/blog/creating-content-custom-post-types/
  */
 
-add_action('init', 'wpdtrt__post_type_register_all');
+add_action('init', 'wpdtrt_post_type_register_all');
 
-function wpdtrt__post_type_register_all() {
+function wpdtrt_post_type_register_all() {
 
   /**
    * Load the plugin data stored in the WP Options table
    * Retrieves an option value based on an option name.
    * @example get_option( string $option, mixed $default = false )
    */
-  $post_types = get_option( 'wpdtrt__post_types' );
+  $post_types = get_option( 'wpdtrt_post_types' );
 
   /**
    * Create a post type from each item in the post types array
+   * Note: concatenation requires brackets to pass theme-check
    * @see https://codex.wordpress.org/Function_Reference/register_post_type
    */
   foreach( $post_types as $post_type ) {
@@ -124,140 +125,140 @@ function wpdtrt__post_type_register_all() {
          * The same and overridden by $post_type_object->label.
          * Default: Posts/Pages
          */
-        'name' => _x( $post_type['label_plural'], 'post type general name', 'wpdtrt_fwt' ),
+        'name' => _x( $post_type['label_plural'], 'post type general name', 'wpdtrt' ),
 
         /**
          * Default: Post/Page
          */
-        'singular_name' => _x( $post_type['label_single'], 'post type singular name', 'wpdtrt_fwt' ),
+        'singular_name' => _x( $post_type['label_single'], 'post type singular name', 'wpdtrt' ),
 
         /**
          * The default is "Add New" for both hierarchical and non-hierarchical post types.
          * I18n: Use a gettext context matching your post type: _x('Add New', 'text-domain');
          */
-        'add_new' => _x( 'Add New', $post_type['label_single'], 'wpdtrt_fwt' ),
+        'add_new' => _x( ( 'Add New', $post_type['label_single'] ), 'wpdtrt' ),
 
         /**
          * Default: Add New Post/Add New Page.
          */
-        'add_new_item' => __( 'Add New ' . $post_type['label_single'], 'wpdtrt_fwt' ),
+        'add_new_item' => __( ( 'Add New ' . $post_type['label_single'] ), 'wpdtrt' ),
 
         /**
          * Default: Edit Post/Edit Page.
          */
-        'edit_item' => __( 'Edit ' . $post_type['label_single'], 'wpdtrt_fwt' ),
+        'edit_item' => __( ( 'Edit ' . $post_type['label_single'] ), 'wpdtrt' ),
 
         /**
          * Default: New Post/New Page.
          */
-        'new_item' => __( 'New ' . $post_type['label_single'], 'wpdtrt_fwt' ),
+        'new_item' => __( ( 'New ' . $post_type['label_single'] ), 'wpdtrt' ),
 
         /**
          * Default: View Post/View Page.
          */
-        'view_item' => __( 'View ' . $post_type['label_single'], 'wpdtrt_fwt' ),
+        'view_item' => __( ( 'View ' . $post_type['label_single'] ), 'wpdtrt' ),
 
         /**
          * Default: View Posts/View Pages.
          */
-        'view_items' => __( 'View ' . $post_type['label_plural'], 'wpdtrt_fwt' ),
+        'view_items' => __( ( 'View ' . $post_type['label_plural'] ), 'wpdtrt' ),
 
         /**
          * Default: Search Posts/Search Pages.
          */
-        'search_items' => __( 'Search ' . $post_type['label_plural'], 'wpdtrt_fwt' ),
+        'search_items' => __( ( 'Search ' . $post_type['label_plural'] ), 'wpdtrt' ),
 
         /**
          * Default: No posts found/No pages found.
          */
-        'not_found' => __( 'No  ' . $post_type['label_plural'] . ' found.', 'wpdtrt_fwt' ),
+        'not_found' => __( ( 'No  ' . $post_type['label_plural'] . ' found.' ), 'wpdtrt' ),
 
         /**
          * Default: No posts found in Trash/No pages found in Trash.
          */
-        'not_found_in_trash' => __( 'No  ' . $post_type['label_plural'] . ' found in Trash.', 'wpdtrt_fwt' ),
+        'not_found_in_trash' => __( ( 'No  ' . $post_type['label_plural'] . ' found in Trash.' ), 'wpdtrt' ),
 
         /**
          * This string isn't used on non-hierarchical types.
          * The default is 'Parent Page:'.
          */
-        'parent_item_colon' => __( 'Parent ' . $post_type['label_single'] . ':', 'wpdtrt_fwt' ),
+        'parent_item_colon' => __( ( 'Parent ' . $post_type['label_single'] . ':' ), 'wpdtrt' ),
 
         /**
          * String for the submenu.
          * Default: All Posts/All Pages.
          */
-        'all_items' => __( 'All ' . $post_type['label_plural'], 'wpdtrt_fwt' ),
+        'all_items' => __( ( 'All ' . $post_type['label_plural'] ), 'wpdtrt' ),
 
         /**
          * String for use with archives in nav menus.
          * Default: Post Archives/Page Archives.
          */
-        'archives' => __( $post_type['label_single'] . ' Archives', 'wpdtrt_fwt' ),
+        'archives' => __( ( $post_type['label_single'] . ' Archives' ), 'wpdtrt' ),
 
         /**
          * Label for the attributes meta box.
          * Default: 'Post Attributes' / 'Page Attributes'.
          */
-        'attributes' => __( $post_type['label_single'] . ' Attributes', 'wpdtrt_fwt' ),
+        'attributes' => __( ( $post_type['label_single'] . ' Attributes' ), 'wpdtrt' ),
 
         /**
          * String for the media frame button.
          * Default: Insert into post/Insert into page.
          */
-        'insert_into_item' => __( 'Insert into ' . $post_type['label_single'], 'wpdtrt_fwt' ),
+        'insert_into_item' => __( ( 'Insert into ' . $post_type['label_single'] ), 'wpdtrt' ),
 
         /**
          * String for the media frame filter.
          * Default: Uploaded to this post/Uploaded to this page.
          */
-        'uploaded_to_this_item' => __( 'Uploaded to this ' . $post_type['label_single'], 'wpdtrt_fwt' ),
+        'uploaded_to_this_item' => __( ( 'Uploaded to this ' . $post_type['label_single'] ), 'wpdtrt' ),
 
         /**
          * Default: Featured Image.
          */
-        'featured_image' => __( 'Featured Image', 'wpdtrt_fwt' ),
+        'featured_image' => __( 'Featured Image', 'wpdtrt' ),
 
         /**
          * Default: Set featured image.
          */
-        'set_featured_image' => __( 'Set featured image', 'wpdtrt_fwt' ),
+        'set_featured_image' => __( 'Set featured image', 'wpdtrt' ),
 
         /**
          * Default: Remove featured image.
          */
-        'remove_featured_image' => __( 'Remove featured image', 'wpdtrt_fwt' ),
+        'remove_featured_image' => __( 'Remove featured image', 'wpdtrt' ),
 
         /**
          * Default: Use as featured image.
          */
-        'use_featured_image' => __( 'Use as featured image', 'wpdtrt_fwt' ),
+        'use_featured_image' => __( 'Use as featured image', 'wpdtrt' ),
 
         /**
          * Default: the same as name
          */
-        'menu_name' => _x( $post_type['label_plural'], 'post type general name', 'wpdtrt_fwt' ),
+        'menu_name' => _x( $post_type['label_plural'], 'post type general name', 'wpdtrt' ),
 
         /**
          * String for the table views hidden heading
          */
-        'filter_items_list' => _x( $post_type['label_single'], 'wpdtrt_fwt' ), // no example in docs
+        'filter_items_list' => _x( $post_type['label_single'], 'wpdtrt' ), // no example in docs
 
         /**
          * String for the table pagination hidden heading.
          */
-        'items_list_navigation' => _x( $post_type['label_single'], 'wpdtrt_fwt' ), // no example in docs
+        'items_list_navigation' => _x( $post_type['label_single'], 'wpdtrt' ), // no example in docs
 
         /**
          * String for the table hidden heading.
          */
-        'items_list' => _x( $post_type['label_single'], 'wpdtrt_fwt' ), // no example in docs
+        'items_list' => _x( $post_type['label_single'], 'wpdtrt' ), // no example in docs
 
         /**
          * String for use in New in Admin menu bar.
          * Default: the same as `singular_name`.
          */
-        'name_admin_bar' => _x( $post_type['label_single'], 'post type singular name', 'wpdtrt_fwt' ),
+        'name_admin_bar' => _x( $post_type['label_single'], 'post type singular name', 'wpdtrt' ),
       );
 
       $args = array(
@@ -570,12 +571,12 @@ function wpdtrt__post_type_register_all() {
  * @return $is boolean
  *
  * @example
- *  if ( wpdtrt__post_type_is('tourdiaryday') ) {
+ *  if ( wpdtrt_post_type_is('tourdiaryday') ) {
  *    get_template_part( 'template-parts/stack--navigation' );
  *  }
  */
 
-function wpdtrt__post_type_is( $post_type ) {
+function wpdtrt_post_type_is( $post_type ) {
   $is = ( is_singular() && ( get_query_var('post_type') === $post_type ) );
   return $is;
 }

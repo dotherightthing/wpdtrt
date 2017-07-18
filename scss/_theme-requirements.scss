@@ -2,54 +2,64 @@
  * Theme Requirements
  * aka WordPress Generated Classes
  * As flagged by the Theme Check plugin
- * @link https://codex.wordpress.org/CSS
+ * Copied from twentyseventeen
+ * @uses https://codex.wordpress.org/CSS#WordPress_Generated_Classes
  *
  * @package DTRT Framework - Theme
  * @since 0.1.0
  * @version 0.1.0
  */
 
+// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 .alignnone {
 /* this one is not flagged by Theme Check but is in the list of WordPress Generated Classes */
     margin: 5px 20px 20px 0;
 }
 
+// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 .aligncenter,
 div.aligncenter {
     display: block;
     margin: 5px auto 5px auto;
 }
 
+// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 .alignright {
     float:right;
     margin: 5px 0 20px 20px;
 }
 
+// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 .alignleft {
     float: left;
     margin: 5px 20px 20px 0;
 }
 
+// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 a img.alignright {
     float: right;
     margin: 5px 0 20px 20px;
 }
 
+// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 a img.alignnone {
     margin: 5px 20px 20px 0;
 }
 
+// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 a img.alignleft {
     float: left;
     margin: 5px 20px 20px 0;
 }
 
+// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 a img.aligncenter {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
+// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 .wp-caption {
     background: #fff;
     border: 1px solid #f0f0f0;
@@ -58,18 +68,22 @@ a img.aligncenter {
     text-align: center;
 }
 
+// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 .wp-caption.alignnone {
     margin: 5px 20px 20px 0;
 }
 
+// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 .wp-caption.alignleft {
     margin: 5px 20px 20px 0;
 }
 
+// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 .wp-caption.alignright {
     margin: 5px 0 20px 20px;
 }
 
+// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 .wp-caption img {
     border: 0 none;
     height: auto;
@@ -79,6 +93,7 @@ a img.aligncenter {
     width: auto;
 }
 
+// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 .wp-caption p.wp-caption-text {
     font-size: 11px;
     line-height: 17px;
@@ -86,6 +101,7 @@ a img.aligncenter {
     padding: 0 4px 5px;
 }
 
+// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 .screen-reader-text {
   clip: rect(1px, 1px, 1px, 1px);
   position: absolute !important;
@@ -95,6 +111,7 @@ a img.aligncenter {
   overflow: hidden;
 }
 
+// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 .screen-reader-text:focus {
   background-color: #f1f1f1;
   border-radius: 3px;
@@ -115,8 +132,21 @@ a img.aligncenter {
   z-index: 100000; /* Above WP toolbar. */
 }
 
-.sticky {}
+// twentyseventeen
+.sticky {
+  position: relative;
+}
 
-.gallery-caption {}
+// twentyseventeen
+.gallery-caption {
+  display: block;
+  text-align: left;
+  padding: 0 10px 0 0;
+  margin-bottom: 0;
+}
 
-.bypostauthor {}
+// twentyseventeen
+.bypostauthor > .comment-body > .comment-meta > .comment-author .avatar {
+  border: 1px solid #333;
+  padding: 2px;
+}

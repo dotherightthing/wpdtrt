@@ -10,21 +10,21 @@
  * @version 0.1.0
  */
 
-var wpdtrt__ui = {};
+var wpdtrt_ui = {};
 
 /**
  * Init UI
  */
 
-wpdtrt__ui.init = function($) {
+wpdtrt_ui.init = function($) {
 
   document.addEventListener("touchstart", function() {
     // nada, this is just a hack to make :focus state render on touch
   }, false);
 
-  wpdtrt__ui.webfontloader($);
-  wpdtrt__ui.get_source_title($);
-  //wpdtrt__ui.editor($);
+  wpdtrt_ui.webfontloader($);
+  wpdtrt_ui.get_source_title($);
+  //wpdtrt_ui.editor($);
 };
 
 /**
@@ -32,7 +32,7 @@ wpdtrt__ui.init = function($) {
  */
 
 jQuery(document).ready( function($) {
-  wpdtrt__ui.init($);
+  wpdtrt_ui.init($);
 });
 
 (function($) {

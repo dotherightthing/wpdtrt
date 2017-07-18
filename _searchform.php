@@ -15,9 +15,9 @@ $input_type = 'text'; // search
 <form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
   <div class="form-liner">
   	<label>
-  		<span class="screen-reader-text"><?php echo _x( 'Search for:', 'label', 'wp-dtrt-fwt' ); ?></span>
-  		<input type="<?php echo $input_type; ?>" class="search-field" placeholder="<?php echo esc_attr_x( 'Search for &hellip;', 'placeholder', 'wp-dtrt-fwt' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+  		<span class="screen-reader-text"><?php echo _x( 'Search for:', 'label', 'wpdtrt' ); ?></span>
+  		<input type="<?php echo $input_type; ?>" class="search-field" placeholder="<?php echo esc_attr_x( 'Search for &hellip;', 'placeholder', 'wpdtrt' ); ?>" value="<?php echo get_search_query(); ?>" name="s" />
   	</label>
   </div>
-	<button type="submit" class="search-submit"><span class="screen-reader-text"><?php echo _x( 'Search', 'submit button', 'wp-dtrt-fwt' ); ?></span></button>
+	<button type="submit" class="search-submit"><span class="screen-reader-text"><?php echo _x( 'Search', 'submit button', 'wpdtrt' ); ?></span></button>
 </form>

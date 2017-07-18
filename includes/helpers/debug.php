@@ -15,9 +15,9 @@
  *
  * @link http://www.stumiller.me/sending-output-to-the-wordpress-debug-log/
  */
-if ( !function_exists('wpdtrt__log') ) {
+if ( !function_exists('wpdtrt_log') ) {
 
-	function wpdtrt__log ( $log )  {
+	function wpdtrt_log ( $log )  {
 		if ( true === WP_DEBUG ) {
 			if ( is_array( $log ) || is_object( $log ) ) {
 				error_log( print_r( $log, true ) );

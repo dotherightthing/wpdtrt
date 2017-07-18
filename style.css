@@ -1,14 +1,13 @@
 /*
-Theme Name: DTRT Framework - Theme
+Theme Name: WPDTRT
 Theme URI: http://dotherightthing.co.nz
 Author: dotherightthingnz
-Author URI: http://dotherightthing.co.nz
+Author URI: https://profiles.wordpress.org/dotherightthingnz
 Description: A framework for WordPress themes (fwt)
 Version: 0.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: wp-dtrt-fwt
-Tags: framework
+Text Domain: wpdtrt
 */
 
 /* load compressed stylesheets via inc/dtrt__css() */

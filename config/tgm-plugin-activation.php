@@ -14,13 +14,13 @@
  * @link       https://github.com/TGMPA/TGM-Plugin-Activation
  */
 
-add_action( 'tgmpa_register', 'wpdtrt__register_required_plugins' );
+add_action( 'tgmpa_register', 'wpdtrt_register_required_plugins' );
 
 /**
  * Register the required plugins for this theme.
  * @see includes/tgm-plugin-activation/example.php
  */
-function wpdtrt__register_required_plugins() {
+function wpdtrt_register_required_plugins() {
   /*
    * Array of plugin arrays. Required keys are name and slug.
    * If the source is NOT from the .org repo, then source is also required.
@@ -70,7 +70,7 @@ function wpdtrt__register_required_plugins() {
    * Only uncomment the strings in the config array if you want to customize the strings.
    */
   $config = array(
-    'id'           => 'wp-dtrt-fwt',           // Unique ID for hashing notices for multiple instances of TGMPA.
+    'id'           => 'wpdtrt',           // Unique ID for hashing notices for multiple instances of TGMPA.
     'default_path' => '',                      // Default absolute path to bundled plugins.
     'menu'         => 'tgmpa-install-plugins', // Menu slug.
     'parent_slug'  => 'themes.php',            // Parent menu slug.

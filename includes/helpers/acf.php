@@ -15,9 +15,9 @@
 
 if ( function_exists('register_field_group') ) {
 
-  add_filter('acf/settings/save_json', 'wpdtrt__acf_config_directory');
+  add_filter('acf/settings/save_json', 'wpdtrt_acf_config_directory');
 
-  function wpdtrt__acf_config_directory( $path ) {
+  function wpdtrt_acf_config_directory( $path ) {
     // update save path
     $path = get_stylesheet_directory() . '/config';
     return $path;
@@ -52,14 +52,14 @@ if ( function_exists('acf_add_options_page') ) {
 }
 
 /**
-  * wpdtrt__hex2rgba
+  * wpdtrt_hex2rgba
   * Convert ACF color picker values to rgba
   * @uses https://support.advancedcustomfields.com/forums/topic/color-picker-values/
   */
 
-if ( ! function_exists('wpdtrt__hex2rgba') ) {
+if ( ! function_exists('wpdtrt_hex2rgba') ) {
 
-  function wpdtrt__hex2rgba($color, $opacity = false) {
+  function wpdtrt_hex2rgba($color, $opacity = false) {
 
     $default = 'rgb(0,0,0)';
 

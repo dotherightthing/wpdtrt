@@ -34,10 +34,10 @@ var jsSrc = [
 //  './vendor/responsive-nav/responsive-nav.js',
 //  './vendor/jquery.mobile.custom/jquery.mobile.custom.js',
   //'./vendor/jquery-ui-1.12.1.custom/jquery-ui.js', // accordion
-  './js/wpdtrt__parent.js'
+  './js/wpdtrt_parent.js'
 ];
 var phpDir = '**/*.php';
-var scssDir = './scss/wpdtrt__parent.scss';
+var scssDir = './scss/wpdtrt_parent.scss';
 
 // target directories
 
@@ -70,6 +70,7 @@ gulp.task('js', function () {
     .pipe(gulp.dest(jsDir));
 });
 
+/*
 gulp.task('php', function () {
   return gulp
     .src([phpDir])
@@ -85,6 +86,7 @@ gulp.task('php', function () {
       }
     }));
 });
+*/
 
-gulp.task( 'default', ['css','js', 'php'] );
+gulp.task( 'default', ['css','js'] );
 

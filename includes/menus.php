@@ -15,12 +15,12 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/navigation-menus/#register-menus
  */
-add_action( 'init', 'wpdtrt__register_menus' );
+add_action( 'init', 'wpdtrt_register_menus' );
 
-function wpdtrt__register_menus() {
+function wpdtrt_register_menus() {
   register_nav_menus(
     array(
-      "header-menu" => __( "Header Menu" )
+      "header-menu" => __( 'Header Menu', 'wpdtrt' )
     )
   );
 }

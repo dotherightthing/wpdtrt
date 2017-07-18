@@ -53,9 +53,9 @@
                      * @link https://make.wordpress.org/themes/handbook/review/required/#templates
                      */
                     the_posts_pagination( array(
-                        'prev_text' =>  '<span class="screen-reader-text">' . __( 'Previous page', 'wp-dtrt-fwt' ) . '</span>',
-                        'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'wp-dtrt-fwt' ) . '</span>' ,
-                        'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'wp-dtrt-fwt' ) . ' </span>',
+                        'prev_text' =>  '<span class="screen-reader-text">' . __( 'Previous page', 'wpdtrt' ) . '</span>',
+                        'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'wpdtrt' ) . '</span>' ,
+                        'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'wpdtrt' ) . ' </span>',
                     ) );
 
                     else: ?>

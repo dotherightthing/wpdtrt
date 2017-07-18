@@ -9,16 +9,16 @@
 
 // Dependencies / Config
 
-require_once( __DIR__ . '/includes/css.php');
-require_once( __DIR__ . '/includes/form-validaton_comments.php');
+require_once( __DIR__ . '/includes/helpers/css.php');
+//require_once( __DIR__ . '/includes/form-validaton_comments.php');
 require_once( __DIR__ . '/includes/js.php');
-require_once( __DIR__ . '/includes/debug.php');
-require_once( __DIR__ . '/includes/editor.php');
-require_once( __DIR__ . '/includes/menus.php');
-require_once( __DIR__ . '/includes/shortcodes.php');
-require_once( __DIR__ . '/includes/sidebar.php');
+require_once( __DIR__ . '/includes/helpers/debug.php');
+//require_once( __DIR__ . '/includes/editor.php');
+//require_once( __DIR__ . '/includes/menus.php');
+//require_once( __DIR__ . '/includes/shortcodes.php');
+require_once( __DIR__ . '/includes/helpers/sidebar.php');
 
-require_once( __DIR__ . '/includes/theme-support.php');
+require_once( __DIR__ . '/includes/helpers/theme-options.php');
 
 // Config
 require_once( __DIR__ . '/includes/tgm-plugin-activation/class-tgm-plugin-activation.php');

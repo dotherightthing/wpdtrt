@@ -40,9 +40,9 @@ if ( ! isset( $content_width ) ) {
  * Enable Theme Support features
  * @link https://developer.wordpress.org/reference/functions/add_theme_support/#features
  */
-add_action( 'after_setup_theme', 'wpdtrt__theme_setup' );
+add_action( 'after_setup_theme', 'wpdtrt_theme_setup' );
 
-function wpdtrt__theme_setup() {
+function wpdtrt_theme_setup() {
 
   /**
    * Enables Automatic Feed Links for post and comment in the head. This should be used in place of the deprecated automatic_feed_links() function
