@@ -31,15 +31,17 @@ function wpdtrt_css() {
 
 /**
  * Style back-end UI
+ * @link https://wordpress.org/ideas/topic/add-theme-version-number-to-stylesheet-url-not-wp-version
  */
 add_action( 'admin_enqueue_scripts', 'wpdtrt_admin_css' );
 
 function wpdtrt_admin_css() {
 
   $theme_version = wp_get_theme()->Version;
+  $parent_style = 'wpdtrt';
 
   wp_enqueue_style( 'admin-style',
-    get_template_directory_uri() . '/css/admin-style.css',
+    get_template_directory_uri() . '/css/' . $parent_style . '-admin.min.css',
     array(),
     $theme_version
   );
@@ -58,7 +60,13 @@ function wpdtrt_admin_css() {
 add_action( 'init', 'wpdtrt_editor_css' );
 
 function wpdtrt_editor_css() {
-    add_editor_style( get_template_directory_uri() . '/css/editor-style.css' );
+
+  $theme_version = wp_get_theme()->Version;
+  $parent_style = 'wpdtrt';
+
+  add_editor_style(
+    get_template_directory_uri() . '/css/' . $parent_style . '-editor.min.css'
+  );
 }
 
 ?>

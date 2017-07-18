@@ -1,0 +1,15 @@
+/**
+ * Editor styles
+ * SCSS -> CSS conversion is handled by gulpfile.js
+ * Prefixes are handled by gulpfile.js and configured
+ * with browserlist in package.json
+ * @see https://github.com/ai/browserslist#queries
+ *
+ * Prepend JS related fixes with .js
+ *
+ * @package DTRT Framework - Theme
+ * @since 0.1.0
+ * @version 0.1.0
+ */
+
+@import "twentysixteen-editor";
