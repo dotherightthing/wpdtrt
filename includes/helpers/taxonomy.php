@@ -590,7 +590,7 @@ function wpdtrt_taxonomy_set_terms( $post_id ) {
 
 			$current_post = get_post( $post_id );
 
-			$elapsedday = dbth_get_post_daynumber($post_id);
+			$elapsedday = wpdtrt_elapsedday_get_post_daynumber($post_id);
 
 			// cast the day integer as a string, to prevent the slug from being interpreted as a tag ID
 			$term_id = (string)$elapsedday;

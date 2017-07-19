@@ -248,6 +248,7 @@ function wpdtrt_image_full_quality( $quality ) {
 * @param $permalink
 * @return string
 * @todo Update to query all fields in an ACF fieldgroup
+* @todo Create a gallery plugin for this
 */
 function wpdtrt_thumbnail_queryparams($html, $id, $size, $permalink) {
 

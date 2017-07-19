@@ -53,14 +53,6 @@ function dbth_columns_content($column_name, $post_id) {
       echo $accommodation;
     }
   }
-  else if ($column_name == 'temperature_column') {
-    $weather_min = get_field('acf_temperature_min');
-    $weather_max = get_field('acf_temperature_max');
-
-    if ($weather_min && $weather_max) {
-      echo $weather_min . '-' . $weather_max;
-    }
-  }
 }
 
 // ADD NEW COLUMNS & CHANGE COLUMN ORDER

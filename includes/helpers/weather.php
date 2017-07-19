@@ -13,16 +13,31 @@
  *
  * @todo reveal gps field in media library UI, with prompt to add manual GPS is required
  * @todo toggle cache_enabled off if debugging enabled
+ * @requires dtrt_gps field to be added to media library - see media.php
  * @since 3.0.0
  */
 function wpdtrt_weather() {
 
-  $gps = do_shortcode("[wp-agm_featured_latlng]");
-  $gps_array = explode(',', $gps);
+  global $post;
+  $featured_image_id = get_post_thumbnail_id($post->ID);
+  //$meta = wp_get_attachment_metadata( $featured_image_id );
+  $meta = get_post_meta( $featured_image_id );
+
+  $gps = $meta['dtrt_gps']; // do_shortcode("[wp-agm_featured_latlng]");
+
+  $gps_array = explode(',', $gps[0]);
 
   //if ( !empty($gps_array) ) { // fails
   if ( count($gps_array) < 2 ) {
-    return;
+    global $post;
+    $fallback = get_post_meta($post->ID, 'wp_agm_manual_gps_daily', true);
+
+    if ( $fallback ) {
+      $gps_array = explode(",", $fallback);
+    }
+    else {
+      return;
+    }
   }
 
   $args = array(
@@ -50,14 +65,14 @@ function wpdtrt_weather() {
   $day = isset( $forecast->daily['data'] ) ? $forecast->daily['data'][0] : false;
 
   if ( $day ) {
-    $min =  !empty( $day['temperatureMin'] ) ? intval( $day['temperatureMin'] ) : ''; // get_field('acf_temperature_min');
-    $max =  !empty( $day['temperatureMax'] ) ? intval( $day['temperatureMax'] ) : ''; // get_field('acf_temperature_max');
-    $icon = !empty( $day['icon'] ) ? $forecast->get_icon( esc_attr( $day['icon'] ) ) : ''; // get_entry_stats_weather($post_id)[0];
-    $summary =  !empty( $day['summary'] ) ? esc_attr( $day['summary'] ) : ''; // get_entry_stats_weather($post_id)[1];
+    $min = isset( $day['temperatureMin'] ) ? intval( $day['temperatureMin'] ) : null;
+    $max = isset( $day['temperatureMax'] ) ? intval( $day['temperatureMax'] ) : null;
+    $icon = isset( $day['icon'] ) ? $forecast->get_icon( esc_attr( $day['icon'] ) ) : null; // get_entry_stats_weather($post_id)[0];
+    $summary =  isset( $day['summary'] ) ? esc_attr( $day['summary'] ) : null; // get_entry_stats_weather($post_id)[1];
     $unit = '&deg;<abbr title="Centigrade">C</abbr>';
   }
 
-  if ( $min && $max && $icon ) {
+  if ( isset($min, $max, $icon) ) {
     return array(
       'min' => $min,
       'max' => $max,
