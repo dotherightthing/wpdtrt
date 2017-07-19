@@ -52,7 +52,7 @@ function wpdtrt_weather() {
     )
   );
 
-  $forecast = new DarkSky\Weather_Icon_Forecast( $args );
+  $forecast = new DarkSky\Weather_Icon_Forecast( $args ); // No Weather Station Source info included
   $min = 0;
   $max = 0;
   $icon = '';
