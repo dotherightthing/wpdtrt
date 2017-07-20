@@ -450,8 +450,9 @@ function wpdtrt_post_type_register_all() {
            *  false == /news/
            *  true == /blog/news/
            * Default: true
+           * @see https://mondaybynoon.com/revisiting-custom-post-types-taxonomies-permalinks-slugs/
            */
-          'with_front' => true,
+          'with_front' => false,
 
           /**
            * Should a feed permalink structure be built for this post type.

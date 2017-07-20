@@ -30,6 +30,7 @@ $wpdtrt_taxonomies = array();
  * @param $slug string
  * @param $fallback string
  * @param $post_type_slug string
+ * @param $rewrite_slug string
  * @param $description string
  * @param $label_single string
  * @param $label_plural string
@@ -49,6 +50,7 @@ function wpdtrt_taxonomy_create($args) {
 	$slug = null;
 	$fallback = null;
 	$post_type_slug = null;
+	$rewrite_slug = null;
 	$description = null;
 	$label_single = null;
 	$label_plural = null;
@@ -75,6 +77,7 @@ function wpdtrt_taxonomy_create($args) {
 		'slug' => $slug,
 		'fallback' => $fallback,
 		'post_type_slug' => $post_type_slug,
+		'rewrite_slug' => $rewrite_slug,
 		'description' => $description,
 		'label_single' => $label_single,
 		'label_plural' => $label_plural,
@@ -341,7 +344,7 @@ function wpdtrt_taxonomy_register_all() {
 		         * string = use custom query_var instead of default which is $taxonomy
 		         * Default: $taxonomy
 		         */
-				'query_var' => $taxonomy['slug'],
+				'query_var' => true, // $taxonomy['slug'],
 
 				/**
 				 * Set to false to prevent automatic URL rewriting a.k.a. "pretty permalinks".
@@ -355,13 +358,15 @@ function wpdtrt_taxonomy_register_all() {
 					 * Default: $taxonomy
 					 * Note: this has conflicted with post type in the past
 					 */
-					'slug' => $taxonomy['slug'],
+					// we want the slug to include our Custom Post Type rewrite slug.
+					'slug' => $taxonomy['rewrite_slug'],
 
 					/**
 					 * Allows permalinks to be prepended with front base
 					 * Default: true
+					 * @src https://mondaybynoon.com/revisiting-custom-post-types-taxonomies-permalinks-slugs/
 					 */
-					'with_front' => true,
+					'with_front' => false,
 
 					/**
 					 * 3.1+ Allow hierarchical urls
