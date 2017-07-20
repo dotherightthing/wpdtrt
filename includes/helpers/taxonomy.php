@@ -4,6 +4,10 @@
  * DTRT Framework Helper: Taxonomy
  * Helper function to generate custom taxonomies with predictable defaults
  *
+ * `register_taxonomy()` has a lot of options
+ * Most of these are inherited
+ * The extra options allow for granular control
+ *
  * @package DTRT Framework - Theme
  * @subpackage DTRT Framework - Theme Functions
  * @since 0.1.0
@@ -583,119 +587,118 @@ function wpdtrt_taxonomy_set_terms( $post_id ) {
 	}
 
 	/**
-	 * Apply a taxonomy term (category) to the appropriate item in the taxonomies array
+	 * Add a taxonomy term (category) to the appropriate item in the hierarchical taxonomies array
 	 */
 	foreach( $taxonomies as $taxonomy ) {
-		if ( $taxonomy['slug'] === 'elapsedday' ) {
+		if ( is_array( $taxonomy['terms'] ) ) {
 
-			$current_post = get_post( $post_id );
+			foreach ( $terms as $term ) {
 
-			$elapsedday = wpdtrt_tourdates_get_post_daynumber($post_id);
+				// cast the day integer as a string, to prevent the slug from being interpreted as a tag ID
+				$term_id = (string)$term;
 
-			// cast the day integer as a string, to prevent the slug from being interpreted as a tag ID
-			$term_id = (string)$elapsedday;
+				$term_description = $taxonomy['label_prefix'] . $taxonomy['slug'];
 
-			$term_description = $taxonomy['label_prefix'] . $elapsedday;
+				// if an elapsedday is not set
+				if ( ! has_term( $term_id, $taxonomy['slug'], $post_id ) ) {
 
-			// if an elapsedday is not set
-			if ( ! has_term( $term_id, $taxonomy['slug'], $post_id ) ) {
+					// https://codex.wordpress.org/Function_Reference/wp_insert_term
+					$term = wp_insert_term(
 
-				// https://codex.wordpress.org/Function_Reference/wp_insert_term
-				$term = wp_insert_term(
-
-					/**
-					 * $term
-					 * (int|string) (required) The term to add or update.
-					 * Default: None
-					 */
-					$term,
-
-					/**
-					 * $taxonomy (string) (required)
-					 * The taxonomy to which to add the term.
-					 * Default: None
-					 */
-					$taxonomy,
-
-					/**
-					 * $args (array|string) (optional)
-					 * Change the values of the inserted term
-					 * Default: None
-					 */
-					$args = array(
 						/**
-						 * (string) (optional)
-						 * There is no default, but if added, expected is the slug that the term will be an alias of.
+						 * $term
+						 * (int|string) (required) The term to add or update.
 						 * Default: None
 						 */
-						// 'alias_of' => null,
+						$term,
 
 						/**
-						 * (string) (optional)
-						 * If exists, will be added to the database along with the term.
-						 * Default: None
-						 * TODO: not appearing in Admin term table
-						 */
-						'description' => $term_description,
-
-						/**
-						 * (numeric) (optional)
-						 * Will assign value of 'parent' to the term.
-						 * Default: 0 (zero)
-						 */
-						'parent' => 0,
-
-						/**
-						 * (string) (optional)
+						 * $taxonomy (string) (required)
+						 * The taxonomy to which to add the term.
 						 * Default: None
 						 */
-						'slug' => $elapsedday
-					)
-				);
+						$taxonomy,
 
-				//$term_id2 = $term->term_id;
+						/**
+						 * $args (array|string) (optional)
+						 * Change the values of the inserted term
+						 * Default: None
+						 */
+						$args = array(
+							/**
+							 * (string) (optional)
+							 * There is no default, but if added, expected is the slug that the term will be an alias of.
+							 * Default: None
+							 */
+							// 'alias_of' => null,
 
-				$terms = wp_set_object_terms(
-					/**
-					 * $object_id
-					 * (int) (required) The object to relate to, such as post ID.
-					 * Default: None
-					 */
-					$post_id,
+							/**
+							 * (string) (optional)
+							 * If exists, will be added to the database along with the term.
+							 * Default: None
+							 * TODO: not appearing in Admin term table
+							 */
+							'description' => $term_description,
 
-					/**
-					 * $terms (array/int/string) (required)
-					 * The slug or id of the term (such as category or tag IDs),
-					 * will replace all existing related terms in this taxonomy.
-					 * To clear or remove all terms from an object, pass an empty string or NULL.
-					 * NOTE: Integers are interpreted as tag IDs.
-					 * Default: None
-					 */
-					$term_id,
+							/**
+							 * (numeric) (optional)
+							 * Will assign value of 'parent' to the term.
+							 * Default: 0 (zero)
+							 */
+							'parent' => 0,
 
-					/**
-					 * $taxonomy (array/string) (required)
-					 * The context in which to relate the term to the object.
-					 * This can be category, post_tag, or the name of another taxonomy.
-					 * Default: None
-					 */
-					$taxonomy['slug'],
+							/**
+							 * (string) (optional)
+							 * Default: None
+							 */
+							'slug' => $elapsedday
+						)
+					);
 
-					/**
-					 * $append (bool) (optional)
-					 * If true, terms will be appended to the object.
-					 * If false, terms will replace existing terms
-					 * Default: False
-					 */
-					false
-				);
+					//$term_id2 = $term->term_id;
+
+					$terms = wp_set_object_terms(
+						/**
+						 * $object_id
+						 * (int) (required) The object to relate to, such as post ID.
+						 * Default: None
+						 */
+						$post_id,
+
+						/**
+						 * $terms (array/int/string) (required)
+						 * The slug or id of the term (such as category or tag IDs),
+						 * will replace all existing related terms in this taxonomy.
+						 * To clear or remove all terms from an object, pass an empty string or NULL.
+						 * NOTE: Integers are interpreted as tag IDs.
+						 * Default: None
+						 */
+						$term_id,
+
+						/**
+						 * $taxonomy (array/string) (required)
+						 * The context in which to relate the term to the object.
+						 * This can be category, post_tag, or the name of another taxonomy.
+						 * Default: None
+						 */
+						$taxonomy['slug'],
+
+						/**
+						 * $append (bool) (optional)
+						 * If true, terms will be appended to the object.
+						 * If false, terms will replace existing terms
+						 * Default: False
+						 */
+						false
+					);
+				}
+				else {
+					$term = get_term_by ('slug', $term_id, $taxonomy['slug']);
+				}
+
+				// test that terms were created
+				// wpdtrt_log($terms); //ok
 			}
-			else {
-				$term = get_term_by ('slug', $term_id, $taxonomy['slug']);
-			}
-
-			// test that terms were created
-			// wpdtrt_log($terms); //ok
 		}
 	}
 
