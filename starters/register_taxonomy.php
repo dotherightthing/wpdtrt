@@ -9,8 +9,7 @@
  *
  * Parts:
  * 1. Register taxonomy
- * 2. Create a taxonomy %placeholder% for use in WordPress Permalinks settings
- * 3. Programatically set the value of a taxonomy term
+ * 2. Programatically set the value of a taxonomy term
  *
  * @package DTRT Framework - Theme
  * @subpackage DTRT Framework - Theme Function Starters
@@ -51,7 +50,7 @@ function wpdtrt_register_taxonomy_TAXONOMY_SLUG() {
 			/**
 			 * Defaults to value of name label.
 			 */
-			//'menu_name' 					=> __( 'LABEL_PLURAL', 'TEXT_DOMAIN' ),
+			'menu_name' 					=> __( 'LABEL_PLURAL', 'TEXT_DOMAIN' ),
 
 			/**
 			 * Default:  All Tags / All Categories
@@ -368,68 +367,7 @@ function wpdtrt_register_taxonomy_TAXONOMY_SLUG() {
 }
 
 /**
- * 2. Create a taxonomy %placeholder% for use in WordPress Permalinks settings
- * Taxonomies do not automatically appear in permalinks
- * The placeholder must be added to the string
- * The placeholder must be translated from a placeholder to the taxonomy term value
- *
- * @param $permalink See WordPress function options
- * @param $post_id See WordPress function options
- * @param $leavename See WordPress function options
- * @see http://shibashake.com/wordpress-theme/add-custom-taxonomy-tags-to-your-wordpress-permalinks
- * @see http://shibashake.com/wordpress-theme/custom-post-type-permalinks-part-2#conflict
- * @see https://stackoverflow.com/questions/7723457/wordpress-custom-type-permalink-containing-taxonomy-slug
- */
-add_filter('post_link', 		'wpdtrt_substitute_taxonomy_permalinks_TAXONOMY_SLUG', 10, 3);
-add_filter('post_type_link', 	'wpdtrt_substitute_taxonomy_permalinks_TAXONOMY_SLUG', 10, 3);
-
-function wpdtrt_substitute_taxonomy_permalinks_TAXONOMY_SLUG($permalink, $post_id, $leavename) {
-
-	$placeholder = '%' . 'TAXONOMY_SLUG' . '%';
-
-	/**
-	* If the permalink does not contain the %placeholder% tag,
-	* then we don’t need to translate anything.
-	*/
-	if (strpos($permalink, $placeholder) === FALSE) { // todo
-		return $permalink;
-	}
-
-	// Get post
-	$post = get_post($post_id);
-	if (!$post) {
-		return $permalink;
-	}
-
-	/**
-	* Get the taxonomy terms related to the current post object
-	* and cache the results (wp_get_object_terms doesn't)
-	*/
-	$terms = wp_get_object_terms($post->ID, 'TAXONOMY_SLUG');
-	// todo: //$terms = get_the_terms($post->ID, 'TAXONOMY_SLUG');
-
-	/**
-	* Retrieve the slug value of the first custom taxonomy object linked to the current post.
-	* If no terms are retrieved, then replace our term tag with the fallback value.
-	* This prevents // in permalink
-	*/
-	if (!is_wp_error($terms) && !empty($terms) && is_object($terms[0])) {
-		$taxonomy_slug = $terms[0]->slug;
-	}
-	else {
-		$taxonomy_slug = 'no-TAXONOMY_SLUG';
-	}
-
-	/**
-	* Replace the %placeholder% tag with our custom taxonomy slug.
-	*/
-	$permalink = str_replace($placeholder, $taxonomy_slug, $permalink);
-
-	return $permalink;
-}
-
-/**
- * 3. Programatically set the value of a taxonomy term
+ * 2. Programatically set the value of a taxonomy term
  * Note: Save Permalinks after changing this.
  *
  * save_post is run on save, publish, update and bulk/quick edit
@@ -438,6 +376,7 @@ function wpdtrt_substitute_taxonomy_permalinks_TAXONOMY_SLUG($permalink, $post_i
  * @see https://stackoverflow.com/questions/29049543/set-default-taxonomy-term-for-custom-post-type
  * @todo Move to elapsed-day.php if it works from there
  * @todo wp_insert_term doesn't seem to do anything, or it is overwritten by wp_set_object_terms
+ * @todo Make this into a reusable function (again)
  *
  * Run wp_set_object_terms after the custom taxonomy is registered.
  * Since register_taxonomy() is usually run at init,
@@ -514,6 +453,7 @@ function wpdtrt_insert_and_set_taxonomy_terms_TAXONOMY_SLUG() {
 					 * If exists, will be added to the database along with the term.
 					 * Default: None
 					 * TODO: not appearing in Admin term table
+					 * @todo does this need i18n __() ?
 					 */
 					'description' => 'TAXONOMY_LABEL_PREFIX TAXONOMY_TERM',
 
