@@ -35,6 +35,7 @@ function wpdtrt_taxonomy_permalink_placeholders($permalink, $post_id, $leavename
 	}
 
 	// extract all %placeholders% from the permalink
+	// https://regex101.com/
 	preg_match_all('/(?<=\/%).+?(?=%\/)/', $permalink, $placeholders, PREG_OFFSET_CAPTURE);
 
 	// placeholders in an array of taxonomy/term arrays

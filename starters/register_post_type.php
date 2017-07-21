@@ -10,6 +10,9 @@
  * Parts:
  * 1. Register post type
  *
+ * Variables
+ * 1. POST_TYPE_SLUG - plural, e.g. cameras
+ *
  * @package DTRT Framework - Theme
  * @subpackage DTRT Framework - Theme Function Starters
  * @since 0.1.0
@@ -26,101 +29,101 @@ add_action('init', 'wpdtrt_register_post_type_POST_TYPE_SLUG');
 
 function wpdtrt_register_post_type_POST_TYPE_SLUG() {
 
-    if ( !post_type_exists( 'POST_TYPE_SLUG' ) ) {
+    if ( !post_type_exists( 'COLLECTION_SLUG_PLURAL' ) ) {
 
       $labels = array(
         /**
          * The same and overridden by $post_type_object->label.
          * Default: Posts/Pages
          */
-        'name'                          => _x( 'LABEL_PLURAL', 'post type general name', 'TEXT_DOMAIN' ),
+        'name'                          => _x( 'COLLECTION_PLURAL', 'post type general name', 'TEXT_DOMAIN' ),
 
         /**
          * Default: Post/Page
          */
-        'singular_name'                 => _x( 'LABEL_SINGLE', 'post type singular name', 'TEXT_DOMAIN' ),
+        'singular_name'                 => _x( 'POST_SINGLE', 'post type singular name', 'TEXT_DOMAIN' ),
 
         /**
          * The default is "Add New" for both hierarchical and non-hierarchical post types.
          * I18n: Use a gettext context matching your post type: _x('Add New', 'text-domain');
          */
-        'add_new'                       => _x( 'Add New LABEL_SINGLE', 'TEXT_DOMAIN' ),
+        'add_new'                       => _x( 'Add New POST_SINGLE', 'TEXT_DOMAIN' ),
 
         /**
          * Default: Add New Post/Add New Page.
          */
-        'add_new_item'                  => __( 'Add New LABEL_SINGLE', 'TEXT_DOMAIN' ),
+        'add_new_item'                  => __( 'Add New POST_SINGLE', 'TEXT_DOMAIN' ),
 
         /**
          * Default: Edit Post/Edit Page.
          */
-        'edit_item'                     => __( 'Edit LABEL_SINGLE', 'TEXT_DOMAIN' ),
+        'edit_item'                     => __( 'Edit POST_SINGLE', 'TEXT_DOMAIN' ),
 
         /**
          * Default: New Post/New Page.
          */
-        'new_item'                      => __( 'New LABEL_SINGLE', 'TEXT_DOMAIN' ),
+        'new_item'                      => __( 'New POST_SINGLE', 'TEXT_DOMAIN' ),
 
         /**
          * Default: View Post/View Page.
          */
-        'view_item'                     => __( 'View LABEL_SINGLE', 'TEXT_DOMAIN' ),
+        'view_item'                     => __( 'View POST_SINGLE', 'TEXT_DOMAIN' ),
 
         /**
          * Default: View Posts/View Pages.
          */
-        'view_items'                    => __( 'View LABEL_PLURAL', 'TEXT_DOMAIN' ),
+        'view_items'                    => __( 'View POST_PLURAL', 'TEXT_DOMAIN' ),
 
         /**
          * Default: Search Posts/Search Pages.
          */
-        'search_items'                  => __( 'Search LABEL_PLURAL', 'TEXT_DOMAIN' ),
+        'search_items'                  => __( 'Search POST_PLURAL', 'TEXT_DOMAIN' ),
 
         /**
          * Default: No posts found/No pages found.
          */
-        'not_found'                     => __( 'No LABEL_PLURAL found', 'TEXT_DOMAIN' ),
+        'not_found'                     => __( 'No POST_PLURAL found', 'TEXT_DOMAIN' ),
 
         /**
          * Default: No posts found in Trash/No pages found in Trash.
          */
-        'not_found_in_trash'            => __( 'No LABEL_PLURAL found in Trash', 'TEXT_DOMAIN' ),
+        'not_found_in_trash'            => __( 'No POST_PLURAL found in Trash', 'TEXT_DOMAIN' ),
 
         /**
          * This string isn't used on non-hierarchical types.
          * The default is 'Parent Page:'.
          */
-        'parent_item_colon'             => __( 'Parent LABEL_SINGLE:', 'TEXT_DOMAIN' ),
+        'parent_item_colon'             => __( 'Parent POST_SINGLE:', 'TEXT_DOMAIN' ),
 
         /**
          * String for the submenu.
          * Default: All Posts/All Pages.
          */
-        'all_items'                     => __( 'All LABEL_PLURAL', 'TEXT_DOMAIN' ),
+        'all_items'                     => __( 'All POST_PLURAL', 'TEXT_DOMAIN' ),
 
         /**
          * String for use with archives in nav menus.
          * Default: Post Archives/Page Archives.
          */
-        'archives'                      => __( 'LABEL_SINGLE Archives', 'TEXT_DOMAIN' ),
+        'archives'                      => __( 'POST_SINGLE Archives', 'TEXT_DOMAIN' ),
 
         /**
          * Label for the attributes meta box.
          * Default: 'Post Attributes' / 'Page Attributes'.
          */
-        'attributes'                    => __( 'LABEL_SINGLE Attributes', 'TEXT_DOMAIN' ),
+        'attributes'                    => __( 'POST_SINGLE Attributes', 'TEXT_DOMAIN' ),
 
         /**
          * String for the media frame button.
          * Default: Insert into post/Insert into page.
          */
-        'insert_into_item'              => __( 'Insert into LABEL_SINGLE', 'TEXT_DOMAIN' ),
+        'insert_into_item'              => __( 'Insert into POST_SINGLE', 'TEXT_DOMAIN' ),
 
         /**
          * String for the media frame filter.
          * Default: Uploaded to this post/Uploaded to this page.
          */
-        'uploaded_to_this_item'         => __( 'Uploaded to this LABEL_SINGLE', 'TEXT_DOMAIN' ),
+        'uploaded_to_this_item'         => __( 'Uploaded to this POST_SINGLE', 'TEXT_DOMAIN' ),
 
         /**
          * Default: Featured Image.
@@ -145,28 +148,28 @@ function wpdtrt_register_post_type_POST_TYPE_SLUG() {
         /**
          * Default: the same as name
          */
-        'menu_name'                     => _x( 'LABEL_PLURAL', 'post type general name', 'TEXT_DOMAIN' ),
+        'menu_name'                     => _x( 'COLLECTION_PLURAL', 'post type general name', 'TEXT_DOMAIN' ),
 
         /**
          * String for the table views hidden heading
          */
-        'filter_items_list'             => _x( 'LABEL_SINGLE', 'TEXT_DOMAIN' ), // no example in docs
+        'filter_items_list'             => _x( 'POST_SINGLE', 'TEXT_DOMAIN' ), // no example in docs
 
         /**
          * String for the table pagination hidden heading.
          */
-        'items_list_navigation'         => _x( 'LABEL_SINGLE', 'TEXT_DOMAIN' ), // no example in docs
+        'items_list_navigation'         => _x( 'POST_SINGLE', 'TEXT_DOMAIN' ), // no example in docs
 
         /**
          * String for the table hidden heading.
          */
-        'items_list'                    => _x( 'LABEL_SINGLE', 'TEXT_DOMAIN' ), // no example in docs
+        'items_list'                    => _x( 'POST_SINGLE', 'TEXT_DOMAIN' ), // no example in docs
 
         /**
          * String for use in New in Admin menu bar.
          * Default: the same as `singular_name`.
          */
-        'name_admin_bar'                => _x( 'LABEL_SINGLE', 'post type singular name', 'TEXT_DOMAIN' ),
+        'name_admin_bar'                => _x( 'POST_SINGLE', 'post type singular name', 'TEXT_DOMAIN' ),
       );
 
       $args = array(
@@ -319,7 +322,7 @@ function wpdtrt_register_post_type_POST_TYPE_SLUG() {
          * Enables post type archives.
          * Default: $post_type as slug
          */
-        'has_archive'                   => 'POST_TYPE_SLUG',
+        //'has_archive'                   => 'COLLECTION_SLUG_PLURAL',
 
         /**
          * Set to false to prevent automatic URL rewriting a.k.a. "pretty permalinks".
@@ -452,7 +455,7 @@ function wpdtrt_register_post_type_POST_TYPE_SLUG() {
          * max. 20 characters, cannot contain capital letters or spaces
          * Default: None
          */
-        'POST_TYPE_SLUG',
+        'COLLECTION_SLUG_PLURAL',
 
         /**
          * Optional array of Arguments.
