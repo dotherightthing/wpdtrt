@@ -22,6 +22,7 @@ require_once( __DIR__ . '/includes/helpers/form-validaton_comments.php');
 require_once( __DIR__ . '/includes/helpers/js.php');
 require_once( __DIR__ . '/includes/helpers/media.php');
 require_once( __DIR__ . '/includes/helpers/menus.php');
+require_once( __DIR__ . '/includes/helpers/permalinks.php');
 require_once( __DIR__ . '/includes/helpers/post-type.php');
 require_once( __DIR__ . '/includes/helpers/sidebar.php');
 require_once( __DIR__ . '/includes/helpers/taxonomy.php');
