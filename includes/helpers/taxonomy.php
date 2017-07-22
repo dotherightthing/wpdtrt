@@ -47,45 +47,80 @@ function wpdtrt_taxonomy_permalink_placeholders($permalink, $post_id, $leavename
 
 			/**
 			 * Get the taxonomy terms related to the current post object
-			 * wp_get_object_terms() doesn't cache the result like get_the_terms() does
-			 * but get_the_terms() doesn't offer a sort order
+			 * wp_get_object_terms() doesn't cache the results but does implement a sort order
+			 * get_the_terms() does cache the results but doesn't implement a sort order
+			 *
+			 * If a post only belongs to one parent, one child and/or one grandchild, you can order the terms by term_id.
+			 * It is widely accepted that the parent will have a lower numbered ID than the child and the child will have a * lower numbered ID than the grandchild
+			 * @see https://wordpress.stackexchange.com/questions/172118/get-the-term-list-by-hierarchy-order
+			 * This isn't true for me: East Asia is lower than China, but NZ is higher than Rainbow Road
+			 *
+			 * Returns Array of WP_Term objects on success
+			 * Return false if there are no terms or the post does not exist
+			 * Returns WP_Error on failure.
 			 */
-			$terms = wp_get_object_terms(
-				$post->ID,
-				$taxonomy_name,
-				array(
-					'order' => 'DESC' // parent,child, not primary,secondary
-				)
+			$terms = get_the_terms(
+				$post_id,
+				$taxonomy_name
 			);
 
-			/**
-			 * Retrieve the slug value of the first custom taxonomy object linked to the current post.
-			 * If no terms are retrieved, then replace our term tag with the fallback value.
-			 * This prevents // in permalink
-			 */
-			$replacements = array();
+			//wpdtrt_log( $taxonomy_name . ' - ' . gettype( $terms ) );
 
-			if ( !is_wp_error($terms) ) {
-				foreach ($terms as $term) {
-					if ( !empty( $term ) && is_object( $term ) ) {
-						$replacements[] = $term->slug;
+			if ( is_array( $terms ) ) {
+
+				/**
+				 * Sort terms into hierarchical order
+				 *
+				 * Has parent: $term->parent === n
+				 * No parent: $term->parent === 0
+				 * strnatcmp = Natural string comparison
+				 *
+				 * @see https://developer.wordpress.org/reference/functions/get_the_terms/
+				 * @see https://wordpress.stackexchange.com/questions/172118/get-the-term-list-by-hierarchy-order
+				 * @see https://stackoverflow.com/questions/1597736/how-to-sort-an-array-of-associative-arrays-by-value-of-a-given-key-in-php
+				 * @see https://wpseek.com/function/_get_term_hierarchy/
+				 * @see https://wordpress.stackexchange.com/questions/137926/sorting-attributes-order-when-using-get-the-terms
+				 */
+				uasort ( $terms , function ( $term_a, $term_b ) {
+					return strnatcmp( $term_a->parent, $term_b->parent );
+			    });
+
+				/**
+				 * Retrieve the slug value of the first custom taxonomy object linked to the current post.
+				 * If no terms are retrieved, then replace our term tag with the fallback value.
+				 * This prevents // in permalink
+				 */
+				$replacements = array();
+
+				if ( !is_wp_error( $terms ) ) {
+					foreach ( $terms as $term ) {
+						if ( !empty( $term ) && is_object( $term ) ) {
+							$replacements[] = $term->slug;
+						}
+						else {
+							$replacements[] = 'no-' . $taxonomy_name; // TODO not working
+						}
 					}
+
+					$replacements = implode('/', $replacements);
 				}
 
-				$replacements = implode('/', $replacements);
+				/**
+				 * Replace the %taxonomy% tag with our custom taxonomy slug.
+				 */
+				$permalink = str_replace( ( '%' . $taxonomy_name . '%' ), $replacements, $permalink);
 			}
-			else {
-				$replacements = 'no-' . $taxonomy_name;
-			}
-
-			/**
-			 * Replace the %taxonomy% tag with our custom taxonomy slug.
-			 */
-			$permalink = str_replace( ( '%' . $taxonomy_name . '%' ), $replacements, $permalink);
 		}
 	}
 
 	return $permalink;
 }
+
+/**
+ * Rename the assigned taxonomy in SequelPro
+ *
+ * @example
+ * 	UPDATE `wp_posts` SET `post_type` = 'tourdiaries' WHERE `post_type` = 'tourdiaryday';
+ */
 
 ?>
