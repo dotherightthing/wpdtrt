@@ -71,7 +71,7 @@ function wpdtrt_h2_wrapper_end() {
   return $str;
 }
 
-add_filter( 'the_content', 'wpdtrt_content_h2_liner' );
+//add_filter( 'the_content', 'wpdtrt_content_h2_liner' );
 
 function wpdtrt_content_h2_liner($content) {
   $content = str_replace('<h2>', wpdtrt_h2_wrapper_start(), $content);
@@ -80,7 +80,7 @@ function wpdtrt_content_h2_liner($content) {
   return $content;
 }
 
-add_filter( 'the_content', 'wpdtrt_content_gallery_heading', 3 );
+//add_filter( 'the_content', 'wpdtrt_content_gallery_heading', 3 );
 
 function wpdtrt_content_gallery_heading($content) {
   $content = str_replace("<div id='gallery'>", "<h3>Gallery</h3><div id='gallery'>", $content);

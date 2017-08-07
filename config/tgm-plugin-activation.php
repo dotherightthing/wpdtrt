@@ -44,6 +44,13 @@ function wpdtrt_register_required_plugins() {
       'required'  => false,
     ),
 
+    // Debugging
+    array(
+      'name'      => 'Query Monitor',
+      'slug'      => 'query-monitor',
+      'required'  => false,
+    ),
+
     // Theme integrity
     array(
       'name'      => 'Theme Check',

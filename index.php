@@ -25,26 +25,12 @@
 
                 <main>
 
-                    <header>
-                        <h1><?php bloginfo( 'title' ); ?></h1>
-                    </header>
-
-                    <?php the_content(); ?>
-
                     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
                     <div>
-                        <h2>
-                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                        </h2>
+                        <h1><?php the_title(); ?></h1>
                         <?php the_excerpt(); ?>
-                        <p>
-                            <?php
-                                if ( is_search() || is_home() ) {
-                                    the_category(', ');
-                                }
-                            ?>
-                        </p>
+                        <?php the_content(); ?>
                     </div>
 
                     <?php endwhile;

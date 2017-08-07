@@ -20,7 +20,8 @@ add_action( 'init', 'wpdtrt_register_menus' );
 function wpdtrt_register_menus() {
   register_nav_menus(
     array(
-      "header-menu" => __( 'Header Menu', 'wpdtrt' )
+    	// menu location slug => description
+      	"header-menu" => __( 'Header Menu', 'wpdtrt' )
     )
   );
 }
