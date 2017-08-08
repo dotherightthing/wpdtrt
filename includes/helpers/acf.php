@@ -9,9 +9,14 @@
  */
 
 /**
-  * Automatically save config to JSON files, for easier migration & debugging
-  * @uses https://www.advancedcustomfields.com/resources/local-json/
-  */
+ * Hide WP Admin menu item
+ */
+// add_filter('acf/settings/show_admin', '__return_false');
+
+/**
+ * Automatically save config to JSON files, for easier migration & debugging
+ * @uses https://www.advancedcustomfields.com/resources/local-json/
+ */
 
 if ( function_exists('register_field_group') ) {
 
@@ -25,18 +30,20 @@ if ( function_exists('register_field_group') ) {
 }
 
 /**
-  * Theme options menu
-  * The actual fields are set up in ACF
-  *
-  * @see https://www.advancedcustomfields.com/resources/options-page/
-  */
+ * Theme options menu
+ * The actual fields are set up in ACF
+ *
+ * @see https://www.advancedcustomfields.com/resources/options-page/
+ */
 
 if ( function_exists('acf_add_options_page') ) {
 
   // add parent
   $parent = acf_add_options_page(array(
-    'page_title'  => 'Settings : DTRT Framework - Theme',
-    'menu_title'  => 'DTRT Framework: Theme',
+    'page_title'  => 'Settings : Theme',
+    'menu_title'  => 'Theme Settings',
+    'menu_slug'   => 'theme-settings',
+    'capability'  => 'edit_posts',
     'redirect'    => false
   ));
 
@@ -52,10 +59,10 @@ if ( function_exists('acf_add_options_page') ) {
 }
 
 /**
-  * wpdtrt_hex2rgba
-  * Convert ACF color picker values to rgba
-  * @uses https://support.advancedcustomfields.com/forums/topic/color-picker-values/
-  */
+ * wpdtrt_hex2rgba
+ * Convert ACF color picker values to rgba
+ * @uses https://support.advancedcustomfields.com/forums/topic/color-picker-values/
+ */
 
 if ( ! function_exists('wpdtrt_hex2rgba') ) {
 

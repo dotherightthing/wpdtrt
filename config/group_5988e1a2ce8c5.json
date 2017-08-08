@@ -1,0 +1,43 @@
+{
+    "key": "group_5988e1a2ce8c5",
+    "title": "Theme settings",
+    "fields": [
+        {
+            "key": "field_5988e3071f0cb",
+            "label": "GTM Container ID",
+            "name": "wpdtrt_acf_gtm_container_id",
+            "type": "text",
+            "instructions": "https:\/\/tagmanager.google.com\/",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "GTM-XXXXXX",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "theme-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1502146124
+}

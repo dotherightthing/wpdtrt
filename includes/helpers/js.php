@@ -24,7 +24,8 @@ function wpdtrt_js() {
    */
   $theme_version = wp_get_theme()->Version;
 
-  $parent_scripts = 'wpdtrt';
+  $header = 'wpdtrt_header';
+  $footer = 'wpdtrt_footer';
 
   /**
    * Attach scripts to bottom of the page
@@ -40,24 +41,87 @@ function wpdtrt_js() {
    *
    * @link http://stackoverflow.com/a/21167716
    * @link https://www.linkedin.com/pulse/speed-boost-how-move-javascripts-footer-wordpress-john-engle
+   * @todo 2 & 3 prevent output of $header into the <head>.
+   *  Removing all 3 results in some plugin scripts appearing in <head>.
+   *  Could an alternate custom wp_head be set up for this type of usage?
    */
-  remove_action('wp_head', 'wp_print_scripts');
-  remove_action('wp_head', 'wp_print_head_scripts', 9);
-  remove_action('wp_head', 'wp_enqueue_scripts', 1);
+  //remove_action('wp_head', 'wp_print_scripts');
+  //remove_action('wp_head', 'wp_print_head_scripts', 9);
+  //remove_action('wp_head', 'wp_enqueue_scripts', 1);
+  //add_action('wp_footer', 'wp_print_scripts', 5);
+  //add_action('wp_footer', 'wp_enqueue_scripts', 5);
+  //add_action('wp_footer', 'wp_print_head_scripts', 5);
 
-  // wpdtrt
-  wp_register_script( $parent_scripts,
-    get_template_directory_uri() . '/js/' . $parent_scripts . '.min.js',
+  /**
+   * Deregister only those scripts which are incorrectly output into the head.
+   * Then reregister these to load into the footer.
+   * This leaves wp_head load actions intact for scripts that we deem worthy (such as GTM).
+   * @see http://justintadlock.com/archives/2009/08/06/how-to-disable-scripts-and-styles
+   */
+
+  add_action( 'wp_print_scripts', 'wpdtrt_deregister_head_js', 100 );
+
+  function wpdtrt_deregister_head_js() {
+
+    //wp_deregister_script( 'plugin-name' );
+    /*
+    wp_register_script( 'plugin-name',
+      get_template_directory_uri() . '/js/' . $header . '.min.js',
+      array(),
+      $theme_version,
+      false
+    );
+    */
+  }
+
+  /**
+   * Head scripts (head of page)
+   * for GTM
+   * wp_localize_script makes PHP variables available to the JS
+   * @see http://kb.dotherightthing.dan/seo/google-tag-manager-gtm/
+   * @todo is wp_localize_script required here or only in child theme?
+   */
+  wp_register_script( $header,
+    get_template_directory_uri() . '/js/' . $header . '.min.js',
+    array(),
+    $theme_version,
+    false
+  );
+
+  wp_enqueue_script( $header );
+
+  wp_localize_script(
+    $header,
+    'wpdtrt_gtm_container_id',
+    get_field('wpdtrt_acf_gtm_container_id', 'option')
+  );
+
+  // Google Tag Manager
+  wp_add_inline_script( $header, "(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer',wpdtrt_gtm_container_id);" );
+
+  /**
+   * Body scripts (foot of body)
+   * wp_localize_script makes PHP variables available to the JS
+   * @todo is wp_localize_script required here or only in child theme?
+   */
+  wp_register_script( $footer,
+    get_template_directory_uri() . '/js/' . $footer . '.min.js',
     array('jquery'),
     $theme_version,
     $attach_to_footer
   );
 
-  // make wpdtrt_template_directory_uri available as a JS variable
-  // @todo is this required here or only in child theme?
-  wp_localize_script( $parent_scripts, 'wpdtrt_template_directory_uri', get_template_directory_uri() );
-  //wp_add_inline_script('wpdtrt_js', 'alert('test'));
-  wp_enqueue_script('wpdtrt_js');
+  wp_enqueue_script( $footer );
+
+  wp_localize_script(
+    $footer,
+    'wpdtrt_template_directory_uri',
+    get_template_directory_uri()
+  );
 
   /**
    * Comment reply
@@ -67,10 +131,6 @@ function wpdtrt_js() {
   //if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
   //  wp_enqueue_script( 'comment-reply' );
   //}
-
-  add_action('wp_footer', 'wp_print_scripts', 5);
-  add_action('wp_footer', 'wp_enqueue_scripts', 5);
-  add_action('wp_footer', 'wp_print_head_scripts', 5);
 }
 
 /**

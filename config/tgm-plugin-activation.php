@@ -30,6 +30,17 @@ function wpdtrt_register_required_plugins() {
     // Plugins from the WordPress Plugin Repository.
     // ---------------------------------------------
 
+    array(
+      'name'          => 'Advanced Custom Fields',
+      'slug'          => 'advanced-custom-fields',
+      'version'       => '5.0.0', // supports options page
+      'source'        => 'http://dotherightthing.co.nz/downloads/wordpress/plugins/premium/advanced-custom-fields.zip',
+      'external_url'  => 'https://www.advancedcustomfields.com/pro',
+      //'external_url' => 'https://www.advancedcustomfields.com/resources/beta-test-version-5/',
+      'required'      => true,
+      'is_callable'   => 'acf_add_options_page', // requires ACF PRO (ACF v5)
+    ),
+
     // Spam & SEO
     array(
       'name'      => 'Akismet',
@@ -62,6 +73,7 @@ function wpdtrt_register_required_plugins() {
     array(
       'name'      => 'UpdraftPlus WordPress Backup Plugin',
       'slug'      => 'updraftplus',
+      //'is_callable' => 'some_function', // regular or Pro
       'required'  => true,
     ),
 
