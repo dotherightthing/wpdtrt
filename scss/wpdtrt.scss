@@ -12,13 +12,16 @@
  * @version 0.1.0
  */
 
-// loaded in both parent and child
+// loaded in both parent and child theme
 @import "variables";
 @import "mixins";
 @import "extends";
 
-// page blocks
+// loaded in parent theme
 @import "theme-requirements";
+@import "accessibility";
+
+// loaded in child theme
 //@import "name";
 
 // plugins

@@ -25,7 +25,7 @@
                 'container' => 'div',
                 'container_class' => '',
                 'container_id' => '',
-                'menu_class' => 'menu',
+                'menu_class' => 'navigation',
                 'menu_id' => '',
                 'echo' => true,
                 /**

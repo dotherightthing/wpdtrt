@@ -10,6 +10,9 @@
  * @package DTRT Framework - Theme
  * @since 0.1.0
  * @version 0.1.0
+ *
+ * To run from a child theme:
+ * gulp --gulpfile ../wpdtrt/gulpfile.js --cwd ./
  */
 
 // dependencies
@@ -24,23 +27,8 @@ var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps'); // CSS debugging
 var uglify = require('gulp-uglify'); // JS minifier
 
-// source directories
+// parent theme source directories
 
-// do this in JS file so this script can be run from child theme
-var jsSrc = [
-  // we use the unminified versions
-  // and then minify them
-  // so that we can debug them using sourcemaps
-//  './vendor/enquire/dist/enquire.js',
-//  './vendor/responsive-nav/responsive-nav.js',
-//  './vendor/jquery.mobile.custom/jquery.mobile.custom.js',
-  //'./vendor/jquery-ui-1.12.1.custom/jquery-ui.js', // accordion
-  './js/wpdtrt_parent.js'
-];
-
-// theme source directories
-
-// do this in JS file so this script can be run from child theme
 var jsSrc = './js/*.jsrc';
 var scssSrc = './scss/*.scss';
 

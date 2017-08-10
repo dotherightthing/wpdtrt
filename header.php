@@ -19,7 +19,7 @@
         <?php get_template_part( 'template-parts/gtm/gtm', 'body' ); ?>
         <div id="wrapper">
             <header>
-                <p class="says">
+                <p class="accessible">
                     <a href="/"><?php echo get_option( 'blogname' ); ?></a>
                 </p>
             </header>
