@@ -28,6 +28,7 @@ require_once( __DIR__ . '/includes/helpers/sidebar.php');
 require_once( __DIR__ . '/includes/helpers/taxonomy.php');
 require_once( __DIR__ . '/includes/helpers/template-tags.php');
 require_once( __DIR__ . '/includes/helpers/theme-options.php');
+require_once( __DIR__ . '/includes/shortcodes/featured-image.php');
 require_once( __DIR__ . '/includes/shortcodes/tip.php');
 
 /**
