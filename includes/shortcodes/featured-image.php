@@ -1,10 +1,9 @@
 <?php
 /**
- * Shortcodes
- * Simple content manipulation that doesn't justify a plugin
+ * Featured Image Shortcode
  *
  * @package DTRT Framework - Theme
- * @subpackage DTRT Framework - Theme Functions
+ * @subpackage DTRT Framework - Shortcodes
  * @since 0.1.0
  * @version 0.1.0
  */
@@ -31,6 +30,10 @@ if ( ! function_exists('wpdtrt_featured_image_shortcode') ) {
     //$description = $image->post_content;
 
     $html = '';
+
+    if ( strpos( $src[0], 'default.png' ) ) {
+      return $html;
+    }
 
     if ( $atts['display'] === 'background' ) {
 
