@@ -73,8 +73,16 @@ function wpdtrt_register_required_plugins() {
     array(
       'name'      => 'UpdraftPlus WordPress Backup Plugin',
       'slug'      => 'updraftplus',
-      //'is_callable' => 'some_function', // regular or Pro
-      'required'  => true,
+      'is_callable' => array( 'UpdraftPlus_Addons_Migrator', 'plugins_loaded' ),
+      'source'        => 'http://dotherightthing.co.nz/downloads/wordpress/plugins/premium/updraftplus.zip',
+      'external_url'  => 'https://updraftplus.com/shop/updraftplus-premium/',
+      'required'      => false,
+    ),
+
+    array(
+      'name'      => 'Yoast SEO',
+      'slug'      => 'wordpress-seo',
+      'required'  => false,
     ),
 
   );
