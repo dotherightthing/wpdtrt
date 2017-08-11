@@ -23,15 +23,19 @@
 ?>
 <?php get_header(); ?>
 
-                <main>
+                <main class="page">
 
                     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-                    <div>
-                        <h1><?php the_title(); ?></h1>
-                        <?php the_excerpt(); ?>
-                        <?php the_content(); ?>
-                    </div>
+                    <article>
+                        <header class="page-header">
+                            <h1><?php the_title(); ?></h1>
+                        </header>
+                        <div class="page-body">
+                            <?php //the_excerpt(); ?>
+                            <?php the_content(); ?>
+                        </div>
+                    </article>
 
                     <?php endwhile;
                     /**
