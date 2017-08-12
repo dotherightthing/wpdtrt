@@ -18,13 +18,14 @@
 // dependencies
 
 var gulp = require('gulp');
-var autoprefixer = require('gulp-autoprefixer'); // CSS prefixes
-var cleanCSS = require('gulp-clean-css'); // CSS minifier
-var concat = require('gulp-concat'); // concatenate files
+
+var postcss = require('gulp-postcss');
+var autoprefixer = require('autoprefixer');
+var pxtorem = require('postcss-pxtorem');
+
 var importjs = require('gulp-importjs'); // js imports
 var rename = require('gulp-rename'); // File renamer
 var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps'); // CSS debugging
 var uglify = require('gulp-uglify'); // JS minifier
 
 // parent theme source directories
@@ -39,15 +40,26 @@ var phpDir = '**/*.php';
 // tasks
 
 gulp.task('css', function () {
+
+  var processors = [
+      autoprefixer({
+        cascade: false
+      }),
+      pxtorem({
+        rootValue: 16,
+        unitPrecision: 5,
+        propList: ['font', 'font-size'],
+        selectorBlackList: [],
+        replace: false,
+        mediaQuery: true,
+        minPixelValue: 0
+      })
+  ];
+
   return gulp
     .src(scssSrc)
-    //.pipe(sourcemaps.init()) // not for production as adds many kb
     .pipe(sass({outputStyle: 'expanded'}))
-    .pipe(autoprefixer({
-        cascade: false
-    }))
-    //.pipe(cleanCSS({compatibility: 'ie8'}))
-    //.pipe(sourcemaps.write()) // not for production as adds many kb
+    .pipe(postcss(processors))
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(cssDir));
 });
