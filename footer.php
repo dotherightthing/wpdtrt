@@ -11,12 +11,13 @@
  */
 ?>
 
-                <p>
-                    <a href="#main">Back to top</a>
-                </p>
-
             </div>
             <!-- /#wrapper -->
+
+			<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
+                <?php get_template_part( 'template-parts/navigation/navigation', 'footer' ); ?>
+            <?php endif; ?>
+
         <?php wp_footer(); ?>
     </body>
 </html>

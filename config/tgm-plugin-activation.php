@@ -48,6 +48,25 @@ function wpdtrt_register_required_plugins() {
       'required'  => false,
     ),
 
+    /**
+     * Disable Emojis plugin
+     * _wpemojiSettings script tag is output into the <head> rather than the footer, which is bad for page speed
+     * additionally, async script loaders like Google's webfont.js inject themselves before the first script tag, which compounds the problem
+     */
+    array(
+      'name'      => 'Disable Emojis',
+      'slug'      => 'disable-emojis',
+      'required'  => false,
+    ),
+
+    array(
+      'name'          => 'DTRT Responsive Nav',
+      'slug'          => 'wpdtrt-responsive-nav',
+      'source'        => 'https://github.com/dotherightthing/wpdtrt-responsive-nav/archive/master.zip',
+      'external_url'  => 'https://github.com/dotherightthing/wpdtrt-responsive-nav',
+      'required'      => false,
+    ),
+
     // Debugging & Maintenance
     array(
       'name'      => 'Maintenance Switch',

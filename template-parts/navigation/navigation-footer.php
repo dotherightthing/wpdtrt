@@ -1,6 +1,9 @@
 <?php
 /**
- * Displays top navigation
+ * Displays footer navigation
+ *  This is a duplicate of header navigation,
+ *  which is shown on mobile devices
+ *  when JS is disabled.
  *
  * @package DTRT Framework - Theme
  * @subpackage DTRT Framework - Theme Templates
@@ -10,7 +13,7 @@
 
 ?>
 <div>
-    <nav role="navigation" aria-label="<?php esc_attr_e( 'Header Menu', 'wpdtrt' ); ?>">
+    <nav role="navigation" aria-label="<?php esc_attr_e( 'Footer Menu', 'wpdtrt' ); ?>">
         <?php
             /**
              * wp_page_menu: 2.7.0+
@@ -21,12 +24,12 @@
                  * Apply Appearance > Menus > Menu Structure
                  * otherwise fallback_cb is used
                  */
-                'menu' => 'header-menu',
+                'menu' => 'header-menu', // intentional duplicate to use same source
                 'container' => 'div',
                 'container_class' => '',
-                'container_id' => '',
+                'container_id' => 'footer-nav',
                 'menu_class' => 'navigation',
-                'menu_id' => 'header-nav',
+                'menu_id' => '',
                 'echo' => true,
                 /**
                  * wp_page_menu() is sorted alphabetically
@@ -43,8 +46,10 @@
                 /**
                  * Theme location must be registered with register_nav_menu()
                  * in order to be selectable by the user.
+                 * @todo why does this work when the full text is
+                 * "Footer Menu (mobile-first noscript fallback)"
                  */
-                'theme_location' => 'Header Menu',
+                'theme_location' => 'Footer Menu',
              ) );
         ?>
     </nav>

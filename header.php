@@ -29,5 +29,6 @@
             </div>
 
             <?php if ( has_nav_menu( 'header-menu' ) ) : ?>
+                <?php echo do_shortcode( '[wpdtrt_responsive_nav header_nav_id="header-nav" footer_nav_id="footer-nav"]' ); ?>
                 <?php get_template_part( 'template-parts/navigation/navigation', 'header' ); ?>
             <?php endif; ?>

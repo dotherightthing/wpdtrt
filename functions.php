@@ -20,7 +20,6 @@ require_once( __DIR__ . '/includes/helpers/debug.php');
 require_once( __DIR__ . '/includes/helpers/dom.php');
 require_once( __DIR__ . '/includes/helpers/form-validaton_comments.php');
 require_once( __DIR__ . '/includes/helpers/js.php');
-require_once( __DIR__ . '/includes/helpers/map.php');
 require_once( __DIR__ . '/includes/helpers/media.php');
 require_once( __DIR__ . '/includes/helpers/menus.php');
 require_once( __DIR__ . '/includes/helpers/permalinks.php');
@@ -29,6 +28,7 @@ require_once( __DIR__ . '/includes/helpers/sidebar.php');
 require_once( __DIR__ . '/includes/helpers/taxonomy.php');
 require_once( __DIR__ . '/includes/helpers/template-tags.php');
 require_once( __DIR__ . '/includes/helpers/theme-options.php');
+
 require_once( __DIR__ . '/includes/shortcodes/featured-image.php');
 
 /**

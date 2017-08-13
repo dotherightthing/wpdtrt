@@ -21,7 +21,8 @@ function wpdtrt_register_menus() {
   register_nav_menus(
     array(
     	// menu location slug => description
-      	"header-menu" => __( 'Header Menu', 'wpdtrt' )
+      	"header-menu" => __( 'Header Menu', 'wpdtrt' ),
+      	"footer-menu" => __( 'Footer Menu (mobile-first noscript fallback)', 'wpdtrt' )
     )
   );
 }
