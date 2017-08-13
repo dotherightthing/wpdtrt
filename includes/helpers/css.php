@@ -9,6 +9,14 @@
  */
 
 /**
+ * Add a 'no-js' class to the body element
+ * @link https://developer.wordpress.org/reference/functions/body_class/
+ */
+add_filter( 'body_class', function( $classes ) {
+  return array_merge( $classes, array( 'wpdtrt-nojs' ) );
+} );
+
+/**
  * Style frontend content & UI
  * @link https://wordpress.org/ideas/topic/add-theme-version-number-to-stylesheet-url-not-wp-version
  */

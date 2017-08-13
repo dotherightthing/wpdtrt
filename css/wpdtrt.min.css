@@ -68,36 +68,43 @@
 .alignnone {
   /* this one is not flagged by Theme Check but is in the list of WordPress Generated Classes */
   margin: 5px 20px 20px 0;
+  margin: 0.3125rem 1.25rem 1.25rem 0;
 }
 
 .aligncenter,
 div.aligncenter {
   display: block;
   margin: 5px auto 5px auto;
+  margin: 0.3125rem auto 0.3125rem auto;
 }
 
 .alignright {
   float: right;
   margin: 5px 0 20px 20px;
+  margin: 0.3125rem 0 1.25rem 1.25rem;
 }
 
 .alignleft {
   float: left;
   margin: 5px 20px 20px 0;
+  margin: 0.3125rem 1.25rem 1.25rem 0;
 }
 
 a img.alignright {
   float: right;
   margin: 5px 0 20px 20px;
+  margin: 0.3125rem 0 1.25rem 1.25rem;
 }
 
 a img.alignnone {
   margin: 5px 20px 20px 0;
+  margin: 0.3125rem 1.25rem 1.25rem 0;
 }
 
 a img.alignleft {
   float: left;
   margin: 5px 20px 20px 0;
+  margin: 0.3125rem 1.25rem 1.25rem 0;
 }
 
 a img.aligncenter {
@@ -112,19 +119,23 @@ a img.aligncenter {
   max-width: 96%;
   /* Image does not overflow the content area */
   padding: 5px 3px 10px;
+  padding: 0.3125rem 0.1875rem 0.625rem;
   text-align: center;
 }
 
 .wp-caption.alignnone {
   margin: 5px 20px 20px 0;
+  margin: 0.3125rem 1.25rem 1.25rem 0;
 }
 
 .wp-caption.alignleft {
   margin: 5px 20px 20px 0;
+  margin: 0.3125rem 1.25rem 1.25rem 0;
 }
 
 .wp-caption.alignright {
   margin: 5px 0 20px 20px;
+  margin: 0.3125rem 0 1.25rem 1.25rem;
 }
 
 .wp-caption img {
@@ -142,6 +153,7 @@ a img.aligncenter {
   line-height: 17px;
   margin: 0;
   padding: 0 4px 5px;
+  padding: 0 0.25rem 0.3125rem;
 }
 
 .screen-reader-text {
@@ -168,8 +180,10 @@ a img.aligncenter {
   left: 5px;
   line-height: normal;
   padding: 15px 23px 14px;
+  padding: 0.9375rem 1.4375rem 0.875rem;
   text-decoration: none;
   top: 5px;
+  top: 0.3125rem;
   width: auto;
   z-index: 100000;
   /* Above WP toolbar. */
@@ -183,12 +197,14 @@ a img.aligncenter {
   display: block;
   text-align: left;
   padding: 0 10px 0 0;
+  padding: 0 0.625rem 0 0;
   margin-bottom: 0;
 }
 
 .bypostauthor > .comment-body > .comment-meta > .comment-author .avatar {
   border: 1px solid #333;
   padding: 2px;
+  padding: 0.125rem;
 }
 
 /**

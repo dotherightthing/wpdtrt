@@ -4,4 +4,3 @@
 var wpdtrt_ui = {};
 
 @import "/js/_init.js";
-@import "/js/_webfont-loader.js";

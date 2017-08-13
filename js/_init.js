@@ -22,9 +22,9 @@ wpdtrt_ui.init = function($) {
     // nada, this is just a hack to make :focus state render on touch
   }, false);
 
-  wpdtrt_ui.webfontloader($);
-  //wpdtrt_ui.get_source_title($);
-  //wpdtrt_ui.editor($);
+  //wpdtrt_ui.webfontloader($);
+
+  $('body').removeClass('wpdtrt-nojs').addClass('wpdtrt-js');
 };
 
 /**
