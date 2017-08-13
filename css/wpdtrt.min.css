@@ -138,6 +138,7 @@ a img.aligncenter {
 
 .wp-caption p.wp-caption-text {
   font-size: 11px;
+  font-size: 0.6875rem;
   line-height: 17px;
   margin: 0;
   padding: 0 4px 5px;
@@ -206,80 +207,4 @@ a img.aligncenter {
   width: 1px;
   /* many screen reader and browser combinations announce broken words as they would appear visually */
   word-wrap: normal !important;
-}
-
-/**
- * Map styles
- *
- * Replicating Godaddy Website Builder implementation for Hands Of Light
- *
- * @package DTRT Framework - Theme
- * @since 0.1.0
- * @version 0.1.0
- */
-.wpdtrt-map {
-  position: relative;
-  margin-top: 20px;
-}
-
-.wpdtrt-map-embed {
-  height: 500px;
-}
-
-.wpdtrt-map-embed .wpdtrt-map-legend {
-  background: #fff;
-  color: #000;
-  border: 1px solid;
-  line-height: initial;
-  padding: 5px;
-  margin: 0;
-}
-
-.wpdtrt-map-embed .leaflet-bottom.leaflet-left .leaflet-control-zoom {
-  bottom: 30px !important;
-}
-
-.wpdtrt-map-embed.leaflet-touch .leaflet-bar a {
-  font-size: 16px;
-  width: 26px;
-  height: 26px;
-  line-height: 23px;
-}
-
-.wpdtrt-map-embed.leaflet-touch .leaflet-control-layers,
-.wpdtrt-map-embed.leaflet-touch .leaflet-bar {
-  border-width: 1px;
-  border-color: #999;
-  border-color: rgba(0, 0, 0, 0.4);
-  border-radius: 3px;
-}
-
-.wpdtrt-map-embed.leaflet-container .leaflet-control-attribution {
-  background-color: rgba(255, 255, 255, 0.5);
-  font-size: 12px;
-}
-
-.wpdtrt-map-embed.leaflet-container .leaflet-control-attribution a {
-  color: inherit;
-  text-decoration: underline;
-}
-
-.wpdtrt-map-link {
-  position: absolute;
-  bottom: 0;
-  z-index: 401;
-  width: 100%;
-}
-
-.wpdtrt-map-link a {
-  font-weight: normal;
-  font-style: normal;
-  line-height: 20px;
-  display: block;
-  height: 20px;
-  padding: 5px 5px 5px 10px;
-  vertical-align: middle;
-  color: white;
-  background-color: #545454;
-  background-color: rgba(0, 0, 0, 0.7);
 }
