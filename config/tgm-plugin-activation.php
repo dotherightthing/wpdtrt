@@ -64,7 +64,8 @@ function wpdtrt_register_required_plugins() {
       'slug'          => 'wpdtrt-responsive-nav',
       'source'        => 'https://github.com/dotherightthing/wpdtrt-responsive-nav/archive/master.zip',
       'external_url'  => 'https://github.com/dotherightthing/wpdtrt-responsive-nav',
-      'required'      => false,
+      'required'      => true,
+      'version'       => '0.1.0',
     ),
 
     // Debugging & Maintenance
