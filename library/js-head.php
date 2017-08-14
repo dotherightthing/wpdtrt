@@ -22,8 +22,11 @@ function wpdtrt_js_head() {
 
   /**
    * Head scripts (head of page)
-   * wp_localize_script makes PHP variables available to the JS
-   * @todo is wp_localize_script required here or only in child theme?
+   * - links an (empty) script file to the head of the pages
+   * - this gives us a placeholder to attach inline scripts to
+   *   via wp_add_inline_script(), rather than hacking wp_head
+   * - the Autoptimize plugin then moves the script file to the bottom of the page,
+   *   leaving the associated inline code in the head where we want it.
    */
   wp_register_script( $header,
     get_template_directory_uri() . '/js/' . $header . '.min.js',
