@@ -48,6 +48,14 @@ function wpdtrt_register_required_plugins() {
       'required'  => false,
     ),
 
+    // PageSpeed
+    array(
+      'name'      => 'Autoptimize',
+      'slug'      => 'autoptimize',
+      'required'  => false,
+    ),
+
+    // PageSpeed
     /**
      * Disable Emojis plugin
      * _wpemojiSettings script tag is output into the <head> rather than the footer, which is bad for page speed
@@ -99,6 +107,7 @@ function wpdtrt_register_required_plugins() {
       'required'      => false,
     ),
 
+    // SEO
     array(
       'name'      => 'Yoast SEO',
       'slug'      => 'wordpress-seo',
