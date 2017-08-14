@@ -21,6 +21,7 @@ var gulp = require('gulp');
 
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
+var csso = require('postcss-csso');
 var pxtorem = require('postcss-pxtorem');
 
 var importjs = require('gulp-importjs'); // js imports
@@ -44,6 +45,11 @@ gulp.task('css', function () {
   var processors = [
       autoprefixer({
         cascade: false
+      }),
+      csso({
+        debug: false,
+        restructure: false,
+        sourceMap: false
       }),
       pxtorem({
         rootValue: 16,
