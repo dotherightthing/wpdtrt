@@ -20,3 +20,15 @@
 		-1px 1px 0 #fff,
 		 1px 1px 0 #fff;
 }
+
+.wpdtrt-js-webfont {
+    // prevent FOUC (Times New Roman) while webfont script is loading
+    // wpdtrt-js is added as soon as page head loads
+    .wpdtrt-js & {
+        visibility: hidden;
+    }
+	// wf-active is added after the webfont loader has finished
+    .wf-active.wpdtrt-js & {
+        visibility: visible;
+    }
+}
