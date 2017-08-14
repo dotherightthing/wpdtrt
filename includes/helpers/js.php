@@ -9,6 +9,58 @@
  */
 
 /**
+ * Remove render blocking jQuery scripts from header
+ * @src https://www.oxhow.com/optimize-defer-javascript-wordpress/
+ */
+//add_action('wp_print_scripts', 'wpdtrt_js_jquery'); // separates scripts
+add_action('template_redirect', 'wpdtrt_js_jquery'); // prints scripts together
+
+function wpdtrt_js_jquery() {
+
+  /**
+   * Link assets to theme version to ensure user gets the latest version
+   * @see https://wordpress.org/ideas/topic/add-theme-version-number-to-stylesheet-url-not-wp-version
+   */
+  $theme_version = wp_get_theme()->Version;
+
+  $site_url = get_site_url();
+
+  /**
+   * Attach scripts to bottom of the page
+   * to prevent blocking behaviour
+   * which affects PageSpeed
+   * @link http://www.wpbeginner.com/wp-tutorials/how-to-move-javascripts-to-the-bottom-or-footer-in-wordpress/
+   */
+  $attach_to_footer = true;
+
+  if ( is_admin() ) {
+    return;
+  }
+
+  wp_deregister_script('jquery');
+  wp_deregister_script('jquery-migrate');
+
+  wp_register_script(
+    'jquery',
+    $site_url . '/wp-includes/js/jquery/jquery.js',
+    false,
+    '1.12.4',
+    $attach_to_footer
+  );
+
+  wp_register_script(
+    'jquery-migrate',
+    $site_url . '/wp-includes/js/jquery/jquery-migrate.min.js',
+    array('jquery'),
+    '1.4.1',
+    $attach_to_footer
+  );
+
+  wp_enqueue_script('jquery');
+  wp_enqueue_script('jquery-migrate');
+}
+
+/**
   * Load custom JavaScripts from the child theme
   * Get jQuery version: jQuery().jquery
   *
@@ -52,6 +104,8 @@ function wpdtrt_js() {
   //add_action('wp_footer', 'wp_enqueue_scripts', 5);
   //add_action('wp_footer', 'wp_print_head_scripts', 5);
 
+
+
   /**
    * Deregister only those scripts which are incorrectly output into the head.
    * Then reregister these to load into the footer.
@@ -59,7 +113,7 @@ function wpdtrt_js() {
    * @see http://justintadlock.com/archives/2009/08/06/how-to-disable-scripts-and-styles
    */
 
-  add_action( 'wp_print_scripts', 'wpdtrt_deregister_head_js', 100 );
+  //add_action( 'wp_print_scripts', 'wpdtrt_deregister_head_js', 100 );
 
   function wpdtrt_deregister_head_js() {
 
@@ -135,10 +189,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 /**
   * Move blocking JavaScript from <head> to bottom of <body>
+  *   Removed as not required when Autoptimize is used
   * @param string $script_hook
   * @example wpdtrt_dbth_remove_blocking_js( 'twentysixteen_javascript_detection' );
   */
-add_action( 'after_setup_theme', 'wpdtrt_move_blocking_js' );
+//add_action( 'after_setup_theme', 'wpdtrt_move_blocking_js' );
 
 function wpdtrt_move_blocking_js( $script_hook ) {
   remove_action('wp_head', $script_hook, 0);
