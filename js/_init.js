@@ -2,8 +2,6 @@
 /* globals jQuery, WebFontConfig */
 /**
  * Theme JavaScript functions
- * Displays a list of posts in excerpt or full-length form.
- * Include wp_link_pages() to support navigation links within posts.
  *
  * @package DTRT Framework - Theme
  * @since 0.1.0
