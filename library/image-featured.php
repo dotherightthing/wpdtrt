@@ -20,6 +20,9 @@ function wpdtrt_image_featured_shortcode( $atts ) {
 
   $alt = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true);
 
+  // Note: Hands Of Light ACF field of type "Page Link"
+  $wpdtrt_featured_link = get_field('wpdtrt_featured_image_link');
+
   //$caption = get_post( $thumbnail_id )->post_excerpt;
   //$image_title = $attachment->post_title;
   //$caption = $attachment->post_excerpt;
@@ -39,7 +42,17 @@ function wpdtrt_image_featured_shortcode( $atts ) {
   else if ( $atts['display'] === 'inline' ) {
 
     $html .= '<div class="wpdtrt-featured-image">';
+
+    if ( $wpdtrt_featured_image_link ):
+      $html .= '<a href="' . $wpdtrt_featured_image_link . '">';
+    endif;
+
     $html .= '<img src="' . $src[0] . '" alt="' . $alt . '" />';
+
+    if ( $wpdtrt_featured_image_link ):
+      $html .= '</a>';
+    endif;
+
     $html .= '</div>';
 
   }
