@@ -5,7 +5,7 @@
  * @package DTRT Framework - Theme
  * @subpackage DTRT Framework - Library
  * @since 0.1.0
- * @version 0.1.0
+ * @version 0.3.0
  */
 
 add_shortcode( 'wpdtrt-featured-image', 'wpdtrt_image_featured_shortcode' );
@@ -21,7 +21,7 @@ function wpdtrt_image_featured_shortcode( $atts ) {
   $alt = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true);
 
   // Note: Hands Of Light ACF field of type "Page Link"
-  $wpdtrt_featured_link = get_field('wpdtrt_featured_image_link');
+  $wpdtrt_featured_image_link = get_field('wpdtrt_featured_image_link');
 
   //$caption = get_post( $thumbnail_id )->post_excerpt;
   //$image_title = $attachment->post_title;
