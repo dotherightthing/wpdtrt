@@ -35,9 +35,9 @@ require_once( __DIR__ . '/library/validation-comment-form.php');
  * Weather
  * @todo Make plugin
  */
-require_once( __DIR__ . '/library/weather.php');
-require_once( __DIR__ . '/vendor/bower_components/wp-darksky/wp-darksky.php');
-require_once( __DIR__ . '/vendor/bower_components/12e9915ad81d62a6991c/wp-darksky-weather-icon-forecast.php');
+//require_once( __DIR__ . '/library/weather.php');
+//require_once( __DIR__ . '/vendor/bower_components/wp-darksky/wp-darksky.php');
+//require_once( __DIR__ . '/vendor/bower_components/12e9915ad81d62a6991c/wp-darksky-weather-icon-forecast.php');
 
 // Config
 require_once( __DIR__ . '/vendor/tgm-plugin-activation/class-tgm-plugin-activation.php');
