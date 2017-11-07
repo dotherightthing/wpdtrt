@@ -2,7 +2,7 @@
 Contributors: dotherightthingnz
 Requires at least: WordPress 4.8
 Tested up to: WordPress 4.8
-Version: 0.1.0
+Version: 0.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: http://dotherightthing.co.nz
