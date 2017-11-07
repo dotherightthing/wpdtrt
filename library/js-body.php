@@ -40,7 +40,7 @@ function wpdtrt_js_body() {
    * @todo is wp_localize_script required here or only in child theme?
    */
   wp_register_script( $footer,
-    get_template_directory_uri() . '/js/' . $footer . '.min.js',
+    get_template_directory_uri() . '/js/' . $footer . '.js',
     array('jquery'),
     $theme_version,
     $attach_to_footer

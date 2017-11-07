@@ -44,7 +44,7 @@ function wpdtrt_js_jquery() {
 
   wp_register_script(
     'jquery-migrate',
-    $site_url . '/wp-includes/js/jquery/jquery-migrate.min.js',
+    $site_url . '/wp-includes/js/jquery/jquery-migrate.js',
     array('jquery'),
     '1.4.1',
     $attach_to_footer

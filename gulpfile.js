@@ -46,11 +46,6 @@ gulp.task('css', function () {
       autoprefixer({
         cascade: false
       }),
-      csso({
-        debug: false,
-        restructure: false,
-        sourceMap: false
-      }),
       pxtorem({
         rootValue: 16,
         unitPrecision: 5,
@@ -82,7 +77,6 @@ gulp.task('css', function () {
     .src(scssSrc)
     .pipe(sass({outputStyle: 'expanded'}))
     .pipe(postcss(processors))
-    .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(cssDir));
 });
 
@@ -90,8 +84,6 @@ gulp.task('js', function () {
   return gulp
     .src( jsSrc )
     .pipe( importjs() )
-    //.pipe( uglify() )
-    .pipe( rename({ extname: '.min.js' }) )
     .pipe( gulp.dest( jsDir ) );
 });
 

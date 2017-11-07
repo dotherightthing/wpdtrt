@@ -20,7 +20,7 @@ function wpdtrt_css() {
   $parent_style = 'wpdtrt';
 
   wp_enqueue_style( $parent_style,
-    get_template_directory_uri() . '/css/' . $parent_style . '.min.css',
+    get_template_directory_uri() . '/css/' . $parent_style . '.css',
     array(),
     $theme_version
   );
@@ -41,7 +41,7 @@ function wpdtrt_css_admin() {
   $parent_style = 'wpdtrt';
 
   wp_enqueue_style( $parent_style . '-css-admin',
-    get_template_directory_uri() . '/css/' . $parent_style . '-admin.min.css',
+    get_template_directory_uri() . '/css/' . $parent_style . '-admin.css',
     array(),
     $theme_version
   );
@@ -65,7 +65,7 @@ function wpdtrt_css_editor() {
   $parent_style = 'wpdtrt';
 
   add_editor_style(
-    get_template_directory_uri() . '/css/' . $parent_style . '-editor.min.css'
+    get_template_directory_uri() . '/css/' . $parent_style . '-editor.css'
   );
 }
 
