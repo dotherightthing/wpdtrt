@@ -21,21 +21,15 @@ var gulp = require('gulp');
 
 var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
-var csso = require('postcss-csso');
 var pxtorem = require('postcss-pxtorem');
 
-var importjs = require('gulp-importjs'); // js imports
-var rename = require('gulp-rename'); // File renamer
 var sass = require('gulp-sass');
-var uglify = require('gulp-uglify'); // JS minifier
 
 // parent theme source directories
 
-var jsSrc = './js/*.jsrc';
 var scssSrc = './scss/*.scss';
 
 var cssDir = './css/';
-var jsDir = './js';
 var phpDir = '**/*.php';
 
 // tasks
@@ -80,13 +74,6 @@ gulp.task('css', function () {
     .pipe(gulp.dest(cssDir));
 });
 
-gulp.task('js', function () {
-  return gulp
-    .src( jsSrc )
-    .pipe( importjs() )
-    .pipe( gulp.dest( jsDir ) );
-});
-
 /*
 gulp.task('php', function () {
   return gulp
@@ -105,5 +92,5 @@ gulp.task('php', function () {
 });
 */
 
-gulp.task( 'default', ['css','js'] );
+gulp.task( 'default', ['css'] );
 
