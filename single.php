@@ -36,11 +36,9 @@
                 </main>
 
                 <aside>
-                    <?php get_sidebar('sidebar-1'); ?>
+                    <?php get_sidebar('widget-tests'); ?>
                 </aside>
 
                 <?php endwhile ?>
-
-                <?php endif; ?>
 
 <?php get_footer(); ?>

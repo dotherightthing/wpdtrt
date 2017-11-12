@@ -30,6 +30,7 @@ require_once( __DIR__ . '/library/permalink-placeholders.php');
 require_once( __DIR__ . '/library/post-type.php');
 require_once( __DIR__ . '/library/theme-options.php');
 require_once( __DIR__ . '/library/validation-comment-form.php');
+require_once( __DIR__ . '/library/sidebars.php');
 
 /**
  * Weather
