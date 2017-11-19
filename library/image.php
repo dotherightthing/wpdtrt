@@ -259,6 +259,10 @@ function wpdtrt_image_full_quality( $quality ) {
 * @todo Update to query all fields in an ACF fieldgroup
 * @todo Create a gallery plugin for this
 */
+
+// quick patch so I can write some content
+if ( ! function_exists('wpdtrt_thumbnail_queryparams') ) {
+
 function wpdtrt_thumbnail_queryparams($html, $id, $size, $permalink) {
 
   if ( false !== $permalink ) {
@@ -350,5 +354,7 @@ function wpdtrt_thumbnail_queryparams($html, $id, $size, $permalink) {
 }
 
 add_filter( 'wp_get_attachment_link', 'wpdtrt_thumbnail_queryparams', 1, 4 );
+
+}
 
 ?>
