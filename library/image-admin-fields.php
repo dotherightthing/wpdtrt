@@ -63,6 +63,27 @@ function gps_dms_to_decimal( $reference_direction, $degrees, $minutes, $seconds 
 }
 
 /**
+ * Add read-only Heading 'field' to media uploader, for GPS dependent functions (map, weather)
+ *
+ * @param $form_fields array, fields to include in attachment form
+ * @param $post object, attachment record in database
+ * @return $form_fields, modified form fields
+ */
+
+function dtrt_attachment_field_heading( $form_fields, $post ) {
+  $form_fields['dtrt-gps-heading'] = array(
+    'label' => '<h2>WPDTRT Theme</h2>',
+    'input' => 'html',
+    'html' => '<span></span>',
+  );
+
+  return $form_fields;
+}
+
+add_filter( 'attachment_fields_to_edit', 'dtrt_attachment_field_heading', 10, 2 );
+
+
+/**
  * Add GPS field to media uploader, for GPS dependent functions (map, weather)
  * Writing the EXIF back to the image is a hassle, so we can query the GPS in the future, instead.
  *
@@ -100,7 +121,7 @@ function dtrt_attachment_field_gps( $form_fields, $post ) {
     'label' => 'GPS',
     'input' => 'text',
     'value' => $value,
-    'helps' => 'Latitide,Longitude (WPDTRT)',
+    'helps' => 'Latitide,Longitude',
   );
 
   return $form_fields;
