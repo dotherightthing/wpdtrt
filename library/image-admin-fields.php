@@ -68,6 +68,7 @@ function gps_dms_to_decimal( $reference_direction, $degrees, $minutes, $seconds 
  * @param $form_fields array, fields to include in attachment form
  * @param $post object, attachment record in database
  * @return $form_fields, modified form fields
+ * @since 0.2.0
  */
 
 function dtrt_attachment_field_heading( $form_fields, $post ) {
