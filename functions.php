@@ -11,7 +11,6 @@
 require_once( __DIR__ . '/library/acf.php');
 require_once( __DIR__ . '/library/archive-title.php');
 require_once( __DIR__ . '/library/content.php');
-require_once( __DIR__ . '/library/content-sections.php');
 require_once( __DIR__ . '/library/css.php');
 require_once( __DIR__ . '/library/debug.php');
 require_once( __DIR__ . '/library/excerpt.php');
