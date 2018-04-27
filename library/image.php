@@ -51,22 +51,4 @@ function wpdtrt_get_attachment_gallery( $post_id = NULL ) {
   return $attachment_gallery;
 }
 
-/**
- * Filters the image quality for thumbnails to be at the highest ratio possible.
- *
- * Supports the new 'wp_editor_set_quality' filter added in WP 3.5.
- *
- * @since 1.0.0
- *
- * @param int $quality  The default quality (90).
- * @return int $quality Amended quality (100).
- * source: https://thomasgriffin.io/how-to-change-the-quality-of-wordpress-thumbnails/
- */
-add_filter( 'jpeg_quality', 'wpdtrt_image_full_quality' );
-add_filter( 'wp_editor_set_quality', 'wpdtrt_image_full_quality' );
-
-function wpdtrt_image_full_quality( $quality ) {
-  return 100;
-}
-
 ?>
