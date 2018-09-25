@@ -19,17 +19,15 @@
 
 var gulp = require('gulp');
 
-var postcss = require('gulp-postcss');
 var autoprefixer = require('autoprefixer');
+var phplint = require('gulp-phplint');
+var postcss = require('gulp-postcss');
 var pxtorem = require('postcss-pxtorem');
-
 var sass = require('gulp-sass');
 
 // parent theme source directories
-
-var scssSrc = './scss/*.scss';
-
 var cssDir = './css/';
+var scssSrc = './scss/*.scss';
 var phpDir = '**/*.php';
 
 // tasks

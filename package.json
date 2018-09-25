@@ -35,5 +35,9 @@
   ],
   "license": "ISC",
   "homepage": "http://dotherightthing.co.nz",
-  "srcDir": "/Volumes/DanBackup/Websites/wpdtrt"
+  "srcDir": "/Volumes/DanBackup/Websites/wpdtrt",
+  "dependencies": {
+    "generator-wp-plugin-boilerplate": "git+https://github.com/dotherightthing/generator-wp-theme-boilerplate.git",
+    "jquery-validation": "^1.18.0"
+  }
 }
