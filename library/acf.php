@@ -13,24 +13,47 @@
  */
 // add_filter('acf/settings/show_admin', '__return_false');
 
-/**
- * Automatically save config to JSON files, for easier migration & debugging
- * @uses https://www.advancedcustomfields.com/resources/local-json/
- */
-
-if ( function_exists('register_field_group') ) {
-
-  add_filter('acf/settings/save_json', 'wpdtrt_acf_config_directory');
-
-  function wpdtrt_acf_config_directory( $path ) {
-    // update save path
+if ( ! function_exists( 'wpdtrt_acf_json_save_point' ) ) {
+  /**
+   * Configure custom Local JSON save point (ACF 5.0.0+)
+   *
+   * @param string $path Save path.
+   * @since 0.1.0
+   * @uses https://www.advancedcustomfields.com/resources/local-json/
+   */
+  function wpdtrt_acf_json_save_point( $path ) {
+    // update path.
     $path = get_stylesheet_directory() . '/config';
+
     return $path;
   }
+
+  add_filter( 'acf/settings/save_json', 'wpdtrt_acf_json_save_point' );
+}
+
+if ( ! function_exists( 'wpdtrt_acf_json_load_point' ) ) {
+  /**
+   * Configure custom Local JSON load point (ACF 5.0.0+)
+   *
+   * @param array $paths Load paths.
+   * @since 0.1.0
+   * @uses https://www.advancedcustomfields.com/resources/local-json/
+   */
+  function wpdtrt_acf_json_load_point( $paths ) {
+    // remove original path (optional).
+    unset( $paths[0] );
+
+    // append path.
+    $paths[] = get_stylesheet_directory() . '/config';
+
+    return $paths;
+  }
+
+  add_filter( 'acf/settings/load_json', 'wpdtrt_acf_json_load_point' );
 }
 
 /**
- * Theme options menu
+ * Theme options menu (ACF PRO 5.0.0+)
  * The actual fields are set up in ACF
  *
  * @see https://www.advancedcustomfields.com/resources/options-page/
