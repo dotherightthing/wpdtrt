@@ -5,7 +5,7 @@
  * Note that settings made in Theme A's Customiser will be lost when switching to Theme B
  *
  * @package WPDTRT
- * @subpackage DTRT Framework - Library
+ * @subpackage WPDTRT - Library
  * @since 0.1.0
  * @version 0.1.0
  */
