@@ -1,7 +1,7 @@
 .DS_Store
 css/*
 debug.log
-documentation
+docs
 generators
 js/*-es5.js
 *sublime-*
