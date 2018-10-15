@@ -3,7 +3,7 @@
     "version": "0.2.1",
     "description": "Parent theme for WordPress theme development",
     "type": "library",
-    "keywords": ["framework"],
+    "keywords": ["theme"],
     "license": "ISC",
     "authors": [
         {
