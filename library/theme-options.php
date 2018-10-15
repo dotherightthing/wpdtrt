@@ -83,8 +83,8 @@ function wpdtrt_theme_setup() {
     'search-form',
     'comment-form',
     'comment-list',
-    'gallery', // affects wpdtrt-dbth presentation
-    'caption',
+    'gallery', // affects wpdtrt-gallery presentation in wpdtrt-dbth
+    'caption', // affects wpdtrt-gallery presentation in wpdtrt-dbth
   ) );
 
   /**
