@@ -149,8 +149,8 @@ function get_js_files() {
     const jsFiles = [
         "./js/frontend.js",
         "./js/backend.js",
-        `${parent_theme_path}js/frontend.js`,
-        `${parent_theme_path}js/backend.js`
+        `${parent_theme_path}js/wpdtrt_footer.js`,
+        `${parent_theme_path}js/wpdtrt_header.js`
     ];
 
     return jsFiles;
