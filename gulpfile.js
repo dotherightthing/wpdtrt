@@ -101,7 +101,7 @@ function get_parent_theme_path() {
     let path = "";
 
     if (! is_parent_theme() ) {
-        path = "../wpdtrt/";
+        path = "vendor/dotherightthing/wpdtrt/";
     }
 
     return path;
