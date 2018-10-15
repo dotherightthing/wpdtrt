@@ -1,31 +1,35 @@
-/**
- * Theme Requirements
- * aka WordPress Generated Classes
- * As flagged by the Theme Check plugin
- * Copied from twentyseventeen
- * @uses https://codex.wordpress.org/CSS#WordPress_Generated_Classes
- *
- * @package DTRT Framework - Theme
- * @since 0.1.0
- * @version 0.1.0
- */
+//
+// Theme Requirements
+// aka WordPress Generated Classes
+// As flagged by the Theme Check plugin
+// Copied from twentyseventeen
+// @uses https://codex.wordpress.org/CSS#WordPress_Generated_Classes
+//
+// @package     WPDTRT
+// @since       0.1.0
+//
 
 // https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 .alignnone {
-/* this one is not flagged by Theme Check but is in the list of WordPress Generated Classes */
+    // this one is not flagged by Theme Check but is in the list of WordPress Generated Classes
     margin: 5px 20px 20px 0;
 }
 
 // https://codex.wordpress.org/CSS#WordPress_Generated_Classes
-.aligncenter,
-div.aligncenter {
+.aligncenter {
     display: block;
-    margin: 5px auto 5px auto;
+    margin: 5px auto;
+}
+
+div {
+    &.aligncenter {
+        @extend .aligncenter;
+    }
 }
 
 // https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 .alignright {
-    float:right;
+    float: right;
     margin: 5px 0 20px 20px;
 }
 
@@ -35,118 +39,122 @@ div.aligncenter {
     margin: 5px 20px 20px 0;
 }
 
-// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
-a img.alignright {
-    float: right;
-    margin: 5px 0 20px 20px;
-}
+a {
+    // https://codex.wordpress.org/CSS#WordPress_Generated_Classes
+    img {
+        &.alignright {
+            float: right;
+            margin: 5px 0 20px 20px;
+        }
 
-// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
-a img.alignnone {
-    margin: 5px 20px 20px 0;
-}
+        &.alignnone {
+            margin: 5px 20px 20px 0;
+        }
 
-// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
-a img.alignleft {
-    float: left;
-    margin: 5px 20px 20px 0;
-}
+        &.alignleft {
+            float: left;
+            margin: 5px 20px 20px 0;
+        }
 
-// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
-a img.aligncenter {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+        &.aligncenter {
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+        }
+    }
 }
 
 // https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 .wp-caption {
+    max-width: 96%; // Image does not overflow the content area
     background: #fff;
-    border: 1px solid #f0f0f0;
-    max-width: 96%; /* Image does not overflow the content area */
-    padding: 5px 3px 10px;
     text-align: center;
-}
+    padding: 5px 3px 10px;
+    border: 1px solid #f0f0f0;
 
-// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
-.wp-caption.alignnone {
-    margin: 5px 20px 20px 0;
-}
+    &.alignnone {
+        margin: 5px 20px 20px 0;
+    }
 
-// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
-.wp-caption.alignleft {
-    margin: 5px 20px 20px 0;
-}
+    &.alignleft {
+        margin: 5px 20px 20px 0;
+    }
 
-// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
-.wp-caption.alignright {
-    margin: 5px 0 20px 20px;
-}
+    &.alignright {
+        margin: 5px 0 20px 20px;
+    }
 
-// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
-.wp-caption img {
-    border: 0 none;
-    height: auto;
-    margin: 0;
-    max-width: 98.5%;
-    padding: 0;
-    width: auto;
-}
+    img {
+        width: auto;
+        height: auto;
+        max-width: 98.5%;
+        padding: 0;
+        border: 0 none;
+        margin: 0;
+    }
 
-// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
-.wp-caption p.wp-caption-text {
-    font-size: 11px;
-    line-height: 17px;
-    margin: 0;
-    padding: 0 4px 5px;
+    p {
+        &.wp-caption-text {
+            font-size: 11px;
+            line-height: 17px;
+            padding: 0 4px 5px;
+            margin: 0;
+        }
+    }
 }
 
 // https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 .screen-reader-text {
-  clip: rect(1px, 1px, 1px, 1px);
-  position: absolute !important;
-        white-space: nowrap;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-}
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+    white-space: nowrap;
+    overflow: hidden;
 
-// https://codex.wordpress.org/CSS#WordPress_Generated_Classes
-.screen-reader-text:focus {
-  background-color: #f1f1f1;
-  border-radius: 3px;
-  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-  clip: auto !important;
-  color: #21759b;
-  display: block;
-  font-size: 14px;
-  font-size: 0.875rem;
-  font-weight: bold;
-  height: auto;
-  left: 5px;
-  line-height: normal;
-  padding: 15px 23px 14px;
-  text-decoration: none;
-  top: 5px;
-  width: auto;
-  z-index: 100000; /* Above WP toolbar. */
+    &:focus {
+        display: block;
+        top: 5px;
+        left: 5px;
+        z-index: 100000; // Above WP toolbar
+        width: auto;
+        height: auto;
+        background-color: #f1f1f1;
+        clip: auto !important;
+        color: #21759b;
+        font-size: 14px;
+        line-height: normal;
+        font-weight: bold;
+        text-decoration: none;
+        padding: 15px 23px 14px;
+        border-radius: 3px;
+        box-shadow: 0 0 2px 2px rgba(0, 0, 0, .6);
+    }
 }
 
 // twentyseventeen
 .sticky {
-  position: relative;
+    position: relative;
 }
 
 // twentyseventeen
 .gallery-caption {
-  display: block;
-  text-align: left;
-  padding: 0 10px 0 0;
-  margin-bottom: 0;
+    display: block;
+    text-align: left;
+    padding: 0 10px 0 0;
+    margin-bottom: 0;
 }
 
 // twentyseventeen
-.bypostauthor > .comment-body > .comment-meta > .comment-author .avatar {
-  border: 1px solid #333;
-  padding: 2px;
+.bypostauthor {
+    > .comment-body {
+        > .comment-meta {
+            > .comment-author {
+                .avatar {
+                    padding: 2px;
+                    border: 1px solid #333;
+                }
+            }
+        }
+    }
 }

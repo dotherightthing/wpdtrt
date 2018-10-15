@@ -5,8 +5,8 @@
  *  which is shown on mobile devices
  *  when JS is disabled.
  *
- * @package DTRT Framework - Theme
- * @subpackage DTRT Framework - Theme Templates
+ * @package WPDTRT
+ * @subpackage WPDTRT Templates
  * @since 0.1.0
  * @version 0.1.0
  */

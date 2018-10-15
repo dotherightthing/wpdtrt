@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package DTRT Framework - Theme
+ * @package WPDTRT
  * @since 0.1.0
  * @version 0.1.0
  */

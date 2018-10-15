@@ -2,7 +2,7 @@
 /**
  * Hooks and Filters
  *
- * @package DTRT Framework - Theme
+ * @package WPDTRT
  * @subpackage DTRT Framework - Cheatsheets
  * @since 0.1.0
  * @version 0.1.0

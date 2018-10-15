@@ -1,15 +1,16 @@
-/**
- * SCSS Helpers
- *
- * @package DTRT Framework - Theme
- * @since 0.1.0
- * @version 0.1.0
- */
+//
+// SCSS Helpers
+//
+// @package     WPDTRT
+// @since       0.1.0
+//
 
-p:empty {
-	display: none;
+p {
+    &:empty {
+        display: none;
+    }
 }
 
 a {
-	word-wrap: break-word;
+    word-wrap: break-word;
 }

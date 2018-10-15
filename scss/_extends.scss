@@ -1,24 +1,24 @@
-/**
- * SCSS Extends
- *
- * @package DTRT Framework - Theme
- * @since 0.1.0
- * @version 0.1.0
- */
+//
+// SCSS silent @extends (Helpers)
+//
+// @package     WPDTRT
+// @since       0.1.0
+//
 
 .font-sharpen,
 .text-sharpen {
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    // Better Font Rendering
+    // sass-lint:disable no-vendor-prefixes
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .text-outline_white {
-	text-shadow:
-		-1px -1px 0 #fff,
-		1px -1px 0 #fff,
-		-1px 1px 0 #fff,
-		 1px 1px 0 #fff;
+    text-shadow:
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;
 }
 
 .wpdtrt-js-webfont {
@@ -27,8 +27,11 @@
     .wpdtrt-js & {
         visibility: hidden;
     }
-	// wf-active is added after the webfont loader has finished
-    .wf-active.wpdtrt-js & {
-        visibility: visible;
+
+    // wf-active is added after the webfont loader has finished
+    .wf-active {
+        &.wpdtrt-js & {
+            visibility: visible;
+        }
     }
 }

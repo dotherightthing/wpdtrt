@@ -4,7 +4,7 @@
  * Controls which options users can customise via Appearance > Customise
  * Note that settings made in Theme A's Customiser will be lost when switching to Theme B
  *
- * @package DTRT Framework - Theme
+ * @package WPDTRT
  * @subpackage DTRT Framework - Library
  * @since 0.1.0
  * @version 0.1.0

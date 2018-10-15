@@ -3,8 +3,8 @@
  * Include this partial immediately after the opening <body> tag.
  * The <head> portion is loaded in js.php
  *
- * @package DTRT Framework - Theme
- * @subpackage DTRT Framework - Theme Templates
+ * @package WPDTRT
+ * @subpackage WPDTRT Templates
  * @since 0.1.0
  * @version 0.1.0
  * @see http://kb.dotherightthing.dan/seo/google-tag-manager-gtm/

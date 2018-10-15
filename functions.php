@@ -2,7 +2,7 @@
 /**
  * Function library
  *
- * @package DTRT Framework - Theme
+ * @package WPDTRT
  * @subpackage DTRT Framework - Library
  * @since 0.1.0
  * @version 0.1.0
@@ -30,14 +30,6 @@ require_once( __DIR__ . '/library/post-type.php');
 require_once( __DIR__ . '/library/theme-options.php');
 require_once( __DIR__ . '/library/validation-comment-form.php');
 require_once( __DIR__ . '/library/sidebars.php');
-
-/**
- * Weather
- * @todo Make plugin
- */
-//require_once( __DIR__ . '/library/weather.php');
-//require_once( __DIR__ . '/vendor/bower_components/wp-darksky/wp-darksky.php');
-//require_once( __DIR__ . '/vendor/bower_components/12e9915ad81d62a6991c/wp-darksky-weather-icon-forecast.php');
 
 // Config
 require_once( __DIR__ . '/vendor/tgm-plugin-activation/class-tgm-plugin-activation.php');

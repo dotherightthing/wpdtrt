@@ -1,0 +1,45 @@
+{
+    "name": "dotherightthing/wpdtrt",
+    "version": "0.2.1",
+    "description": "Parent theme for WordPress theme development",
+    "type": "library",
+    "keywords": ["framework"],
+    "license": "ISC",
+    "authors": [
+        {
+            "name": "Dan Smith",
+            "email": "dev@dotherightthing.co.nz",
+            "homepage": "http://dotherightthing.co.nz",
+            "role": "Developer"
+        }
+    ],
+    "support": {
+        "email": "support@dotherightthing.co.nz",
+        "issues": "https://github.com/dotherightthing/wpdtrt/issues"
+    },
+    "require": {
+        "dotherightthing/wpdtrt-debug": "^1.0.0",
+        "tgmpa/tgm-plugin-activation": "dev-autoloader",
+        "php": ">=5.6.30"
+    },
+    "require-dev": {
+        "phpdocumentor/phpdocumentor": "2.9.0",
+        "wp-coding-standards/wpcs": "^0.14.1",
+        "DealerDirect/phpcodesniffer-composer-installer": "^0.4.4"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/dotherightthing/wpdtrt-debug"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/dotherightthing/tgm-plugin-activation"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "vendor-dir": "vendor"
+    }
+}

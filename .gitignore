@@ -1,7 +1,10 @@
-generators
-node_modules
-vendor
 .DS_Store
+css/*
 debug.log
-*.sublime*
 documentation
+generators
+js/*-es5.js
+*sublime-*
+node_modules/*
+release.zip
+vendor/*

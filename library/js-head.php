@@ -2,7 +2,7 @@
 /**
  * JavaScript - <head>
  *
- * @package DTRT Framework - Theme
+ * @package WPDTRT
  * @subpackage DTRT Framework - Library
  * @since 0.1.0
  * @version 0.1.0
@@ -29,7 +29,7 @@ function wpdtrt_js_head() {
    *   leaving the associated inline code in the head where we want it.
    */
   wp_register_script( $header,
-    get_template_directory_uri() . '/js/' . $header . '.js',
+    get_template_directory_uri() . '/js/' . $header . '-es5.js',
     array(),
     $theme_version,
     false

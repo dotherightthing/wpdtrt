@@ -8,8 +8,8 @@
  * Most of these are inherited
  * The extra options allow for granular control
  *
- * @package DTRT Framework - Theme
- * @subpackage DTRT Framework - Theme Functions
+ * @package WPDTRT
+ * @subpackage WPDTRT Functions
  * @since 0.1.0
  * @version 0.1.0
  */

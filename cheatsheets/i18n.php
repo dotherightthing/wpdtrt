@@ -2,7 +2,7 @@
 /**
  * Internationalisation (I18n)
  *
- * @package DTRT Framework - Theme
+ * @package WPDTRT
  * @subpackage DTRT Framework - Cheatsheets
  * @since 0.1.0
  * @version 0.1.0
@@ -20,8 +20,8 @@
  * @see http://codex.wordpress.org/Plugin_API/Filter_Reference/gettext
  * @todo https://www.npmjs.com/package/gulp-wp-pot
  *
- * @package DTRT Framework - Theme
- * @subpackage DTRT Framework - Theme Functions
+ * @package WPDTRT
+ * @subpackage WPDTRT Functions
  * @since 0.1.0
  * @version 0.1.0
  */

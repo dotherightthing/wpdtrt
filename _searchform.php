@@ -6,7 +6,7 @@
  * @link https://premium.wpmudev.org/blog/build-your-own-custom-wordpress-search/
  * @link https://css-tricks.com/webkit-html5-search-inputs/
  *
- * @package DTRT Framework - Theme
+ * @package WPDTRT
  * @since 0.1.0
  * @version 0.1.0
  */

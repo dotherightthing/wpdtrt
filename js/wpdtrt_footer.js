@@ -1,36 +1,30 @@
-// JS Hint
-/* globals jQuery, WebFontConfig */
-/**
- * Theme JavaScript functions
- *
- * @package DTRT Framework - Theme
- * @since 0.1.0
- * @version 0.1.0
+/*
+ * UI manipulation for WPDTRT parent theme
  */
 
-var wpdtrt_ui = {};
+/* eslint-env browser */
+/* globals jQuery */
 
 /**
- * Init UI
+ * @namespace wpdtrt_ui
  */
 
-wpdtrt_ui.init = function($) {
+const wpdtrt_ui = {
 
-  document.addEventListener("touchstart", function() {
-    // nada, this is just a hack to make :focus state render on touch
-  }, false);
+  /**
+   * Make :focus state render on touch
+   *
+   * @see http://stackoverflow.com/a/28771425
+   */
+  touch_focus: () => {
+    "use strict";
+
+    document.addEventListener("touchstart", () => {}, false);
+  }
 };
 
-/**
- * Run scripts
- */
+jQuery(document).ready( () => {
+  "use strict";
 
-jQuery(document).ready( function($) {
-  wpdtrt_ui.init($);
+  wpdtrt_ui.touch_focus();
 });
-
-(function($) {
-  $(window).on('load', function() {
-    // defer these functions, to reduce initial load time for PageSpeed
-  });
-})(jQuery);

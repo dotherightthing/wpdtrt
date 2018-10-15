@@ -8,7 +8,7 @@
  *
  * @link https://codex.wordpress.org/Theme_Development
  *
- * @package DTRT Framework - Theme
+ * @package WPDTRT
  * @since 0.1.4
  * @version 1.0.0
  */

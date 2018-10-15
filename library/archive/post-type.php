@@ -4,8 +4,8 @@
  * DTRT Framework Helper: Post Type
  * Helper function to generate custom taxonomies with predictable defaults
  *
- * @package DTRT Framework - Theme
- * @subpackage DTRT Framework - Theme Functions
+ * @package WPDTRT
+ * @subpackage WPDTRT Functions
  * @since 0.1.0
  * @version 0.1.0
  */

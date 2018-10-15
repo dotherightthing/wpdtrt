@@ -15,7 +15,7 @@
  *
  * @link https://codex.wordpress.org/Editing_wp-config.php
  *
- * @package DTRT Framework - Theme
+ * @package WPDTRT
  * @since 0.1.0
  * @version 0.1.0
  */

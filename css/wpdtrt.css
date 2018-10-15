@@ -7,14 +7,14 @@
  *
  * Prepend JS related fixes with .js
  *
- * @package DTRT Framework - Theme
+ * @package WPDTRT
  * @since 0.1.0
  * @version 0.1.0
  */
 /**
  * SCSS Variables
  *
- * @package DTRT Framework - Theme
+ * @package WPDTRT
  * @since 0.1.0
  * @version 0.1.0
  */
@@ -32,14 +32,14 @@
 /**
  * SCSS Mixins
  *
- * @package DTRT Framework - Theme
+ * @package WPDTRT
  * @since 0.1.0
  * @version 0.1.0
  */
 /**
  * SCSS Extends
  *
- * @package DTRT Framework - Theme
+ * @package WPDTRT
  * @since 0.1.0
  * @version 0.1.0
  */
@@ -69,7 +69,7 @@
  * Copied from twentyseventeen
  * @uses https://codex.wordpress.org/CSS#WordPress_Generated_Classes
  *
- * @package DTRT Framework - Theme
+ * @package WPDTRT
  * @since 0.1.0
  * @version 0.1.0
  */
@@ -219,7 +219,7 @@ a img.aligncenter {
  * Accessibility styles
  * Imported by wpdtrt-handsoflight.scss
  *
- * @package DTRT Framework - Theme
+ * @package WPDTRT
  * @since 0.1.0
  * @version 0.1.0
  */

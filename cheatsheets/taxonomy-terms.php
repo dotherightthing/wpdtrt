@@ -2,7 +2,7 @@
 /**
  * Taxonomy - Terms
  *
- * @package DTRT Framework - Theme
+ * @package WPDTRT
  * @subpackage DTRT Framework - Cheatsheets
  * @since 0.1.0
  * @version 0.1.0
@@ -16,8 +16,8 @@
  * This cannot use PHP variables without violating theme-check (i18n),
  * but a static generator such as Mustache.php could be an option.
  *
- * @package DTRT Framework - Theme
- * @subpackage DTRT Framework - Theme Function Starters
+ * @package WPDTRT
+ * @subpackage WPDTRT Function Starters
  * @since 0.1.0
  * @version 0.1.0
  */

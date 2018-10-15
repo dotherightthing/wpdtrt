@@ -1,18 +1,16 @@
-/**
- * Accessibility styles
- * Imported by wpdtrt-handsoflight.scss
- *
- * @package DTRT Framework - Theme
- * @since 0.1.0
- * @version 0.1.0
- */
+//
+// Accessibility styles
+//
+// @package     WPDTRT
+// @since       0.1.0
+//
 
- .accessible {
-	clip: rect(1px, 1px, 1px, 1px);
-	height: 1px;
-	overflow: hidden;
-	position: absolute !important;
-	width: 1px;
-	/* many screen reader and browser combinations announce broken words as they would appear visually */
-	word-wrap: normal !important;
+.accessible {
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    clip: rect(1px, 1px, 1px, 1px);
+    // many screen reader and browser combinations announce broken words as they would appear visually
+    word-wrap: normal !important;
+    overflow: hidden;
 }

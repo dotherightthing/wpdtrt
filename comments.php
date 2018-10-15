@@ -5,7 +5,7 @@
  * @link https://codex.wordpress.org/Template_Hierarchy
  * @link https://make.wordpress.org/themes/handbook/review/required/#core-functionality-and-features
  *
- * @package DTRT Framework - Theme
+ * @package WPDTRT
  * @since 0.1.0
  * @version 0.1.0
  */

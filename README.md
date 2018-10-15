@@ -1,17 +1,13 @@
-# DTRT WordPress Framework
+# DTRT WordPress Parent Theme
 
-## Theme README
+[![GitHub release](https://img.shields.io/github/release/dotherightthing/wpdtrt.svg?branch=master)](https://github.com/dotherightthing/wpdtrt/releases) [![Build Status](https://travis-ci.org/dotherightthing/wpdtrt.svg?branch=master)](https://travis-ci.org/dotherightthing/wpdtrt) [![GitHub issues](https://img.shields.io/github/issues/dotherightthing/wpdtrt.svg)](https://github.com/dotherightthing/wpdtrt/issues) [![GitHub wiki](https://img.shields.io/badge/documentation-wiki-lightgrey.svg)](https://github.com/dotherightthing/wpdtrt/wiki)
 
-See [README.txt](README.txt).
+Parent theme for WordPress theme development.
 
-## Developer README
+## Setup
 
-### Asset Compiling
-
-1. Stylesheets: `gulpfile.js`: `scss/wpdtrt_parent.scss -> css/wpdtrt_parent.min.css`
-2. Scripts: `gulpfile.js`: `js/wpdtrt_parent.js -> js/wpdtrt_parent.min.js`
-3. Images: `wp-content/uploads/*`: `ImageOptim.app`
-
-### WordPress Theme Check
-
-* Appearance > Theme Check
+```
+composer install
+yarn install
+yarn run build
+```

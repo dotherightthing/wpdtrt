@@ -1,43 +1,78 @@
 {
   "name": "wpdtrt",
   "version": "0.2.1",
-  "description": "A framework for WordPress themes",
+  "description": "A parent theme for WordPress theme development",
   "main": "readme.txt",
   "person": {
     "name": "Dan Smith",
     "email": "dev@dotherightthing.co.nz",
-    "url": "http://dotherightthing.co.nz"
+    "url": "https://profiles.wordpress.org/dotherightthingnz"
   },
+  "contributors": [
+    {
+      "name": "Dan Smith",
+      "email": "dev@dotherightthing.co.nz",
+      "url": "https://profiles.wordpress.org/dotherightthingnz"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/dotherightthing/wpdtrt/issues"
+  },
+  "keywords": [
+    "framework",
+    "theme",
+    "WordPress"
+  ],
   "devDependencies": {
-    "generator-wp-theme-boilerplate": "git+https://github.com/dotherightthing/generator-wp-theme-boilerplate.git",
+    "autoprefixer": "^8.3.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "del": "^3.0.0",
+    "eslint": "^4.19.1",
+    "fancy-log": "^1.3.2",
+    "gh-rate-limit": "^1.0.0",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-importjs": "^0.1.8",
-    "gulp-phplint": "^0.3.4",
-    "gulp-postcss": "^7.0.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.0",
-    "gulp-uglify": "^3.0.0",
-    "postcss-csso": "^2.0.0",
-    "postcss-pxtorem": "^4.0.1"
+    "gulp-babel": "^7.0.1",
+    "gulp-eslint": "^4.0.2",
+    "gulp-jsdoc3": "^2.0.0",
+    "gulp-nice-package": "^1.1.0",
+    "gulp-phpcs": "^2.1.0",
+    "gulp-postcss": "^7.0.1",
+    "gulp-print": "^5.0.0",
+    "gulp-rename": "^1.3.0",
+    "gulp-replace": "^0.6.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sass-lint": "^1.4.0",
+    "gulp-shell": "^0.6.5",
+    "gulp-zip": "^4.1.0",
+    "include-media": "^1.4.9",
+    "jshint": "^2.9.5",
+    "postcss-pxtorem": "^4.0.1",
+    "run-sequence": "^2.2.1",
+    "sass-lint": "^1.12.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp",
+    "install_deps": "gulp install_dependencies && gulp wpunit_install",
+    "package": "gulp release",
+    "lint": "gulp lint",
+    "test": "gulp wpunit_run",
+    "version": "gulp version",
+    "watch": "gulp compile && gulp watch"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:dotherightthing/wp-dtrt-fwt.git"
+    "url": "https://github.com/dotherightthing/wpdtrt"
   },
   "browserslist": [
     "last 2 versions",
     "ie >= 11"
   ],
   "license": "ISC",
-  "homepage": "http://dotherightthing.co.nz",
+  "homepage": "https://github.com/dotherightthing/wpdtrt",
   "srcDir": "/Volumes/DanBackup/Websites/wpdtrt",
+  "author": "Dan Smith <dev@dotherightthing.co.nz>",
   "dependencies": {
-    "generator-wp-plugin-boilerplate": "git+https://github.com/dotherightthing/generator-wp-theme-boilerplate.git",
     "jquery-validation": "^1.18.0"
   }
 }

@@ -1,10 +1,9 @@
-/**
- * SCSS Variables
- *
- * @package DTRT Framework - Theme
- * @since 0.1.0
- * @version 0.1.0
- */
+//
+// SCSS Variables
+//
+// @package     WPDTRT
+// @since       0.1.0
+//
 
 // Colours
 
@@ -15,22 +14,20 @@ $white: #fff;
 
 $base: 16;
 
-/**
- * Responsive Breakpoints: Non-Mobile First Method
- * @see Bootstrap 3 Media Queries - https://stackoverflow.com/a/30542215 * @example
- * .large-block {
- *   @media #{[dollarsign]bp_mobile} { display: none; }
- * }
- */
+// Responsive Breakpoints: Non-Mobile First Method
+// @see Bootstrap 3 Media Queries - https://stackoverflow.com/a/30542215 * @example
+// .large-block {
+//     @media #{[dollarsign]bp_mobile} { display: none; }
+// }
 
-/* Extra Small Devices, Phones */
-$bp_mobile: "screen and (max-width : (#{480/$base * 1em}))";
+// Extra Small Devices, Phones
+$bp-mobile: 'screen and (max-width : (#{480/$base * 1em}))';
 
-/* Small Devices, Tablets */
-$bp_tablet: "screen and (max-width : (#{768/$base * 1em}))";
+// Small Devices, Tablets
+$bp-tablet: 'screen and (max-width : (#{768/$base * 1em}))';
 
-/* Medium Devices, Desktops */
-$bp_desktop: "screen and (max-width : (#{992/$base * 1em}))";
+// Medium Devices, Desktops
+$bp-desktop: 'screen and (max-width : (#{992/$base * 1em}))';
 
-/* Large Devices, Wide Screens */
-$bp_desktop_large: "screen and (max-width : (#{1200/$base * 1em}))";
+// Large Devices, Wide Screens
+$bp-desktop-large: 'screen and (max-width : (#{1200/$base * 1em}))';

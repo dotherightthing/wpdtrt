@@ -2,7 +2,7 @@
 /**
  * JavaScript - <body>
  *
- * @package DTRT Framework - Theme
+ * @package WPDTRT
  * @subpackage DTRT Framework - Library
  * @since 0.1.0
  * @version 0.1.0
@@ -40,7 +40,7 @@ function wpdtrt_js_body() {
    * @todo is wp_localize_script required here or only in child theme?
    */
   wp_register_script( $footer,
-    get_template_directory_uri() . '/js/' . $footer . '.js',
+    get_template_directory_uri() . '/js/' . $footer . '-es5.js',
     array('jquery'),
     $theme_version,
     $attach_to_footer

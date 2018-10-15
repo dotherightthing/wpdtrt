@@ -2,7 +2,7 @@
 /**
  * Excerpt
  *
- * @package DTRT Framework - Theme
+ * @package WPDTRT
  * @subpackage DTRT Framework - Library
  * @since 0.1.0
  * @version 0.1.0
@@ -11,6 +11,7 @@
 /**
  * Pluggable
  * May be replaced in a child theme
+ *
  * @todo Copied from twentysixteen - replace with wpdtrt_excerpt
  */
 if ( ! function_exists( 'twentysixteen_excerpt' ) ) {
@@ -33,5 +34,3 @@ if ( ! function_exists( 'twentysixteen_excerpt' ) ) {
 		<?php endif;
 	}
 }
-
-?>

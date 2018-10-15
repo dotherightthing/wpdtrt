@@ -1,39 +1,32 @@
-/**
- * Front-end styles
- * SCSS -> CSS conversion is handled by gulpfile.js
- * Prefixes are handled by gulpfile.js and configured
- * with browserlist in package.json
- * @see https://github.com/ai/browserslist#queries
- *
- * Prepend JS related fixes with .js
- *
- * @package DTRT Framework - Theme
- * @since 0.1.0
- * @version 0.1.0
- */
+//
+// Styles for the front-end
+//
+// @package     WPDTRT
+// @since       0.1.0
+//
 
 // loaded in both parent and child theme
-@import "variables";
-@import "mixins";
-@import "extends";
+@import 'variables';
+@import 'mixins';
+@import 'extends';
 
 // loaded in parent theme
-@import "theme-requirements";
-@import "accessibility";
+@import 'theme-requirements';
+@import 'accessibility';
 
 // loaded in child theme
-//@import "name";
+// @import 'name';
 
 // plugins
 // omitting the extension makes the classes available for extend
 // https://stackoverflow.com/questions/7111610/import-regular-css-file-in-scss-file/30279590#30279590
-//@import "../vendor/pluginname/pluginname";
+//@import '../vendor/pluginname/pluginname';
 
 // grids - last
-//@import "grid_960gs";
+// @import 'grid-960gs';
 
 .wpdtrt-featured-image {
-	> a {
-		display: block;
-	}
+    > a {
+        display: block;
+    }
 }
