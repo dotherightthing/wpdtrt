@@ -12,7 +12,9 @@
  * Pluggable
  * Allow child themes to replace this function witb their own
  */
-if ( ! function_exists('wpdtrt_register_menus') ) {
+if ( ! function_exists( 'wpdtrt_register_menus' ) ) {
+
+	add_action( 'init', 'wpdtrt_register_menus' );
 
 	/**
 	 * Register Menus
@@ -21,16 +23,13 @@ if ( ! function_exists('wpdtrt_register_menus') ) {
 	 *
 	 * @link https://developer.wordpress.org/themes/functionality/navigation-menus/#register-menus
 	 */
-	add_action( 'init', 'wpdtrt_register_menus' );
-
 	function wpdtrt_register_menus() {
-	  register_nav_menus(
-	    array(
-	    	// menu location slug => description
-	      	"header-menu" => __( 'Header Menu', 'wpdtrt' ),
-	      	"footer-menu" => __( 'Footer Menu (mobile-first noscript fallback)', 'wpdtrt' )
-	    )
-	  );
+		register_nav_menus(
+			array(
+				// menu location slug => description.
+				'header-menu' => __( 'Header Menu', 'wpdtrt' ),
+				'footer-menu' => __( 'Footer Menu (mobile-first noscript fallback)', 'wpdtrt' ),
+			)
+		);
 	}
 }
-?>
