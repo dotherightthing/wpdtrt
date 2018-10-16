@@ -11,7 +11,7 @@
 /**
  * Test the current post type in a template
  *
- * @param $post_type string The post type (slug)
+ * @param string $post_type string The post type (slug).
  * @return $is boolean
  *
  * @example
@@ -19,10 +19,7 @@
  *    get_template_part( 'template-parts/stack--navigation' );
  *  }
  */
-
 function wpdtrt_post_type_is( $post_type ) {
-  $is = ( is_singular() && ( get_query_var('post_type') === $post_type ) );
-  return $is;
+	$is = ( is_singular() && ( get_query_var( 'post_type' ) === $post_type ) );
+	return $is;
 }
-
-?>
