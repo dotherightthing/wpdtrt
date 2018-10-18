@@ -22,22 +22,22 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'LASTPASS:wp-dtrt-fwt');
+define( 'DB_NAME', 'LASTPASS:wp-dtrt-fwt' );
 
 /** MySQL database username */
-define('DB_USER', 'LASTPASS:wp-dtrt-fwt');
+define( 'DB_USER', 'LASTPASS:wp-dtrt-fwt' );
 
 /** MySQL database password */
-define('DB_PASSWORD', 'LASTPASS:wp-dtrt-fwt');
+define( 'DB_PASSWORD', 'LASTPASS:wp-dtrt-fwt' );
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define( 'DB_HOST', 'localhost' );
 
 /** Database Charset to use in creating database tables. */
-define('DB_CHARSET', 'utf8');
+define( 'DB_CHARSET', 'utf8' );
 
 /** The Database Collate type. Don't change this if in doubt. */
-define('DB_COLLATE', '');
+define( 'DB_COLLATE', '' );
 
 /**#@+
  * Authentication Unique Keys and Salts.
@@ -48,14 +48,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'put your unique phrase here');
-define('SECURE_AUTH_KEY',  'put your unique phrase here');
-define('LOGGED_IN_KEY',    'put your unique phrase here');
-define('NONCE_KEY',        'put your unique phrase here');
-define('AUTH_SALT',        'put your unique phrase here');
-define('SECURE_AUTH_SALT', 'put your unique phrase here');
-define('LOGGED_IN_SALT',   'put your unique phrase here');
-define('NONCE_SALT',       'put your unique phrase here');
+define( 'AUTH_KEY', 'put your unique phrase here' );
+define( 'SECURE_AUTH_KEY', 'put your unique phrase here' );
+define( 'LOGGED_IN_KEY', 'put your unique phrase here' );
+define( 'NONCE_KEY', 'put your unique phrase here' );
+define( 'AUTH_SALT', 'put your unique phrase here' );
+define( 'SECURE_AUTH_SALT', 'put your unique phrase here' );
+define( 'LOGGED_IN_SALT', 'put your unique phrase here' );
+define( 'NONCE_SALT', 'put your unique phrase here' );
 
 /**#@-*/
 
@@ -65,7 +65,7 @@ define('NONCE_SALT',       'put your unique phrase here');
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix  = 'LASTPASS:wp-dtrt-fwt';
+$table_prefix = 'LASTPASS:wp-dtrt-fwt';
 
 /**
  * For developers: WordPress debugging mode.
@@ -81,45 +81,48 @@ $table_prefix  = 'LASTPASS:wp-dtrt-fwt';
  * @link https://kb.pressable.com/troubleshooting/debug-500-error/
  */
 
-// outputs errors to ./debug.log
-define('WP_DEBUG', true);
+// outputs errors to ./debug.log.
+define( 'WP_DEBUG', true );
 
 if ( WP_DEBUG ) {
-  define('WP_DEBUG_LOG', true);
-  define('WP_DEBUG_DISPLAY', false);
-  //@ini_set('display_errors', 0); // fails theme-check
+	define( 'WP_DEBUG_LOG', true );
+	define( 'WP_DEBUG_DISPLAY', false );
+	// @ini_set('display_errors', 0); // fails theme-check.
 }
 
-/* multi-site
+/*
+// multi-site
 define( 'WP_ALLOW_MULTISITE', true );
 
-define('MULTISITE', true);
-define('SUBDOMAIN_INSTALL', true);
-define('DOMAIN_CURRENT_SITE', 'network.dan');
-define('PATH_CURRENT_SITE', '/');
-define('SITE_ID_CURRENT_SITE', 1);
-define('BLOG_ID_CURRENT_SITE', 1);
+define( 'MULTISITE', true);
+define( 'SUBDOMAIN_INSTALL', true);
+define( 'DOMAIN_CURRENT_SITE', 'network.dan' );
+define( 'PATH_CURRENT_SITE', '/' );
+define( 'SITE_ID_CURRENT_SITE', 1);
+define( 'BLOG_ID_CURRENT_SITE', 1);
 
-define('ADMIN_COOKIE_PATH', '/');
-define('COOKIE_DOMAIN', '');
-define('COOKIEPATH', '');
-define('SITECOOKIEPATH', '');
+define( 'ADMIN_COOKIE_PATH', '/' );
+define( 'COOKIE_DOMAIN', '' );
+define( 'COOKIEPATH', '' );
+define( 'SITECOOKIEPATH', '' );
 */
 
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */
-if ( !defined('ABSPATH') )
-	define('ABSPATH', dirname(__FILE__) . '/');
+if ( ! defined( 'ABSPATH' ) ) {
+	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
+}
 
 /** Sets up WordPress vars and included files. */
-require_once(ABSPATH . 'wp-settings.php');
+require_once ABSPATH . 'wp-settings.php';
 
 /** Removes ACF admin menu (for live site) */
-//define( 'ACF_LITE', true );
+// define( 'ACF_LITE', true );.
 
 /**
  * Store a maximum of two revisions per post
- * @link https://premium.wpmudev.org/blog/optimizing-your-wordpress-database-a-complete-guide/
+ *
+ * @see https://premium.wpmudev.org/blog/optimizing-your-wordpress-database-a-complete-guide/
  */
 define( 'WP_POST_REVISIONS', 2 );

@@ -6,18 +6,12 @@
  * Content that appears in widgetized areas by default (hard-coded into the sidebar, for example)
  * should disappear when widgets are enabled from Appearance > Widgets.
  *
- * @link https://codex.wordpress.org/Theme_Development
- *
  * @package WPDTRT
  * @since 0.1.4
  * @version 1.0.0
+ * @see https://codex.wordpress.org/Theme_Development
  */
-?>
-
-<?php
 
 if ( is_active_sidebar( 'sidebar-widget-tests' ) ) {
 	dynamic_sidebar( 'sidebar-widget-tests' );
 }
-
-?>

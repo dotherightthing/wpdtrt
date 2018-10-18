@@ -15,30 +15,30 @@
  * Display comment list and comment form.
  * Show navigation links to next and previous post using previous_post_link() and next_post_link().
  *
- * @link https://codex.wordpress.org/Theme_Development
- *
  * @package WPDTRT
  * @since 0.1.0
  * @version 0.1.0
+ * @see https://codex.wordpress.org/Theme_Development
  */
+
+get_header();
 ?>
-<?php get_header(); ?>
 
-                <main class="page">
+<main class="page">
+	<?php
+	while ( have_posts() ) :
+		the_post();
 
-                    <?php while ( have_posts() ) : the_post();
+		get_template_part( 'template-parts/post/content', get_post_format() );
+		?>
+</main>
+<aside>
+		<?php
+		get_sidebar( 'widget-tests' );
+		?>
+</aside>
+		<?php
+	endwhile;
 
-                        get_template_part( 'template-parts/post/content', get_post_format() );
-
-                    ?>
-
-
-                </main>
-
-                <aside>
-                    <?php get_sidebar('widget-tests'); ?>
-                </aside>
-
-                <?php endwhile ?>
-
-<?php get_footer(); ?>
+	get_footer();
+	?>
