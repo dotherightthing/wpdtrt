@@ -18,7 +18,8 @@
  * or removed via remove_action() or remove_filter()
  *
  * @see http://wpcandy.com/teaches/custom-hooks-and-pluggable-functions/#.WZFYh3cjFlc
+ * @example
+ * if ( ! function_exists( 'wpdtrt_pluggable_function' ) ) {
+ * // code that may be overridden
+ * }
  */
-if ( ! function_exists('wpdtrt_pluggable_function') ) {
-	// code that may be overridden
-}

@@ -10,12 +10,14 @@
 
 add_filter( 'the_content', 'wpdtrt_content_filter' );
 
-function wpdtrt_content_filter($content) {
-
-  $content = str_replace('<h2>', '<div><h2>', $content);
-  $content = str_replace('</h2>', '</h2></div>', $content);
-
-  return $content;
+/**
+ * Filter content
+ *
+ * @param  string $content Content.
+ * @return string Content
+ */
+function wpdtrt_content_filter( $content ) {
+	$content = str_replace( '<h2>', '<div><h2>', $content );
+	$content = str_replace( '</h2>', '</h2></div>', $content );
+	return $content;
 }
-
-?>
