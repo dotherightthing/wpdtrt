@@ -12,43 +12,43 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<header class="page-header">
+		<h1><?php the_title(); ?></h1>
+		<p>Published <?php the_modified_date( 'd F Y' ); ?>
+		<?php
+		/**
+		 * Tags
+		 *
+		 * @link https://wordpress.org/plugins/theme-check/
+		 */
+		the_tags( '<p>Tagged with:</p><ul><li>', '</li><li>', '</li></ul>' );
+		?>
+	</header>
+	<div class="page-body">
+		<?php
+		the_excerpt();
+		the_content();
 
-    <header class="page-header">
-        <h1><?php the_title(); ?></h1>
-        <p>Published <?php the_modified_date('d F Y'); ?>
-       <?php
-            /**
-             * Tags
-             * @link https://wordpress.org/plugins/theme-check/
-             */
-            the_tags( '<p>Tagged with:</p><ul><li>', '</li><li>', '</li></ul>' );
-        ?>
-    </header>
-    <div class="page-body">
-        <?php the_excerpt(); ?>
+		/**
+		* Link pages
+		*
+		* @link https://make.wordpress.org/themes/handbook/review/required/#templates
+		*/
+		wp_link_pages( array(
+			'before'      => '<div class="page-links">' . __( 'Pages:', 'wpdtrt' ),
+			'after'       => '</div>',
+			'link_before' => '<span class="page-number">',
+			'link_after'  => '</span>',
+		) );
 
-        <?php the_content(); ?>
-
-        <?php
-            /**
-             * Link pages
-             * @link https://make.wordpress.org/themes/handbook/review/required/#templates
-             */
-            wp_link_pages( array(
-                'before'      => '<div class="page-links">' . __( 'Pages:', 'wpdtrt' ),
-                'after'       => '</div>',
-                'link_before' => '<span class="page-number">',
-                'link_after'  => '</span>',
-            ) );
-
-            /**
-             * Comments
-             * @link https://make.wordpress.org/themes/handbook/review/required/#core-functionality-and-features
-             */
-            if ( comments_open() || get_comments_number() ) :
-                comments_template();
-            endif;
-        ?>
-    </div>
-
+		/**
+		 * Comments
+		 *
+		 * @link https://make.wordpress.org/themes/handbook/review/required/#core-functionality-and-features
+		 */
+		if ( comments_open() || get_comments_number() ) :
+			comments_template();
+			endif;
+		?>
+	</div>
 </article>

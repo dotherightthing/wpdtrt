@@ -17,12 +17,12 @@
 	</header><!-- .entry-header -->
 	<div>
 		<?php
-			the_content();
+		the_content();
 
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'wpdtrt' ),
-				'after'  => '</div>',
-			) );
+		wp_link_pages( array(
+			'before' => '<div class="page-links">' . __( 'Pages:', 'wpdtrt' ),
+			'after'  => '</div>',
+		) );
 		?>
 	</div>
 </article>
