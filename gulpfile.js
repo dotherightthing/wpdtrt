@@ -68,13 +68,14 @@ function is_parent_theme() {
 }
 
 /**
- * @summary Determines whether the current Gulp process is running on Travis CI
+ * @summary Determines whether the current Gulp process is running on a CI server
  * @return {Boolean}
- * @see https://docs.travis-ci.com/user/environment-variables/#Default-Environment-Variables
+ * @see {@link https://docs.travis-ci.com/user/environment-variables/#Default-Environment-Variables}
+ * @see {@link https://confluence.atlassian.com/bitbucket/environment-variables-in-bitbucket-pipelines-794502608.html}
  * @memberOf gulp
  */
-function is_travis() {
-    return (typeof process.env.TRAVIS !== "undefined");
+function is_ci() {
+    return (typeof process.env.CI !== "undefined");
 }
 
 /**
@@ -85,7 +86,7 @@ function is_travis() {
 function get_gh_token() {
     let token = "";
 
-    if ( is_travis() ) {
+    if ( is_ci() ) {
         token = (process.env.GH_TOKEN ? process.env.GH_TOKEN : "");
     }
 
@@ -266,7 +267,7 @@ gulp.task("preinstall_dependencies_github", () => {
         "Check current Github API rate limit for automated installs"
     );
 
-    if ( ! is_travis() ) {
+    if ( ! is_ci() ) {
         return true;
     }
 
@@ -293,7 +294,7 @@ gulp.task("preinstall_dependencies_github", () => {
 gulp.task("install_dependencies_composer", () => {
 
     // Travis already runs composer install
-    if ( is_travis() ) {
+    if ( is_ci() ) {
         return true;
     }
 
@@ -653,9 +654,9 @@ gulp.task("docs_php", () => {
  */
 gulp.task("release", (callback) => {
 
-    const travis = is_travis();
+    const ci = is_ci();
 
-    if (travis) {
+    if (ci) {
         gulp_helper_taskheader(
             "7",
             "Release",
@@ -887,7 +888,7 @@ gulp.task("release_delete_post", () => {
  */
 gulp.task("watch", () => {
 
-    if (! is_travis() ) {
+    if (! is_ci() ) {
         gulp_helper_taskheader(
             "*",
             "Watch",
@@ -910,13 +911,13 @@ gulp.task("watch", () => {
  */
 gulp.task("default", (callback) => {
 
-    const travis = is_travis();
+    // const ci = is_ci();
 
     gulp_helper_taskheader(
         "0",
         "Installation",
         "Gulp",
-        `Install${ travis ? " and package for release" : ""}`
+        'Install' // ${ ci ? " and package for release" : ""}
     );
 
     runSequence(
@@ -927,9 +928,9 @@ gulp.task("default", (callback) => {
         // 3
         "compile",
         // 5
-        "docs",
+        "docs"
         // 7
-        "release"
+        // "release" // travis only
     );
 
     callback();
