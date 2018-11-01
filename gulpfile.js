@@ -118,7 +118,7 @@ function get_parent_theme_path() {
 /**
  * @summary Get list of JavaScript files to document
  * @return {array} jsFiles Array of files
- * @see http://usejsdoc.org/about-including-package.html
+ * @see {@link http://usejsdoc.org/about-including-package.html}
  * @memberOf gulp
  */
 function get_js_doc_files() {
@@ -129,8 +129,10 @@ function get_js_doc_files() {
         parent_theme_path += "/";
     }
 
+    // note: es6 originals only
     const jsDocFiles = [
-        "./js/*.js",
+        "./js/frontend.js",
+        "./js/backend.js",
         "package.json",
         `${parent_theme_path}gulpfile.js`,
         `${parent_theme_path}js/backend.js`
@@ -142,7 +144,7 @@ function get_js_doc_files() {
 /**
  * @summary Get list of JavaScript files to transpile from ES6 to ES5
  * @return {array} jsFiles Array of files
- * @see http://usejsdoc.org/about-including-package.html
+ * @see {@link http://usejsdoc.org/about-including-package.html}
  * @memberOf gulp
  */
 function get_js_files() {
@@ -153,7 +155,7 @@ function get_js_files() {
         parent_theme_path += "/";
     }
 
-    // note: es6 orignals only
+    // note: es6 originals only
     const jsFiles = [
         "./js/frontend.js",
         "./js/backend.js",
@@ -197,6 +199,7 @@ const phpFiles = [
     "!vendor/**/*.php",
     "!wp-content/**/*.php"
 ];
+
 const scssFiles = "./scss/*.scss";
 
 /**
@@ -211,7 +214,7 @@ const scssFiles = "./scss/*.scss";
  *     That's what the callback is for.
  *     To let the task system know that you're finished
  *     and to move on to the next call in the execution chain.
- * @see https://stackoverflow.com/a/29299107/6850747
+ * @see {@link https://stackoverflow.com/a/29299107/6850747}
  * @memberOf gulp
  */
 
@@ -410,10 +413,10 @@ gulp.task("lint_package_json", () => {
 /**
  * @function lint_php
  * @summary Lint PHP files
- * @see https://packagist.org/packages/squizlabs/php_codesniffer
- * @see https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards
- * @see https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues/89
- * @see https://github.com/JustBlackBird/gulp-phpcs/issues/39
+ * @see {@link https://packagist.org/packages/squizlabs/php_codesniffer}
+ * @see {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards}
+ * @see {@link https://github.com/dotherightthing/wpdtrt-plugin-boilerplate/issues/89}
+ * @see {@link https://github.com/JustBlackBird/gulp-phpcs/issues/39}
  * @memberOf gulp
  */
 gulp.task("lint_php", () => {
@@ -763,7 +766,7 @@ gulp.task("release_delete_pre", () => {
 /**
  * @function release_copy
  * @summary Copy release files to a temporary folder
- * @see http://www.globtester.com/
+ * @see {@link http://www.globtester.com/}
  * @memberOf gulp
  */
 gulp.task("release_copy", () => {
