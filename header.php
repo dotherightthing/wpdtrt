@@ -6,7 +6,6 @@
  * @package WPDTRT
  * @subpackage WPDTRT - Library
  * @since 0.1.0
- * @version 0.1.0
  * @see https://make.wordpress.org/core/2014/10/29/title-tags-in-4-1/ The title tag is injected by WordPress since 4.1
  * @see https://codex.wordpress.org/Theme_Development
  */

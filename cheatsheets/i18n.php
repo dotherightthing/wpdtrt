@@ -9,13 +9,13 @@
  * To add a comment for translators, prefix the comment with 'translators: '
  *
  * @package WPDTRT
- * @subpackage WPDTRT Functions
  * @since 0.1.0
- * @version 0.1.0
  * @see https://codex.wordpress.org/I18n_for_WordPress_Developers
  * @see http://codex.wordpress.org/Plugin_API/Filter_Reference/gettext
  * @todo https://www.npmjs.com/package/gulp-wp-pot
  */
+
+namespace DoTheRightThing\WPDTRT\Cheatsheets;
 
 add_filter( 'gettext', 'wpdtrt_text_substitutions', 20, 3 );
 add_filter( 'locale', 'wpdtrt_set_locale' );

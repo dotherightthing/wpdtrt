@@ -3,10 +3,10 @@
  * Editor - Content
  *
  * @package WPDTRT
- * @subpackage WPDTRT - Cheatsheets
  * @since 0.1.0
- * @version 0.1.0
  */
+
+namespace DoTheRightThing\WPDTRT\Cheatsheets;
 
 /**
  * Add default content to the editor

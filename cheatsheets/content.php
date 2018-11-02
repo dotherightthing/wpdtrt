@@ -3,10 +3,10 @@
  * Content
  *
  * @package WPDTRT
- * @subpackage WPDTRT - Cheatsheets
  * @since 0.1.0
- * @version 0.1.0
  */
+
+namespace DoTheRightThing\WPDTRT\Cheatsheets;
 
 add_filter( 'the_content', 'wpdtrt_content_filter' );
 

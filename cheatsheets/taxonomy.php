@@ -3,10 +3,10 @@
  * Taxonomy
  *
  * @package WPDTRT
- * @subpackage WPDTRT - Cheatsheets
  * @since 0.1.0
- * @version 0.1.0
  */
+
+namespace DoTheRightThing\WPDTRT\Cheatsheets;
 
 /**
  * Rename the assigned taxonomy in SequelPro

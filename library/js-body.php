@@ -3,9 +3,7 @@
  * JavaScript - <body>
  *
  * @package WPDTRT
- * @subpackage WPDTRT - Library
  * @since 0.1.0
- * @version 0.1.0
  */
 
 add_action( 'wp_enqueue_scripts', 'wpdtrt_js_body' );

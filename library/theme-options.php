@@ -5,9 +5,7 @@
  * Note that settings made in Theme A's Customiser will be lost when switching to Theme B
  *
  * @package WPDTRT
- * @subpackage WPDTRT - Library
  * @since 0.1.0
- * @version 0.1.0
  */
 
 add_action( 'customize_register', 'prefix_remove_css_section', 15 );

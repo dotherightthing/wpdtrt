@@ -3,11 +3,10 @@
  * Hooks and Filters
  *
  * @package WPDTRT
- * @subpackage WPDTRT - Cheatsheets
  * @since 0.1.0
- * @version 0.1.0
  */
 
+namespace DoTheRightThing\WPDTRT\Cheatsheets;
 /**
  * Pluggable function
  * Allows the function to be overridden/replaced

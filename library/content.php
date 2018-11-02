@@ -3,9 +3,7 @@
  * Content
  *
  * @package WPDTRT
- * @subpackage WPDTRT - Library
  * @since 0.1.0
- * @version 0.1.0
  */
 
 add_filter( 'the_excerpt', 'wpdtrt_remove_nonbreaking_spaces', 99 );

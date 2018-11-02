@@ -5,7 +5,6 @@
  *
  * @package WPDTRT
  * @since 0.1.0
- * @version 0.1.0
  * @see https://premium.wpmudev.org/blog/build-your-own-custom-wordpress-search/
  * @see https://css-tricks.com/webkit-html5-search-inputs/
  */

@@ -3,11 +3,10 @@
  * Taxonomy - Register
  *
  * @package WPDTRT
- * @subpackage WPDTRT - Cheatsheets
  * @since 0.1.0
- * @version 0.1.0
  */
 
+namespace DoTheRightThing\WPDTRT\Cheatsheets;
 /**
  * This cannot use PHP variables without violating theme-check (i18n),
  * but a static generator such as Mustache.php could be an option.

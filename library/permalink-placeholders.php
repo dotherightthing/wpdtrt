@@ -3,9 +3,7 @@
  * Permalink - Placeholders
  *
  * @package WPDTRT
- * @subpackage WPDTRT - Library
  * @since 0.1.0
- * @version 0.1.0
  */
 
 add_filter( 'post_link', 'wpdtrt_permalink_placeholders', 10, 3 );

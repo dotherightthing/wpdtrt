@@ -3,9 +3,7 @@
  * Image - Featured
  *
  * @package WPDTRT
- * @subpackage WPDTRT - Library
  * @since 0.1.0
- * @version 0.3.0
  */
 
 add_shortcode( 'wpdtrt-featured-image', 'wpdtrt_image_featured_shortcode' );

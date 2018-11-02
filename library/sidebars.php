@@ -3,9 +3,7 @@
  * Register widget-ready sidebars
  *
  * @package WPDTRT
- * @subpackage WPDTRT - Library
  * @since 0.1.4
- * @version 1.0.0
  */
 
 /**

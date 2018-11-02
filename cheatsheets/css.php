@@ -3,12 +3,11 @@
  * CSS Stylesheets
  *
  * @package WPDTRT
- * @subpackage WPDTRT - Cheatsheets
  * @since 0.1.0
- * @version 0.1.0
  */
 
 add_filter( 'body_class', 'wpdtrt_js_nojs' );
+namespace DoTheRightThing\WPDTRT\Cheatsheets;
 
 /**
  * Add a 'no-js' class to the body element

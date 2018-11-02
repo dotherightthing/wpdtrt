@@ -6,7 +6,6 @@
  *
  * @package WPDTRT
  * @since 0.1.0
- * @version 0.1.0
  * @see https://codex.wordpress.org/Template_Hierarchy
  * @see https://codex.wordpress.org/Theme_Development
  */

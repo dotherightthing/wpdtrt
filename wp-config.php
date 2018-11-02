@@ -17,7 +17,6 @@
  *
  * @package WPDTRT
  * @since 0.1.0
- * @version 0.1.0
  */
 
 // ** MySQL settings - You can get this info from your web host ** //

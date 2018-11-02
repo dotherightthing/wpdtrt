@@ -3,9 +3,7 @@
  * Form Validation - Comment
  *
  * @package WPDTRT
- * @subpackage WPDTRT - Library
  * @since 0.1.0
- * @version 0.1.0
  */
 
 add_filter( 'comment_form_field_comment', 'wpdtrt_comment_form_field_comment__validation' );
