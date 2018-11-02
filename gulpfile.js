@@ -103,13 +103,7 @@ function get_parent_theme_path() {
 
     // if we're in the child theme
     if (! is_parent_theme() ) {
-        if ( is_ci() ) {
-            // if we're on a CI, use the composer dependency
-            path = "vendor/dotherightthing/wpdtrt/";
-        } else {
-            // else use the sibling (WordPress installed) parent theme
-            path = "../wpdtrt/";
-        }
+        path = "../wpdtrt/";
     }
 
     return path;
