@@ -105,7 +105,7 @@ function get_parent_theme_path() {
     if (! is_parent_theme() ) {
         if ( is_ci() ) {
             // if we're on a CI, use the composer dependency
-        path = "vendor/dotherightthing/wpdtrt/";
+            path = "vendor/dotherightthing/wpdtrt/";
         } else {
             // else use the sibling (WordPress installed) parent theme
             path = "../wpdtrt/";
@@ -444,7 +444,8 @@ gulp.task("lint_php", () => {
                 "WordPress.Functions.DontExtract",
                 "WordPress.CSRF.NonceVerification",
                 "WordPress.XSS.EscapeOutput",
-                "WordPress.VIP",
+                "WordPress.VIP.PostsPerPage",
+                "WordPress.VIP.ValidatedSanitizedInput",
                 "Generic.Strings.UnnecessaryStringConcat"
             ]
         }))
@@ -521,11 +522,11 @@ gulp.task("compile_css", () => {
 
     // if child theme
     if ( ! is_parent_theme() ) {
-        const ci = is_ci();
-        const suffix = ci ? 'ci' : 'wp';
+        // const ci = is_ci();
+        const suffix = 'wp'; // ci ? 'ci' : 'wp';
 
         // generate an importer file
-        require('fs').writeFileSync('scss/_wpdtrt-import.scss', `@import 'wpdtrt/dependencies-${suffix}';`);
+        require('fs').writeFileSync('scss/_wpdtrt-import.scss', '@import "wpdtrt/dependencies-' + suffix + '";');
     }
 
     // return stream or promise for run-sequence
