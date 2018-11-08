@@ -41,6 +41,7 @@ const runSequence = require("run-sequence");
 const sass = require("gulp-sass");
 const sassLint = require("gulp-sass-lint");
 const shell = require("gulp-shell");
+const sourcemaps = require('gulp-sourcemaps');
 const validate = require("gulp-nice-package");
 const zip = require("gulp-zip");
 
@@ -525,8 +526,10 @@ gulp.task("compile_css", () => {
 
     // return stream or promise for run-sequence
     return gulp.src(scssFiles)
-        .pipe(sass({outputStyle: "expanded"}))
+        .pipe(sourcemaps.init())
+        .pipe(sass({outputStyle: "expanded"}).on('error', sass.logError))
         .pipe(postcss(processors))
+        .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest(cssDir));
 });
 
