@@ -25,30 +25,30 @@
     }
 }
 
-@mixin grid-960gs_mobile_parent {
+@mixin grid-960gs-mobile-parent {
     width: (100% - $responsive-grid-gutter-horz - $responsive-grid-gutter-horz);
     margin-right: $responsive-grid-gutter-horz;
     margin-left: $responsive-grid-gutter-horz;
 }
 
-@mixin grid-960gs_mobile_child {
+@mixin grid-960gs-mobile-child {
     width: 100%;
     margin-right: 0;
     margin-left: 0;
 }
 
-@mixin grid-960gs_mobile($columns) {
+@mixin grid-960gs-mobile($columns) {
     .row {
         width: 100%;
     }
 
     @for $i from 1 through $columns {
         .grid-#{$i} {
-            @include grid-960gs_mobile_parent();
+            @include grid-960gs-mobile-parent();
 
             // reset child grids
-            [class^="grid"] {
-                @include grid-960gs_mobile_child();
+            [class^='grid'] {
+                @include grid-960gs-mobile-child();
             }
         }
     }
