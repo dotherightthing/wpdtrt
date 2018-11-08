@@ -521,7 +521,7 @@ gulp.task("compile_css", () => {
         const suffix = 'wp'; // ci ? 'ci' : 'wp';
 
         // generate an importer file
-        require('fs').writeFileSync('scss/_wpdtrt-import.scss', '@import "wpdtrt/dependencies-' + suffix + '";');
+        require('fs').writeFileSync('scss/_wpdtrt-import.scss', '@import \'wpdtrt/dependencies-' + suffix + '\';\r\n');
     }
 
     // return stream or promise for run-sequence
