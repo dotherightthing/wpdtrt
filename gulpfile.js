@@ -195,7 +195,7 @@ const phpFiles = [
     "!wp-content/**/*.php"
 ];
 
-const scssFiles = "./scss/*.scss";
+const scssFiles = "./scss/**/*.scss";
 
 /**
  * @callback runSequenceCallback
