@@ -25,7 +25,6 @@ require_once __DIR__ . '/library/js-head.php';
 require_once __DIR__ . '/library/js-jquery.php';
 require_once __DIR__ . '/library/js-webfont-loader.php';
 require_once __DIR__ . '/library/menus.php';
-require_once __DIR__ . '/library/permalink-placeholders.php';
 require_once __DIR__ . '/library/post-type.php';
 require_once __DIR__ . '/library/theme-options.php';
 require_once __DIR__ . '/library/validation-comment-form.php';
