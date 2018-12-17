@@ -182,6 +182,7 @@ function wpdtrt_text_substitutions( $translated_text, $text, $text_domain ) {
  *
  * @param string $default_locale The locale to use.
  * @uses https://stackoverflow.com/questions/27346747/wordpress-4-wplang-deprecated-how-to-change-language-programmatically
+ * @todo Usage of $_SESSION variable is prohibited (PHPCS)
  */
 function wpdtrt_set_locale( $default_locale ) {
 	if ( isset( $_SESSION['WPLANG'] ) ) {

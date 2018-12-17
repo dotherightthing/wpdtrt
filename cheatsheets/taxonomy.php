@@ -12,7 +12,5 @@ namespace DoTheRightThing\WPDTRT\Cheatsheets;
  * Rename the assigned taxonomy in SequelPro
  *
  * @example
- * 	UPDATE `wp_posts` SET `post_type` = 'tourdiaries' WHERE `post_type` = 'tourdiaryday';
+ *   UPDATE `wp_posts` SET `post_type` = 'tourdiaries' WHERE `post_type` = 'tourdiaryday';
  */
-
-?>

@@ -440,6 +440,7 @@ gulp.task("lint_php", () => {
                 "WordPress.CSRF.NonceVerification",
                 "WordPress.XSS.EscapeOutput",
                 "WordPress.VIP.PostsPerPage",
+                "WordPress.VIP.SessionVariableUsage",
                 "WordPress.VIP.ValidatedSanitizedInput",
                 "Generic.Strings.UnnecessaryStringConcat"
             ]

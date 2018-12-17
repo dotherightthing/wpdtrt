@@ -8,6 +8,8 @@
 
 namespace DoTheRightThing\WPDTRT\Cheatsheets;
 
+add_action( 'save_post_posttypeslug', 'wpdtrt_insert_and_set_taxonomy_terms_taxonomyslug' );
+
 /**
  * DTRT Framework Starter: Taxonomy
  * Starter template with predictable defaults.
@@ -25,7 +27,6 @@ namespace DoTheRightThing\WPDTRT\Cheatsheets;
 /**
  * Seed a custom taxonomy with terms
  * Note: Save Permalinks after changing this.
- *
  * save_post is run on save, publish, update and bulk/quick edit
  *
  * @see https://codex.wordpress.org/Function_Reference/wp_set_object_terms
@@ -39,21 +40,21 @@ namespace DoTheRightThing\WPDTRT\Cheatsheets;
  * you can also run your function at init,
  * but with a lower priority so it runs later.
  * @see https://wordpress.stackexchange.com/a/62813
+ *
+ * @example add_action( 'init', 'wpdtrt_insert_and_set_taxonomy_terms_taxonomyslug', 10); // runs but data not available for elapsed-day functions
  */
-add_action( 'save_post_POST_TYPE_SLUG', 'wpdtrt_insert_and_set_taxonomy_terms_TAXONOMY_SLUG' );
-//add_action( 'init', 'wpdtrt_insert_and_set_taxonomy_terms_TAXONOMY_SLUG', 10); // runs but data not available for elapsed-day functions
-
-function wpdtrt_insert_and_set_taxonomy_terms_TAXONOMY_SLUG() {
+function wpdtrt_insert_and_set_taxonomy_terms_taxonomyslug() {
 
 	global $post;
 	$post_id = $post->ID;
 
 	/**
-	 * bail if revision
+	 * Exit if revision
+	 *
 	 * @see https://core.trac.wordpress.org/ticket/16593
 	 * @see https://wordpress.stackexchange.com/a/67539
 	 */
-	if ( wp_is_post_revision($post_id) ) {
+	if ( wp_is_post_revision( $post_id ) ) {
 		return $post_id;
 	}
 
@@ -61,20 +62,20 @@ function wpdtrt_insert_and_set_taxonomy_terms_TAXONOMY_SLUG() {
 	 * Add a taxonomy term (category) to the appropriate item in the hierarchical taxonomies array
 	 */
 	$terms = array(
-		'TAXONOMY_TERM'
+		'TAXONOMY_TERM',
 	);
 
 	foreach ( $terms as $term ) {
 
 		/**
-		 * cast the day integer as a string, to prevent the slug from being interpreted as a tag ID
+		 * Cast the day integer as a string, to prevent the slug from being interpreted as a tag ID
 		 */
-		$term_id = (string)$term;
+		$term_id = (string) $term;
 
-		// if the term has not been set
-		if ( ! has_term( $term_id, 'TAXONOMY_SLUG', $post_id ) ) {
+		// if the term has not been set.
+		if ( ! has_term( $term_id, 'taxonomyslug', $post_id ) ) {
 
-			// https://codex.wordpress.org/Function_Reference/wp_insert_term
+			// https://codex.wordpress.org/Function_Reference/wp_insert_term.
 			$term = wp_insert_term(
 
 				/**
@@ -83,14 +84,12 @@ function wpdtrt_insert_and_set_taxonomy_terms_TAXONOMY_SLUG() {
 				 * Default: None
 				 */
 				$term,
-
 				/**
 				 * $taxonomy (string) (required)
 				 * The taxonomy to which to add the term.
 				 * Default: None
 				 */
 				$taxonomy,
-
 				/**
 				 * $args (array|string) (optional)
 				 * Change the values of the inserted term
@@ -109,6 +108,7 @@ function wpdtrt_insert_and_set_taxonomy_terms_TAXONOMY_SLUG() {
 					 * If exists, will be added to the database along with the term.
 					 * Default: None
 					 * TODO: not appearing in Admin term table
+					 *
 					 * @todo does this need i18n __() ?
 					 */
 					'description' => 'TAXONOMY_LABEL_PREFIX TAXONOMY_TERM',
@@ -117,20 +117,21 @@ function wpdtrt_insert_and_set_taxonomy_terms_TAXONOMY_SLUG() {
 					 * (numeric) (optional)
 					 * Will assign value of 'parent' to the term.
 					 * Default: 0 (zero)
+					 *
+					 * @example 'parent' => 0,
 					 */
-					//'parent' => 0,
 
 					/**
 					 * (string) (optional)
 					 * Default: None
+					 *
 					 * @todo test and update
+					 * @example 'slug' => $elapsedday,
 					 */
-					//'slug' => $elapsedday
 				)
 			);
 
-			//$term_id2 = $term->term_id;
-
+			// $term_id2 = $term->term_id;.
 			$terms = wp_set_object_terms(
 				/**
 				 * $object_id
@@ -138,7 +139,6 @@ function wpdtrt_insert_and_set_taxonomy_terms_TAXONOMY_SLUG() {
 				 * Default: None
 				 */
 				$post_id,
-
 				/**
 				 * $terms (array/int/string) (required)
 				 * The slug or id of the term (such as category or tag IDs),
@@ -148,15 +148,13 @@ function wpdtrt_insert_and_set_taxonomy_terms_TAXONOMY_SLUG() {
 				 * Default: None
 				 */
 				$term_id,
-
 				/**
 				 * $taxonomy (array/string) (required)
 				 * The context in which to relate the term to the object.
 				 * This can be category, post_tag, or the name of another taxonomy.
 				 * Default: None
 				 */
-				'TAXONOMY_SLUG',
-
+				'taxonomyslug',
 				/**
 				 * $append (bool) (optional)
 				 * If true, terms will be appended to the object.
@@ -165,13 +163,12 @@ function wpdtrt_insert_and_set_taxonomy_terms_TAXONOMY_SLUG() {
 				 */
 				false
 			);
-		}
-		else {
-			$term = get_term_by ('slug', $term_id, 'TAXONOMY_SLUG');
+		} else {
+			$term = get_term_by( 'slug', $term_id, 'taxonomyslug' );
 		}
 
-		// test that terms were created
-		// wpdtrt_log($terms); //ok
+		// test that terms were created.
+		// wpdtrt_log($terms); // ok.
 	}
 
 	return $post_id;

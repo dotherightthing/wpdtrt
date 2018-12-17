@@ -7,6 +7,7 @@
  */
 
 namespace DoTheRightThing\WPDTRT\Cheatsheets;
+
 /**
  * Pluggable function
  * Allows the function to be overridden/replaced

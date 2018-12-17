@@ -29,6 +29,7 @@ if ( ! function_exists( 'twentysixteen_excerpt' ) ) {
 			<div class="<?php echo $class; ?>">
 				<?php the_excerpt(); ?>
 			</div><!-- .<?php echo $class; ?> -->
-		<?php endif;
+			<?php
+		endif;
 	}
 }
