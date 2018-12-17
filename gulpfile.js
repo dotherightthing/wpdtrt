@@ -778,31 +778,21 @@ gulp.task("release_copy", () => {
     );
 
     // Release files are those that are required
-    // to use the package as a WP Plugin
+    // to use the package as a WP Parent Theme
     const releaseFiles = [
-        // Composer file, contains TGMPA dependencies object
-        "./composer.json",
-        // Compiled CSS
+        // Theme Cheatsheets
+        "./cheatsheets/**/*",
+        // Theme Config
+        "./config/**/*",
+        // Compiled Theme CSS
         "./css/**/*",
-        // Any icons
-        "./icons/**/*",
-        // Any images
-        "./images/**/*",
-        // Not the project logo
-        "!./images/**/*.pxm",
-        // Transpiled ES5 JS incl backend-es5.js from boilerplate
+        // Transpiled Theme JS
         "./js/**/*-es5.js",
-        // WP i18n .pot files
-        "./languages/**/*",
+        // Theme Logic
+        "./library/**/*",
         // Yarn front-end dependencies
         "./node_modules/**/*",
-        // Yarn environment symlink
-        "!./node_modules/wpdtrt-plugin-boilerplate",
-        // Yarn environment symlink contents
-        "!./node_modules/wpdtrt-plugin-boilerplate/**/*",
-        // Plugin logic
-        "./src/**/*",
-        // Plugin template partials
+        // Theme template partials
         "./template-parts/**/*",
         // Any PHP dependencies
         "./vendor/**/*",
@@ -841,12 +831,39 @@ gulp.task("release_copy", () => {
         // Not Zip files
         "!./node_modules/**/*.zip",
         "!./vendor/**/*.zip",
-        // Plugin WP Read Me
-        "./readme.txt",
-        // Plugin WP Uninstaller
-        "./uninstall.php",
-        // Plugin root config
-        `./${themeName}.php`
+        // Theme search form
+        "./_searchform.php",
+        // Theme archive page template
+        "./archive.php",
+        // Theme comments partial
+        "./comments.php",
+        // Theme footer partial
+        "./footer.php",
+        // Theme functions
+        "./functions.php",
+        // Theme header partial
+        "./header.php",
+        // Theme post title and content template
+        "./index.php",
+        // Theme maintenance page template
+        "./maintenance.php",
+        // The template for displaying all pages
+        "./page.php",
+        // Theme Read Me
+        "./README.md",
+        // Theme WP Read Me
+        "./README.txt",
+        // Theme Screenshot
+        "./screenshot.png",
+        // Theme Search Template
+        "./search.php",
+        // Theme widget-ready sidebar partials
+        "./sidebar-widget-tests.php",
+        "./sidebar.php",
+        // Theme Single Post Template
+        "./single.php",
+        // Theme Stylesheet
+        "./style.css",
     ];
 
     // return stream or promise for run-sequence
