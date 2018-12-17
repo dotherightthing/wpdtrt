@@ -2,7 +2,9 @@
   "parserOptions": {
     "ecmaVersion": 6
   },
-  "env": {},
+  "env": {
+    "es6": true
+  },
   "globals": {},
   "rules": {
     "no-bitwise": 2,
