@@ -946,13 +946,13 @@ gulp.task("watch", () => {
  */
 gulp.task("default", (callback) => {
 
-    // const ci = is_ci();
+    const ci = is_ci();
 
     gulp_helper_taskheader(
         "0",
         "Installation",
         "Gulp",
-        'Install' // ${ ci ? " and package for release" : ""}
+        `Install${ ci ? " and package for release" : ""}`
     );
 
     runSequence(
@@ -962,10 +962,10 @@ gulp.task("default", (callback) => {
         "lint",
         // 3
         "compile",
+        // 4
+        "docs",
         // 5
-        "docs"
-        // 7
-        // "release" // travis only
+        "release" // travis only
     );
 
     callback();
