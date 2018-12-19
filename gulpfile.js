@@ -518,8 +518,8 @@ gulp.task("compile_css", () => {
 
     // if child theme
     if ( ! is_parent_theme() ) {
-        // const ci = is_ci();
-        const suffix = 'wp'; // ci ? 'ci' : 'wp';
+        const ci = is_ci();
+        const suffix = ci ? 'ci' : 'wp';
 
         // generate an importer file
         require('fs').writeFileSync('scss/_wpdtrt-import.scss', '@import \'wpdtrt/dependencies-' + suffix + '\';\r\n');
