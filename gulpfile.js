@@ -804,6 +804,9 @@ gulp.task("release_copy", () => {
         // Not Less files
         "!./node_modules/**/*.less",
         "!./vendor/**/*.less",
+        // Not Authors files
+        "!./node_modules/**/AUTHORS",
+        "!./vendor/**/AUTHORS",
         // Not License files
         "!./node_modules/**/LICENSE",
         "!./vendor/**/LICENSE",
