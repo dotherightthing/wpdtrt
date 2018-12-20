@@ -2,7 +2,7 @@
 Contributors: dotherightthingnz
 Requires at least: WordPress 4.8
 Tested up to: WordPress 4.8
-Version: 0.1.3
+Version: 0.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: http://dotherightthing.co.nz
@@ -31,6 +31,9 @@ In order to be publish-able to the WordPress theme directory, strict criteria ne
 2. Locate DTRT Framework - Theme and click on the 'Activate' button
 
 == Changelog ==
+
+= 0.2.4 =
+* Fixes to support running of Gulp tasks in wpdtrt-dbth's CI (Bitbucket Pipelines)
 
 = 0.2.3 =
 * Enable release zip generation
