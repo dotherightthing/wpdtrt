@@ -797,6 +797,8 @@ gulp.task("release_copy", () => {
         // Any PHP dependencies
         "./vendor/**/*",
         // Not binary executables
+        "!./node_modules/.bin/**/*",
+        "!./node_modules/bin/**/*",
         "!./vendor/bin/**/*",
         // Not JSON files
         "!./node_modules/**/*.json",
