@@ -902,12 +902,20 @@ gulp.task("release_zip", () => {
         "ZIP file"
     );
 
+    let release_name = 'release';
+
+    if (typeof process.env.BITBUCKET_TAG !== "undefined") {
+        release_name += '-' + process.env.BITBUCKET_TAG;
+    }
+
+    release_name += '.zip';
+
     // return stream or promise for run-sequence
     // https://stackoverflow.com/a/32188928/6850747
     return gulp.src([
         `./${distDir}/**/*`
     ], {base: "."})
-        .pipe(zip("release.zip"))
+        .pipe(zip(release_name))
         .pipe(gulp.dest("./"));
 });
 
