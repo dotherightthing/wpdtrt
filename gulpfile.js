@@ -780,8 +780,6 @@ gulp.task("release_copy", () => {
     // Release files are those that are required
     // to use the package as a WP Parent Theme
     const releaseFiles = [
-        // Yarn Integrity file
-        "./.yarn-integrity",
         // Theme Cheatsheets
         "./cheatsheets/**/*",
         // Theme Config
@@ -798,6 +796,8 @@ gulp.task("release_copy", () => {
         "./template-parts/**/*",
         // Any PHP dependencies
         "./vendor/**/*",
+        // Not wpdtrt 'file'
+        "!./node_modules/wpdtrt",
         // Not binary executables
         "!./node_modules/.bin",
         "!./node_modules/**/.bin",
@@ -812,12 +812,19 @@ gulp.task("release_copy", () => {
         // Not Authors files
         "!./node_modules/**/AUTHORS",
         "!./vendor/**/AUTHORS",
+        // Not Changes files
+        "!./node_modules/**/CHANGES",
+        "!./vendor/**/CHANGES",
         // Not License files
+        "!./node_modules/**/license",
+        "!./vendor/**/license",
         "!./node_modules/**/LICENSE",
         "!./vendor/**/LICENSE",
         // Not Markdown files
         "!./node_modules/**/*.md",
         "!./vendor/**/*.md",
+        // Not Makefile files
+        "!./node_modules/**/Makefile",
         // Not PHP sample files
         "!./node_modules/**/*example*.php",
         "!./vendor/**/*example*.php",
