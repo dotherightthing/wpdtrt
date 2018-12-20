@@ -780,6 +780,8 @@ gulp.task("release_copy", () => {
     // Release files are those that are required
     // to use the package as a WP Parent Theme
     const releaseFiles = [
+        // Yarn Integrity file
+        "./.yarn-integrity",
         // Theme Cheatsheets
         "./cheatsheets/**/*",
         // Theme Config
