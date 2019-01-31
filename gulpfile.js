@@ -154,6 +154,7 @@ function get_js_files() {
     const jsFiles = [
         "./js/frontend.js",
         "./js/backend.js",
+        "./js/twentysixteen.js",
         `${parent_theme_path}js/wpdtrt_footer.js`,
         `${parent_theme_path}js/wpdtrt_header.js`
     ];
@@ -786,6 +787,8 @@ gulp.task("release_copy", () => {
         "./config/**/*",
         // Compiled Theme CSS
         "./css/**/*",
+        // Icons
+        "./icons/**/*",
         // Transpiled Theme JS
         "./js/**/*-es5.js",
         // Theme Logic
