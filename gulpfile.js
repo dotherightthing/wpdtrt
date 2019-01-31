@@ -789,6 +789,8 @@ gulp.task("release_copy", () => {
         "./css/**/*",
         // Icons
         "./icons/**/*",
+        // Images
+        "./images/**/*",
         // Transpiled Theme JS
         "./js/**/*-es5.js",
         // Theme Logic
@@ -797,6 +799,8 @@ gulp.task("release_copy", () => {
         "./node_modules/**/*",
         // Theme template partials
         "./template-parts/**/*",
+        // Any Tiny MCE (WYSIWYG) mods
+        "./tiny-mce/**/*",
         // Any PHP dependencies
         "./vendor/**/*",
         // Not wpdtrt 'file'
@@ -882,6 +886,13 @@ gulp.task("release_copy", () => {
         "./single.php",
         // Theme Stylesheet
         "./style.css",
+        // wpdtrt-dbth child theme templates
+        "./archive-tourdiaries.php",
+        "./image.php",
+        "./page-search.php",
+        "./single-tourdiaries.php",
+        "./templates/**/*",
+        "./taxonomy-wpdtrt_tourdates_taxonomy_tour.php",
     ];
 
     // return stream or promise for run-sequence
