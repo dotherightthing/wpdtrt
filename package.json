@@ -44,6 +44,7 @@
     "gulp-sass": "^4.0.1",
     "gulp-sass-lint": "^1.4.0",
     "gulp-shell": "^0.6.5",
+    "gulp-sourcemaps": "^2.6.4",
     "gulp-zip": "^4.1.0",
     "include-media": "^1.4.9",
     "jshint": "^2.9.5",
@@ -73,7 +74,6 @@
   "srcDir": "/Volumes/DanBackup/Websites/wpdtrt",
   "author": "Dan Smith <dev@dotherightthing.co.nz>",
   "dependencies": {
-    "gulp-sourcemaps": "^2.6.4",
     "jquery-validation": "^1.18.0"
   }
 }
