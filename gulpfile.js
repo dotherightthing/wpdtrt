@@ -12,7 +12,7 @@
  *    yarn run version
  *    yarn run watch
  *
- * @version     0.2.6
+ * @version     0.2.7
  */
 
 /**
