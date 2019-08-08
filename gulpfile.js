@@ -893,6 +893,14 @@ gulp.task("release_copy", () => {
         "./single-tourdiaries.php",
         "./templates/**/*",
         "./taxonomy-wpdtrt_tourdates_taxonomy_tour.php",
+        // Not CSS source maps
+        "!./css/maps/**/*",
+        // Not demo files
+        "!./icons/icomoon/demo-files/**/*",
+        // Not docs
+        "!./docs/**/*",
+        // Not Source files
+        "!./node_modules/**/src/**/*",
     ];
 
     // return stream or promise for run-sequence
