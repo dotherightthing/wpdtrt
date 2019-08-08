@@ -939,7 +939,7 @@ gulp.task("release_copy", () => {
     // https://stackoverflow.com/a/32188928/6850747
     return gulp.src(releaseFiles, {base: "."})
         .pipe(print())
-        .pipe(gulp.dest(distDir));
+        .pipe(gulp.dest(distDir + '_123456789'));
 });
 
 /**
