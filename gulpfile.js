@@ -698,6 +698,38 @@ gulp.task("release", (callback) => {
 });
 
 /**
+ * @function release
+ * @summary Tasks which package a release
+ * @param {runSequenceCallback} callback - The callback that handles the response
+ * @memberOf gulp
+ */
+gulp.task("release_no_cleanup", (callback) => {
+
+    const ci = is_ci();
+
+    if (ci) {
+        gulp_helper_taskheader(
+            "7",
+            "Release",
+            "Generate",
+            ""
+        );
+
+        runSequence(
+            "release_composer_dist",
+            "release_yarn_dist",
+            "release_delete_pre",
+            "release_copy",
+            "release_zip",
+            // release_delete_post - now retained until after Bitbucket SFTP
+            callback
+        );
+    } else {
+        callback();
+    }
+});
+
+/**
  * @function release_composer_dist
  * @summary Uninstall PHP development dependencies
  * @memberOf gulp
@@ -1011,6 +1043,41 @@ gulp.task("default", (callback) => {
         "docs",
         // 5
         "release" // travis only
+    );
+
+    callback();
+});
+
+/**
+ * @function default_release_no_cleanup
+ * @summary Default task, sans cleanup of temporary release directory
+ * @example
+ * gulp
+ * @param {runSequenceCallback} callback - The callback that handles the response
+ * @memberOf gulp
+ */
+gulp.task("default_release_no_cleanup", (callback) => {
+
+    const ci = is_ci();
+
+    gulp_helper_taskheader(
+        "0",
+        "Installation",
+        "Gulp",
+        `Install${ ci ? " and package for release (+ retain release directory)" : ""}`
+    );
+
+    runSequence(
+        // 1
+        "install_dependencies",
+        // 2
+        "lint",
+        // 3
+        "compile",
+        // 4
+        "docs",
+        // 5
+        "release_no_cleanup" // travis only
     );
 
     callback();
