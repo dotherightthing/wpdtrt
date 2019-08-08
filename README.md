@@ -18,10 +18,10 @@ yarn run build
 
 Update the `n.n.n` version in these files:
 
-1. ./README.txt
-2. ./composer.json
-3. ./gulpfile.js
-4. ./package.json
+1. ./composer.json
+2. ./gulpfile.js
+3. ./package.json
+4. ./README.txt
 5. ./style.css
 
 Update the Changelog with the relevant commit messages:
@@ -35,6 +35,10 @@ Commit changes:
 3. Push the commit to GitHub
 4. Wait for the release zip to be generated at [https://github.com/dotherightthing/wpdtrt/releases](https://github.com/dotherightthing/wpdtrt/releases)
 5. Edit the release, adding the Changelog messages to the release description
+
+Update dependency version (`dev-master` commit hash) in child themes:
+
+`composer update`
 
 ## Deployment
 
