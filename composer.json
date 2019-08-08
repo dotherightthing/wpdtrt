@@ -1,6 +1,6 @@
 {
     "name": "dotherightthing/wpdtrt",
-    "version": "0.2.10",
+    "version": "0.2.11",
     "description": "Parent theme for WordPress theme development",
     "type": "library",
     "keywords": ["theme"],
