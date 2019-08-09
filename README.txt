@@ -2,7 +2,7 @@
 Contributors: dotherightthingnz
 Requires at least: WordPress 4.8
 Tested up to: WordPress 4.8
-Version: 0.2.13
+Version: 0.2.14
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Donate link: http://dotherightthing.co.nz
@@ -31,6 +31,12 @@ In order to be publish-able to the WordPress theme directory, strict criteria ne
 2. Locate DTRT Framework - Theme and click on the 'Activate' button
 
 == Changelog ==
+
+= 0.2.14 =
+* Get themename from package.json rather than current working directory, to improve compatibility with Bitbucket
+* Fix name of untagged release.zip
+* Fix WP linting errors
+* Add jQuery (unmet peer dependency for jQuery Validation)
 
 = 0.2.13 =
 * Add dedicated Gulp task for CIs, fix eslint validation errors, use template literals
