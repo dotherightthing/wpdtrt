@@ -675,24 +675,23 @@ gulp.task("ci_package_release", (callback) => {
 
     const ci = is_ci();
 
-    if (ci) {
-        gulp_helper_taskheader(
-            "7",
-            "Release",
-            "Generate",
-            ""
-        );
+    gulp_helper_taskheader(
+        "7",
+        "Release",
+        "Generate",
+        ""
+    );
 
+    if (ci) {
         runSequence(
             "ci_package_release_composer_dist",
             "ci_package_release_yarn_dist",
-            "ci_package_release_delete_pre",
             "ci_package_release_copy",
             "ci_package_release_zip",
-            // ci_package_release_delete_post - now retained as artifact
             callback
         );
     } else {
+        log("CI not detected, exiting..");
         callback();
     }
 });
@@ -741,26 +740,6 @@ gulp.task("ci_package_release_yarn_dist", () => {
         .pipe(shell([
             "yarn install --non-interactive --production"
         ]));
-});
-
-/**
- * @function ci_package_release_delete_pre
- * @summary Delete existing release.zip
- * @memberOf gulp
- */
-gulp.task("ci_package_release_delete_pre", () => {
-
-    gulp_helper_taskheader(
-        "7c",
-        "Release",
-        "Delete",
-        "Previous release"
-    );
-
-    // return stream or promise for run-sequence
-    return del([
-        "release.zip"
-    ]);
 });
 
 /**
@@ -919,10 +898,10 @@ gulp.task("ci_package_release_zip", () => {
 
     let ci_package_release_tag = "";
 
-    // we don't use TRAVIS_TAG
-    // as Github doesn't require unique file names for its release files
     if (typeof process.env.BITBUCKET_TAG !== "undefined") {
         ci_package_release_tag = `-${process.env.BITBUCKET_TAG}`;
+    } else if (typeof process.env.TRAVIS_TAG !== "undefined") {
+        ci_package_release_tag = `-${process.env.TRAVIS_TAG}`;
     }
 
     let ci_package_release_name = `release${ci_package_release_tag}.zip`;
@@ -941,26 +920,6 @@ gulp.task("ci_package_release_zip", () => {
     ], {base: "."})
         .pipe(zip(ci_package_release_name))
         .pipe(gulp.dest("./"));
-});
-
-/**
- * @function ci_package_release_delete_post
- * @summary Delete the temporary folder
- * @memberOf gulp
- */
-gulp.task("ci_package_release_delete_post", () => {
-
-    gulp_helper_taskheader(
-        "7f",
-        "Release",
-        "Delete",
-        "Temporary folder"
-    );
-
-    // return stream or promise for run-sequence
-    return del([
-        distDir
-    ]);
 });
 
 /**
