@@ -21,6 +21,7 @@
 
 /* eslint-env node */
 /* eslint-disable max-len */
+// see https://github.com/SublimeLinter/SublimeLinter-eslint/issues/280
 
 "use strict";
 
@@ -41,7 +42,7 @@ const runSequence = require("run-sequence");
 const sass = require("gulp-sass");
 const sassLint = require("gulp-sass-lint");
 const shell = require("gulp-shell");
-const sourcemaps = require('gulp-sourcemaps');
+const sourcemaps = require("gulp-sourcemaps");
 const validate = require("gulp-nice-package");
 const zip = require("gulp-zip");
 
@@ -175,14 +176,13 @@ function gulp_helper_taskheader(step, task_category, task_action, task_detail) {
 
     log(" ");
     log("========================================");
-    log(step + " - " + task_category + ":");
-    log("=> " + task_action + ": " + task_detail);
+    log(`${step} - ${task_category}:`);
+    log(`=> ${task_action}: ${task_detail}`);
     log("----------------------------------------");
     log(" ");
 }
 
 const themeName = get_themeName();
-const themeNameSafe = themeName.replace(/-/g, "_");
 const cssDir = "css";
 const jsDir = "js";
 const distDir = themeName; // see https://github.com/dotherightthing/wpdtrt/issues/9
@@ -520,18 +520,18 @@ gulp.task("compile_css", () => {
     // if child theme
     if ( ! is_parent_theme() ) {
         const ci = is_ci();
-        const suffix = ci ? 'ci' : 'wp';
+        const suffix = ci ? "ci" : "wp";
 
         // generate an importer file
-        require('fs').writeFileSync('scss/_wpdtrt-import.scss', '@import \'wpdtrt/dependencies-' + suffix + '\';\r\n');
+        require("fs").writeFileSync("scss/_wpdtrt-import.scss", `@import "wpdtrt/dependencies-${suffix}";\r\n`);
     }
 
     // return stream or promise for run-sequence
     return gulp.src(scssFiles)
         .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: "expanded"}).on('error', sass.logError))
+        .pipe(sass({outputStyle: "expanded"}).on("error", sass.logError))
         .pipe(postcss(processors))
-        .pipe(sourcemaps.write('./maps'))
+        .pipe(sourcemaps.write("./maps"))
         .pipe(gulp.dest(cssDir));
 });
 
@@ -666,12 +666,12 @@ gulp.task("docs_php", () => {
 });
 
 /**
- * @function release
- * @summary Tasks which package a release
+ * @function ci_package_release
+ * @summary Tasks which package a release for download via Github/Bitbucket
  * @param {runSequenceCallback} callback - The callback that handles the response
  * @memberOf gulp
  */
-gulp.task("release", (callback) => {
+gulp.task("ci_package_release", (callback) => {
 
     const ci = is_ci();
 
@@ -684,12 +684,12 @@ gulp.task("release", (callback) => {
         );
 
         runSequence(
-            "release_composer_dist",
-            "release_yarn_dist",
-            "release_delete_pre",
-            "release_copy",
-            "release_zip",
-            "release_delete_post",
+            "ci_package_release_composer_dist",
+            "ci_package_release_yarn_dist",
+            "ci_package_release_delete_pre",
+            "ci_package_release_copy",
+            "ci_package_release_zip",
+            // ci_package_release_delete_post - now retained as artifact
             callback
         );
     } else {
@@ -698,43 +698,11 @@ gulp.task("release", (callback) => {
 });
 
 /**
- * @function release
- * @summary Tasks which package a release
- * @param {runSequenceCallback} callback - The callback that handles the response
- * @memberOf gulp
- */
-gulp.task("release_no_cleanup", (callback) => {
-
-    const ci = is_ci();
-
-    if (ci) {
-        gulp_helper_taskheader(
-            "7",
-            "Release",
-            "Generate",
-            ""
-        );
-
-        runSequence(
-            "release_composer_dist",
-            "release_yarn_dist",
-            "release_delete_pre",
-            "release_copy",
-            "release_zip",
-            // release_delete_post - now retained until after Bitbucket SFTP
-            callback
-        );
-    } else {
-        callback();
-    }
-});
-
-/**
- * @function release_composer_dist
+ * @function ci_package_release_composer_dist
  * @summary Uninstall PHP development dependencies
  * @memberOf gulp
  */
-gulp.task("release_composer_dist", () => {
+gulp.task("ci_package_release_composer_dist", () => {
 
     gulp_helper_taskheader(
         "7a",
@@ -755,11 +723,11 @@ gulp.task("release_composer_dist", () => {
 });
 
 /**
- * @function release_yarn_dist
+ * @function ci_package_release_yarn_dist
  * @summary Uninstall Yarn development dependencies
  * @memberOf gulp
  */
-gulp.task("release_yarn_dist", () => {
+gulp.task("ci_package_release_yarn_dist", () => {
 
     gulp_helper_taskheader(
         "7b",
@@ -776,11 +744,11 @@ gulp.task("release_yarn_dist", () => {
 });
 
 /**
- * @function release_delete_pre
+ * @function ci_package_release_delete_pre
  * @summary Delete existing release.zip
  * @memberOf gulp
  */
-gulp.task("release_delete_pre", () => {
+gulp.task("ci_package_release_delete_pre", () => {
 
     gulp_helper_taskheader(
         "7c",
@@ -796,12 +764,12 @@ gulp.task("release_delete_pre", () => {
 });
 
 /**
- * @function release_copy
+ * @function ci_package_release_copy
  * @summary Copy release files to a temporary folder
  * @see {@link http://www.globtester.com/}
  * @memberOf gulp
  */
-gulp.task("release_copy", () => {
+gulp.task("ci_package_release_copy", () => {
 
     gulp_helper_taskheader(
         "7d",
@@ -943,25 +911,27 @@ gulp.task("release_copy", () => {
 });
 
 /**
- * @function release_zip
+ * @function ci_package_release_zip
  * @summary Generate release.zip for deployment by Travis/Github
  * @memberOf gulp
  */
-gulp.task("release_zip", () => {
+gulp.task("ci_package_release_zip", () => {
 
-    let release_tag = '';
+    let ci_package_release_tag = "";
 
+    // we don't use TRAVIS_TAG
+    // as Github doesn't require unique file names for its release files
     if (typeof process.env.BITBUCKET_TAG !== "undefined") {
-        release_tag = `-${process.env.BITBUCKET_TAG}`;
+        ci_package_release_tag = `-${process.env.BITBUCKET_TAG}`;
     }
 
-    let release_name = `release${release_tag}.zip`;
+    let ci_package_release_name = `release${ci_package_release_tag}.zip`;
 
     gulp_helper_taskheader(
         "7e",
         "Release",
         "Generate",
-        `${release_name} containing ${distDir}/**/*`
+        `${ci_package_release_name} containing ${distDir}/**/*`
     );
 
     // return stream or promise for run-sequence
@@ -969,16 +939,16 @@ gulp.task("release_zip", () => {
     return gulp.src([
         `./${distDir}/**/*`
     ], {base: "."})
-        .pipe(zip(release_name))
+        .pipe(zip(ci_package_release_name))
         .pipe(gulp.dest("./"));
 });
 
 /**
- * @function release_delete_post
+ * @function ci_package_release_delete_post
  * @summary Delete the temporary folder
  * @memberOf gulp
  */
-gulp.task("release_delete_post", () => {
+gulp.task("ci_package_release_delete_post", () => {
 
     gulp_helper_taskheader(
         "7f",
@@ -1029,7 +999,7 @@ gulp.task("default", (callback) => {
         "0",
         "Installation",
         "Gulp",
-        `Install${ ci ? " and package for release" : ""}`
+        "Install"
     );
 
     runSequence(
@@ -1040,31 +1010,27 @@ gulp.task("default", (callback) => {
         // 3
         "compile",
         // 4
-        "docs",
-        // 5
-        "release" // travis only
+        "docs"
     );
 
     callback();
 });
 
 /**
- * @function default_release_no_cleanup
+ * @function ci
  * @summary Default task, sans cleanup of temporary release directory
  * @example
  * gulp
  * @param {runSequenceCallback} callback - The callback that handles the response
  * @memberOf gulp
  */
-gulp.task("default_release_no_cleanup", (callback) => {
-
-    const ci = is_ci();
+gulp.task("ci", (callback) => {
 
     gulp_helper_taskheader(
         "0",
         "Installation",
         "Gulp",
-        `Install${ ci ? " and package for release (+ retain release directory)" : ""}`
+        "Install, package for release, retain release as artifact"
     );
 
     runSequence(
@@ -1077,7 +1043,7 @@ gulp.task("default_release_no_cleanup", (callback) => {
         // 4
         "docs",
         // 5
-        "release_no_cleanup" // travis only
+        "ci_package_release"
     );
 
     callback();

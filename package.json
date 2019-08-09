@@ -54,6 +54,7 @@
   },
   "scripts": {
     "build": "gulp",
+    "build_ci": "gulp ci",
     "install_deps": "gulp install_dependencies && gulp wpunit_install",
     "package": "gulp release",
     "lint": "gulp lint",

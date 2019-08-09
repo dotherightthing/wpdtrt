@@ -83,7 +83,7 @@ before_script:
 
 # Run the build script
 script:
-  - yarn run build
+  - yarn run build_ci
 
 # Notifications of build results
 # https://docs.travis-ci.com/user/notifications/
