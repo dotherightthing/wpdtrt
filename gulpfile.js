@@ -955,7 +955,7 @@ gulp.task("release_zip", () => {
         release_tag = `-${process.env.BITBUCKET_TAG}`;
     }
 
-    let release_name += `release${release_tag}.zip`;
+    let release_name = `release${release_tag}.zip`;
 
     gulp_helper_taskheader(
         "7e",
