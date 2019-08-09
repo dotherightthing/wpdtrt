@@ -893,7 +893,7 @@ gulp.task("ci_package_release_copy", () => {
  * @function ci_package_release_zip
  * @summary Generate release.zip for deployment by Travis/Github
  * @memberOf gulp
- * @todo TRAVIS_TAG is output even if it has no value (resulting in trailing dash)
+ * @todo https://github.com/dotherightthing/wpdtrt/issues/10
  */
 gulp.task("ci_package_release_zip", () => {
 
@@ -902,6 +902,7 @@ gulp.task("ci_package_release_zip", () => {
     if (typeof process.env.BITBUCKET_TAG !== "undefined") {
         ci_package_release_tag = `-${process.env.BITBUCKET_TAG}`;
     } else if (typeof process.env.TRAVIS_TAG !== "undefined") {
+        log(`process.env.TRAVIS_TAG=[${process.env.TRAVIS_TAG}]`);
         ci_package_release_tag = `-${process.env.TRAVIS_TAG}`;
     }
 
