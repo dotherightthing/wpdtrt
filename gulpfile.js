@@ -893,6 +893,7 @@ gulp.task("ci_package_release_copy", () => {
  * @function ci_package_release_zip
  * @summary Generate release.zip for deployment by Travis/Github
  * @memberOf gulp
+ * @todo TRAVIS_TAG is output even if it has no value (resulting in trailing dash)
  */
 gulp.task("ci_package_release_zip", () => {
 
