@@ -56,14 +56,14 @@ global $wp_query;
 			'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'wpdtrt' ) . ' </span>',
 		) );
 
-	else :
-		?>
+		else :
+			?>
 
 	<h2>Sorry</h2>
 	<p>We didn't find anything.</p>
-		<?php
+			<?php
 	endif;
-	?>
+		?>
 </main>
 <aside>
 	<?php get_sidebar(); ?>
