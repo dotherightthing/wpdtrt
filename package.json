@@ -74,6 +74,7 @@
   "srcDir": "/Volumes/DanBackup/Websites/wpdtrt",
   "author": "Dan Smith <dev@dotherightthing.co.nz>",
   "dependencies": {
-    "jquery-validation": "^1.18.0"
+    "jquery-validation": "^1.18.0",
+    "jquery": "1.12.4"
   }
 }
