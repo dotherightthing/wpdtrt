@@ -939,7 +939,7 @@ gulp.task("release_copy", () => {
     // https://stackoverflow.com/a/32188928/6850747
     return gulp.src(releaseFiles, {base: "."})
         .pipe(print())
-        .pipe(gulp.dest(distDir + '_123456789'));
+        .pipe(gulp.dest(distDir));
 });
 
 /**
@@ -949,20 +949,20 @@ gulp.task("release_copy", () => {
  */
 gulp.task("release_zip", () => {
 
+    let release_tag = '';
+
+    if (typeof process.env.BITBUCKET_TAG !== "undefined") {
+        release_tag = `-${process.env.BITBUCKET_TAG}`;
+    }
+
+    let release_name += `release${release_tag}.zip`;
+
     gulp_helper_taskheader(
         "7e",
         "Release",
         "Generate",
-        "ZIP file"
+        `${release_name} containing ${distDir}/**/*`
     );
-
-    let release_name = 'release';
-
-    if (typeof process.env.BITBUCKET_TAG !== "undefined") {
-        release_name += '-' + process.env.BITBUCKET_TAG;
-    }
-
-    release_name += '.zip';
 
     // return stream or promise for run-sequence
     // https://stackoverflow.com/a/32188928/6850747
