@@ -33,6 +33,7 @@ const ghRateLimit = require("gh-rate-limit");
 const jsdoc = require("gulp-jsdoc3");
 const eslint = require("gulp-eslint");
 const log = require("fancy-log");
+const package_json = require('./package.json');
 const phpcs = require("gulp-phpcs");
 const postcss = require("gulp-postcss");
 const print = require("gulp-print").default;
@@ -52,8 +53,7 @@ const zip = require("gulp-zip");
  * @memberOf gulp
  */
 function get_themeName() {
-    // pop() - remove the last element from the path array and return it
-    const themeName = process.cwd().split("/").pop();
+    const themeName = package_json.name;
 
     return themeName;
 }
@@ -185,7 +185,7 @@ function gulp_helper_taskheader(step, task_category, task_action, task_detail) {
 const themeName = get_themeName();
 const cssDir = "css";
 const jsDir = "js";
-const distDir = themeName; // see https://github.com/dotherightthing/wpdtrt/issues/9
+const distDir = themeName; // https://bitbucket.org/dotherightthing/wpdtrt-dbth/issues/201/releasezip-contains-build-rather-than
 const dummyFile = "README.md";
 const jsFiles = get_js_files();
 const phpFiles = [
