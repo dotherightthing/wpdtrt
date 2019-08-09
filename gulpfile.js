@@ -901,8 +901,7 @@ gulp.task("ci_package_release_zip", () => {
 
     if (typeof process.env.BITBUCKET_TAG !== "undefined") {
         ci_package_release_tag = `-${process.env.BITBUCKET_TAG}`;
-    } else if (typeof process.env.TRAVIS_TAG !== "undefined") {
-        log(`process.env.TRAVIS_TAG=[${process.env.TRAVIS_TAG}]`);
+    } else if (typeof process.env.TRAVIS_TAG !== "") {
         ci_package_release_tag = `-${process.env.TRAVIS_TAG}`;
     }
 
