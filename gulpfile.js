@@ -33,7 +33,7 @@ const ghRateLimit = require("gh-rate-limit");
 const jsdoc = require("gulp-jsdoc3");
 const eslint = require("gulp-eslint");
 const log = require("fancy-log");
-const package_json = require('./package.json');
+const package_json = require("./package.json");
 const phpcs = require("gulp-phpcs");
 const postcss = require("gulp-postcss");
 const print = require("gulp-print").default;
@@ -954,8 +954,6 @@ gulp.task("watch", () => {
  * @memberOf gulp
  */
 gulp.task("default", (callback) => {
-
-    const ci = is_ci();
 
     gulp_helper_taskheader(
         "0",
