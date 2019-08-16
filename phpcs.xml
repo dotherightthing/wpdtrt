@@ -7,8 +7,6 @@
         <exclude name="WordPress.Functions.DontExtract"/>
         <exclude name="WordPress.CSRF.NonceVerification"/>
         <exclude name="WordPress.XSS.EscapeOutput"/>
-        <exclude name="WordPress.VIP.PostsPerPage"/>
-        <exclude name="WordPress.VIP.SessionVariableUsage"/>
         <exclude name="WordPress.VIP.ValidatedSanitizedInput"/>
         <exclude name="Generic.Strings.UnnecessaryStringConcat"/>
     </rule>
