@@ -1,10 +1,10 @@
 .DS_Store
-css/*
-debug.log
+composer.phar
+css
 docs
-generators
 js/*-es5.js
-*sublime-*
-node_modules/*
+logs
+node_modules
 release.zip
-vendor/*
+*sublime-*
+vendor
