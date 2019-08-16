@@ -2,7 +2,7 @@
   "name": "wpdtrt",
   "version": "0.2.15",
   "description": "A parent theme for WordPress theme development",
-  "main": "readme.txt",
+  "main": "functions.php",
   "person": {
     "name": "Dan Smith",
     "email": "dev@dotherightthing.co.nz",
