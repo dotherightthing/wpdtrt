@@ -1,9 +1,14 @@
 {
+  "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 6
   },
+  "plugins": [
+    "cypress",
+    "chai-friendly"
+  ],
   "env": {
-    "es6": true
+    "cypress/globals": true
   },
   "globals": {},
   "rules": {
@@ -70,6 +75,7 @@
     "no-new-wrappers": 0,
     "no-invalid-this": 0,
     "prefer-arrow-callback": 1,
-    "prefer-template": 1
+    "prefer-template": 1,
+    "chai-friendly/no-unused-expressions": 2
   }
 }
