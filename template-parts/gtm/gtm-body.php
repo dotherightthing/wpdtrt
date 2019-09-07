@@ -10,8 +10,13 @@
  * @see http://kb.dotherightthing.dan/seo/google-tag-manager-gtm/
  */
 
-?>
+// Check for ACF function.
+if ( function_exists( 'the_field' ) ) :
+	?>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php the_field( 'wpdtrt_acf_gtm_container_id', 'option' ); ?>"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+	<?php
+endif;
+?>

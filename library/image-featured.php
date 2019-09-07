@@ -21,36 +21,39 @@ function wpdtrt_image_featured_shortcode( $atts ) {
 	// http://stackoverflow.com/questions/19267650/get-wordpress-featured-image-alt.
 	$thumbnail_id = get_post_thumbnail_id( $id );
 	$alt          = get_post_meta( $thumbnail_id, '_wp_attachment_image_alt', true );
+	$html         = '';
 
-	// Note: Hands Of Light ACF field of type "Page Link".
-	$wpdtrt_featured_image_link = get_field( 'wpdtrt_featured_image_link' );
+	// Check for ACF function.
+	if ( function_exists( 'get_field' ) ) {
+		// Note: Hands Of Light ACF field of type "Page Link".
+		$wpdtrt_featured_image_link = get_field( 'wpdtrt_featured_image_link' );
 
-	// $caption = get_post( $thumbnail_id )->post_excerpt;.
-	// $image_title = $attachment->post_title;.
-	// $caption = $attachment->post_excerpt;.
-	// $description = $image->post_content;.
-	$html = '';
+		// $caption = get_post( $thumbnail_id )->post_excerpt;.
+		// $image_title = $attachment->post_title;.
+		// $caption = $attachment->post_excerpt;.
+		// $description = $image->post_content;.
+		//
+		if ( strpos( $src[0], 'default.png' ) ) {
+			return $html;
+		}
 
-	if ( strpos( $src[0], 'default.png' ) ) {
-		return $html;
-	}
+		if ( 'background' === $atts['display'] ) {
+			$html .= $src[0];
+		} elseif ( 'inline' === $atts['display'] ) {
+			$html .= '<div class="wpdtrt-featured-image">';
 
-	if ( 'background' === $atts['display'] ) {
-		$html .= $src[0];
-	} elseif ( 'inline' === $atts['display'] ) {
-		$html .= '<div class="wpdtrt-featured-image">';
+			if ( $wpdtrt_featured_image_link ) :
+				$html .= '<a href="' . $wpdtrt_featured_image_link . '">';
+			endif;
 
-		if ( $wpdtrt_featured_image_link ) :
-			$html .= '<a href="' . $wpdtrt_featured_image_link . '">';
-		endif;
+			$html .= '<img src="' . $src[0] . '" alt="' . $alt . '" />';
 
-		$html .= '<img src="' . $src[0] . '" alt="' . $alt . '" />';
+			if ( $wpdtrt_featured_image_link ) :
+				$html .= '</a>';
+			endif;
 
-		if ( $wpdtrt_featured_image_link ) :
-			$html .= '</a>';
-		endif;
-
-		$html .= '</div>';
+			$html .= '</div>';
+		}
 	}
 
 	return $html;
