@@ -32,5 +32,5 @@ require_once __DIR__ . '/library/validation-comment-form.php';
 require_once __DIR__ . '/library/sidebars.php';
 
 // Config.
-require_once __DIR__ . '/vendor/tgm-plugin-activation/class-tgm-plugin-activation.php';
+require_once __DIR__ . '/vendor/tgmpa/tgm-plugin-activation/class-tgm-plugin-activation.php';
 require_once __DIR__ . '/config/tgm-plugin-activation.php';
