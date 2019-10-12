@@ -1,10 +1,13 @@
 .DS_Store
 composer.phar
 css
-docs
 js/*-es5.js
 logs
 node_modules
 release.zip
 *sublime-*
 vendor
+config/naturaldocs/Working Data
+Natural Docs
+docs/*
+!docs/.gitkeep

@@ -21,51 +21,22 @@
   "keywords": [
     "framework",
     "theme",
-    "WordPress"
+    "WordPress",
+    "wordpress-parent-theme"
   ],
   "devDependencies": {
-    "autoprefixer": "^8.3.0",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^10.0.2",
-    "babel-preset-env": "^1.7.0",
-    "del": "^3.0.0",
-    "eslint": "^4.19.1",
-    "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-chai-friendly": "^0.4.1",
-    "eslint-plugin-cypress": "^2.6.1",
-    "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-json": "^1.2.0",
-    "fancy-log": "^1.3.2",
-    "gh-rate-limit": "^1.0.0",
-    "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.1",
-    "gulp-eslint": "^4.0.2",
-    "gulp-jsdoc3": "^2.0.0",
-    "gulp-nice-package": "^1.1.0",
-    "gulp-phpcs": "^2.1.0",
-    "gulp-postcss": "^7.0.1",
-    "gulp-print": "^5.0.0",
-    "gulp-rename": "^1.3.0",
-    "gulp-replace": "^0.6.1",
-    "gulp-sass": "^4.0.1",
-    "gulp-sass-lint": "^1.4.0",
-    "gulp-shell": "^0.6.5",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-zip": "^4.1.0",
-    "include-media": "^1.4.9",
-    "jshint": "^2.9.5",
-    "postcss-pxtorem": "^4.0.1",
-    "run-sequence": "^2.2.1",
-    "sass-lint": "^1.12.1"
+    "gulp": "^4.0.2",
+    "wpdtrt-gulp": "https://github.com/dotherightthing/wpdtrt-gulp.git#theme"
   },
   "scripts": {
-    "build": "gulp",
-    "build_ci": "gulp ci",
-    "install_deps": "gulp install_dependencies && gulp wpunit_install",
-    "lint": "gulp lint",
-    "test": "gulp wpunit_run",
-    "version": "gulp version",
-    "watch": "gulp compile && gulp watch"
+    "build": "./node_modules/.bin/gulp --gulpfile ./node_modules/wpdtrt-gulp/gulpfile-loader.js --cwd ./",
+    "dependencies": "./node_modules/.bin/gulp dependencies --gulpfile ./node_modules/wpdtrt-gulp/gulpfile-loader.js --cwd ./",
+    "docs": "./node_modules/.bin/gulp documentation --gulpfile ./node_modules/wpdtrt-gulp/gulpfile-loader.js --cwd ./",
+    "lint": "./node_modules/.bin/gulp lint --gulpfile ./node_modules/wpdtrt-gulp/gulpfile-loader.js --cwd ./",
+    "release": "./node_modules/.bin/gulp release --gulpfile ./node_modules/wpdtrt-gulp/gulpfile-loader.js --cwd ./",
+    "test": "./node_modules/.bin/gulp test --gulpfile ./node_modules/wpdtrt-gulp/gulpfile-loader.js --cwd ./",
+    "version": "./node_modules/.bin/gulp version --gulpfile ./node_modules/wpdtrt-gulp/gulpfile-loader.js --cwd ./",
+    "watch": "./node_modules/.bin/gulp compile --gulpfile ./node_modules/wpdtrt-gulp/gulpfile-loader.js && gulp watch --gulpfile ./node_modules/wpdtrt-gulp/gulpfile-loader.js --cwd ./"
   },
   "repository": {
     "type": "git",
@@ -80,7 +51,7 @@
   "srcDir": "/Volumes/DanBackup/Websites/wpdtrt",
   "author": "Dan Smith <dev@dotherightthing.co.nz>",
   "dependencies": {
-    "jquery-validation": "^1.18.0",
-    "jquery": "1.12.4"
+    "jquery": "1.12.4",
+    "jquery-validation": "^1.18.0"
   }
 }
