@@ -33,7 +33,7 @@ const ghRateLimit = require("gh-rate-limit");
 const jsdoc = require("gulp-jsdoc3");
 const eslint = require("gulp-eslint");
 const log = require("fancy-log");
-const package_json = require("./package.json");
+const path = require('path');
 const phpcs = require("gulp-phpcs");
 const postcss = require("gulp-postcss");
 const print = require("gulp-print").default;
@@ -46,6 +46,8 @@ const shell = require("gulp-shell");
 const sourcemaps = require("gulp-sourcemaps");
 const validate = require("gulp-nice-package");
 const zip = require("gulp-zip");
+
+const package_json = require(`${path.resolve( process.cwd() )}/package.json`);
 
 /**
  * @summary Get the themeName from package.json
