@@ -11,3 +11,4 @@ config/naturaldocs/Working Data
 Natural Docs
 docs/*
 !docs/.gitkeep
+sandbox.js
