@@ -3,14 +3,16 @@
 # To skip a build, add [ci skip] to the commit message.
 # This file has been linted using: http://lint.travis-ci.org/
 
+# conditions under which to run this build
+if: NOT (branch = master) OR (branch = master AND tag IS present)
+
 # Use PHP, to use Composer, WordPress and PHPUnit
 language: php
 
 # PHP versions to test against
 # https://github.com/meitar/wordpress-plugin-skeleton/blob/master/.travis.yml
 php:
-  - 5.6.30 # MAMP
-#  - 5.5 # Sitehost - fails phpunit version requirement
+  - 7.2.20 # MAMP
 
 # Public Environment Variables
 # https://docs.travis-ci.com/user/environment-variables
@@ -28,8 +30,12 @@ matrix:
   # https://johnblackbourn.com/reducing-travis-ci-build-times-for-wordpress-projects/
   fast_finish: true
   include:
-    - php: 5.6.30
+    - php: 7.2.20
       env: WP_VERSION=latest WP_MULTISITE=0
+
+# Start MySQL
+services:
+  - mysql
 
 # Cache directories between builds, to store dependencies
 # which take longer to compile or download.
@@ -54,9 +60,16 @@ before_install:
   # Disable XDebug which is only required for Code Coverage reports
   # https://johnblackbourn.com/reducing-travis-ci-build-times-for-wordpress-projects/
   - phpenv config-rm xdebug.ini
-  # Fix PHPDoc error:
-  # "Unable to find the `dot` command of the GraphViz package. Is GraphViz correctly installed and present in your path?"
-  - sudo apt-get install graphviz
+  # Install Mono (Natural Docs dependency)
+  # https://www.mono-project.com/download/stable/#download-lin-ubuntu
+  - if [ $TRAVIS_TAG ]; then sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF; fi
+  - if [ $TRAVIS_TAG ]; then sudo apt install apt-transport-https ca-certificates; fi
+  - if [ $TRAVIS_TAG ]; then echo "deb https://download.mono-project.com/repo/ubuntu stable-xenial main" | sudo tee /etc/apt/sources.list.d/mono-official-stable.list; fi
+  - if [ $TRAVIS_TAG ]; then sudo apt update; fi
+  - if [ $TRAVIS_TAG ]; then sudo apt install mono-complete; fi
+  # Unsure if this is required here, it is needed by generated plugins.
+  # See dotherightthing/generator-wpdtrt-plugin-boilerplate#88
+  - composer config -g github-oauth.github.com $GH_TOKEN
 
 # Install dependencies
 # https://docs.travis-ci.com/user/customizing-the-build/#Customizing-the-Installation-Step
@@ -64,11 +77,12 @@ before_install:
 # https://www.sitepoint.com/php-continuous-integration-travis-ci/
 # https://getcomposer.org/doc/03-cli.md
 install:
-  - composer install --prefer-dist --no-interaction --no-suggest # also run via gulpfile.js
+  - composer install --prefer-dist --no-interaction --no-suggest # loads parent plugin class, which in turn runs an install via gulpfile.js
   # Adding Yarn to Travis CI - https://gist.github.com/acburdine/61f4f91bacf6554fccdaa394fd14ebbd
   - npm install -g yarn
-  - yarn install --non-interactive
+  - yarn install --non-interactive # child plugin
   - yarn global add gulp-cli
+  - yarn config set version-git-tag false
 
 # Exporting a variable causes it to be inherited
 # by subsequently started processes in the shell session
@@ -77,13 +91,10 @@ install:
 # See https://github.com/wp-cli/sample-plugin/blob/master/.travis.yml
 before_script:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
-  - export WPUNIT_DB_USER="root"
-  - export WPUNIT_DB_PASS=""
-  - export WPUNIT_DB_HOST="localhost"
 
 # Run the build script
 script:
-  - yarn run build_ci
+  - yarn run build
 
 # Notifications of build results
 # https://docs.travis-ci.com/user/notifications/
@@ -101,7 +112,7 @@ notifications:
 deploy:
   provider: releases
   api_key:
-    secure: $GITHUB_AUTH
+    secure: $GH_TOKEN
   file: 'release-${TRAVIS_TAG}.zip'
   # prevent Travis CI from resetting the working directory
   # which deletes all changes made during the build 
