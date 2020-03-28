@@ -24,19 +24,19 @@
     "WordPress",
     "wordpress-parent-theme"
   ],
-  "devDependencies": {
-    "gulp": "^4.0.2",
-    "wpdtrt-gulp": "https://github.com/dotherightthing/wpdtrt-gulp.git"
+  "config": {
+    "wpdtrt_npm_scripts": "./node_modules/wpdtrt-npm-scripts"
   },
   "scripts": {
-    "build": "./node_modules/.bin/gulp --gulpfile ./node_modules/wpdtrt-gulp/gulpfile-loader.js --cwd ./",
-    "dependencies": "./node_modules/.bin/gulp dependencies --gulpfile ./node_modules/wpdtrt-gulp/gulpfile-loader.js --cwd ./",
-    "docs": "./node_modules/.bin/gulp documentation --gulpfile ./node_modules/wpdtrt-gulp/gulpfile-loader.js --cwd ./",
-    "lint": "./node_modules/.bin/gulp lint --gulpfile ./node_modules/wpdtrt-gulp/gulpfile-loader.js --cwd ./",
-    "release": "./node_modules/.bin/gulp release --gulpfile ./node_modules/wpdtrt-gulp/gulpfile-loader.js --cwd ./",
-    "test": "./node_modules/.bin/gulp test --gulpfile ./node_modules/wpdtrt-gulp/gulpfile-loader.js --cwd ./",
-    "version": "./node_modules/.bin/gulp version --gulpfile ./node_modules/wpdtrt-gulp/gulpfile-loader.js --cwd ./",
-    "watch": "./node_modules/.bin/gulp compile --gulpfile ./node_modules/wpdtrt-gulp/gulpfile-loader.js && gulp watch --gulpfile ./node_modules/wpdtrt-gulp/gulpfile-loader.js --cwd ./"
+    "build": "npm run build --prefix $npm_package_config_wpdtrt_npm_scripts",
+    "compile": "npm run compile --prefix $npm_package_config_wpdtrt_npm_scripts",
+    "dependencies": "npm run dependencies --prefix $npm_package_config_wpdtrt_npm_scripts",
+    "docs": "npm run docs --prefix $npm_package_config_wpdtrt_npm_scripts",
+    "lint": "npm run lint --prefix $npm_package_config_wpdtrt_npm_scripts",
+    "release": "npm run release --prefix $npm_package_config_wpdtrt_npm_scripts",
+    "test": "npm run test --prefix $npm_package_config_wpdtrt_npm_scripts",
+    "version": "npm run version --prefix $npm_package_config_wpdtrt_npm_scripts",
+    "watch": "npm run watch --prefix $npm_package_config_wpdtrt_npm_scripts"
   },
   "repository": {
     "type": "git",
@@ -48,6 +48,8 @@
   "author": "Dan Smith <dev@dotherightthing.co.nz>",
   "dependencies": {
     "jquery": "1.12.4",
-    "jquery-validation": "^1.18.0"
-  }
+    "jquery-validation": "^1.18.0",
+    "wpdtrt-npm-scripts": "github:dotherightthing/wpdtrt-npm-scripts"
+  },
+  "devDependencies": {}
 }
