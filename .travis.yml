@@ -78,11 +78,7 @@ before_install:
 # https://getcomposer.org/doc/03-cli.md
 install:
   - composer install --prefer-dist --no-interaction --no-suggest # loads parent plugin class, which in turn runs an install via gulpfile.js
-  # Adding Yarn to Travis CI - https://gist.github.com/acburdine/61f4f91bacf6554fccdaa394fd14ebbd
-  - npm install -g yarn
-  - yarn install --non-interactive # child plugin
-  - yarn global add gulp-cli
-  - yarn config set version-git-tag false
+  - npm ci # child plugin; install from package-lock.json, don't write to package.json or package-lock.json
 
 # Exporting a variable causes it to be inherited
 # by subsequently started processes in the shell session
@@ -94,7 +90,7 @@ before_script:
 
 # Run the build script
 script:
-  - yarn run build
+  - npm run build
 
 # Notifications of build results
 # https://docs.travis-ci.com/user/notifications/
