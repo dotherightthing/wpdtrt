@@ -13,7 +13,7 @@ add_action( 'wp_enqueue_scripts', 'wpdtrt_js_css' );
  */
 function wpdtrt_js_css() {
 	// attach to <head>.
-	$header = 'wpdtrt_header';
+	$header = 'inline_scripts_hook';
 
 	// add wpdtrt-js hook immediately.
 	// (without waiting for jQuery to load).

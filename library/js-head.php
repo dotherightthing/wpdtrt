@@ -19,7 +19,7 @@ function wpdtrt_js_head() {
 	 * @see https://wordpress.org/ideas/topic/add-theme-version-number-to-stylesheet-url-not-wp-version
 	 */
 	$theme_version = wp_get_theme()->Version;
-	$header        = 'wpdtrt_header';
+	$header        = 'inline_scripts_hook';
 
 	/**
 	 * Head scripts (head of page)

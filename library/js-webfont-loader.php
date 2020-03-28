@@ -72,7 +72,7 @@ function wpdtrt_js_webfont_config_test() {
  * @example add_action( 'wp_enqueue_scripts', 'wpdtrt_js_webfonts_inline' );
  */
 function wpdtrt_js_webfonts_inline() {
-	$header = 'wpdtrt_header';
+	$header = 'inline_scripts_hook';
 
 	/**
 	 * Configuration object
