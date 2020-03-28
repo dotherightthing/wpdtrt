@@ -18,7 +18,7 @@
 namespace DoTheRightThing\WPDTRT\Cheatsheets;
 
 add_filter( 'gettext', 'wpdtrt_text_substitutions', 20, 3 );
-add_filter( 'locale', 'wpdtrt_set_locale' );
+// add_filter( 'locale', 'wpdtrt_set_locale' );.
 
 /**
  * JS
@@ -184,10 +184,9 @@ function wpdtrt_text_substitutions( $translated_text, $text, $text_domain ) {
  * @uses https://stackoverflow.com/questions/27346747/wordpress-4-wplang-deprecated-how-to-change-language-programmatically
  * @todo Usage of $_SESSION variable is prohibited (PHPCS)
  */
-function wpdtrt_set_locale( $default_locale ) {
-	if ( isset( $_SESSION['WPLANG'] ) ) {
-		return $_SESSION['WPLANG'];
-	}
-
-	return $default_locale;
-};
+// function wpdtrt_set_locale( $default_locale ) {
+// if ( isset( $_SESSION['WPLANG'] ) ) {
+// return $_SESSION['WPLANG'];
+// }
+// return $default_locale;
+// };.

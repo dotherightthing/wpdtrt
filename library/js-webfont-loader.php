@@ -47,7 +47,7 @@ function wpdtrt_js_webfonts() {
 	 */
 	$js_webfont_config = apply_filters( 'wpdtrt_js_webfont_config', $js_webfont_config );
 
-	wp_add_inline_script( $wpdtrt_js_webfont_loader, 'WebFont.load(' . json_encode( $js_webfont_config ) . ');' );
+	wp_add_inline_script( $wpdtrt_js_webfont_loader, 'WebFont.load(' . wp_json_encode( $js_webfont_config ) . ');' );
 }
 
 /**
@@ -89,7 +89,7 @@ function wpdtrt_js_webfonts_inline() {
 	 */
 	$js_webfont_config = apply_filters( 'wpdtrt_js_webfont_config', $js_webfont_config );
 
-	wp_add_inline_script( $header, "\r\n" . 'WebFontConfig = ' . json_encode( $js_webfont_config ) . ";\r\n\r\n" . "(function(d) {
+	wp_add_inline_script( $header, "\r\n WebFontConfig = " . wp_json_encode( $js_webfont_config ) . ";\r\n\r\n (function(d) {
 			var wf = d.createElement('script'), s = d.scripts[0];
 			wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
 			wf.async = true;
