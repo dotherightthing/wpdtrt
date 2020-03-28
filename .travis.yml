@@ -77,7 +77,7 @@ before_install:
 # https://www.sitepoint.com/php-continuous-integration-travis-ci/
 # https://getcomposer.org/doc/03-cli.md
 install:
-  - composer install --prefer-dist --no-interaction --no-suggest # loads parent plugin class, which in turn runs an install via gulpfile.js
+  - composer install --prefer-dist --no-interaction --no-suggest # loads parent plugin class, which in turn runs an install via ?.js
   - npm ci # child plugin; install from package-lock.json, don't write to package.json or package-lock.json
 
 # Exporting a variable causes it to be inherited
@@ -88,9 +88,9 @@ install:
 before_script:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
 
-# Run the build script
+# Run the build scripts
 script:
-  - npm run build
+  - npm run lint && npm run compile
 
 # Notifications of build results
 # https://docs.travis-ci.com/user/notifications/
