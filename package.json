@@ -42,10 +42,6 @@
     "type": "git",
     "url": "https://github.com/dotherightthing/wpdtrt"
   },
-  "browserslist": [
-    "last 2 versions",
-    "ie >= 11"
-  ],
   "license": "ISC",
   "homepage": "https://github.com/dotherightthing/wpdtrt",
   "srcDir": "/Volumes/DanBackup/Websites/wpdtrt",
