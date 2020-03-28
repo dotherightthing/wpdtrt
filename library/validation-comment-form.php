@@ -17,7 +17,7 @@ add_filter( 'comment_form_field_email', 'wpdtrt_comment_form_field_email__valida
  * where $name is the key used in the array of fields.
  * Source: https://developer.wordpress.org/reference/functions/comment_form/
  *
- * See also wpdtrt_ui.comment_validation() in functions.js
+ * See also wpdtrtUi.comment_validation() in functions.js
  */
 
 /**

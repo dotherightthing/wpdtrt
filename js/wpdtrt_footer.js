@@ -6,10 +6,10 @@
 /* globals jQuery */
 
 /**
- * @namespace wpdtrt_ui
+ * @namespace wpdtrtUi
  */
 
-const wpdtrt_ui = {
+const wpdtrtUi = {
 
   /**
    * Make :focus state render on touch
@@ -17,10 +17,10 @@ const wpdtrt_ui = {
    * @see http://stackoverflow.com/a/28771425
    */
   touch_focus: () => {
-    document.addEventListener("touchstart", () => {}, false);
+    document.addEventListener( 'touchstart', () => {}, false );
   }
 };
 
-jQuery(document).ready( () => {
-  wpdtrt_ui.touch_focus();
-});
+jQuery( document ).ready( () => {
+  wpdtrtUi.touch_focus();
+} );
