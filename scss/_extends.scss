@@ -14,11 +14,11 @@
 }
 
 .text-outline_white {
-    text-shadow:
-    -1px -1px 0 #fff,
-    1px -1px 0 #fff,
-    -1px 1px 0 #fff,
-    1px 1px 0 #fff;
+    text-shadow: /* stylelint-disable-line declaration-colon-after-space */
+        -1px -1px 0 var(--color-mono-light),
+        1px -1px 0 var(--color-mono-light),
+        -1px 1px 0 var(--color-mono-light),
+        1px 1px 0 var(--color-mono-light);
 }
 
 .wpdtrt-js-webfont {

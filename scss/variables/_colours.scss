@@ -1,0 +1,26 @@
+//
+// Variables: Colours
+//
+// @package     WPDTRT
+// @since       0.1.0
+//
+// Colours are specified in hsla values:
+// - Hue: 0 - 360 on a colour wheel (e.g. http://hslpicker.com/)
+// - Saturation: 0 (grayscale) - 100 (full colour)
+// - Lightness: 0% (black), 50% (average), 100% (completely light)
+// - Alpha
+//
+
+:root {
+    --color-mono-light: hsla(0, 0%, 100%, 1); // #fff, #fefefe
+    --color-mono-light2: hsla(0, 0%, 95%, 1); // #f1f1f1
+    --color-mono-light6: hsla(0, 0%, 94%, 1); // #f0f0f0
+    --color-mono-dark2: hsla(0, 0%, 20%, 1); // #333
+    --color-mono-dark: hsla(0, 0%, 0%, 1); // #000
+
+    --color-link: hsla(204, 100%, 40%, 1); // var(--color-link)
+    --color-link-alt: hsla(204, 100%, 60%, 1);
+    --color-link-hover: hsla(204, 100%, 40%, 1); // var(--color-link)
+
+    --color-wp-focus: hsla(199, 65%, 37%, 1); // #21759b
+}

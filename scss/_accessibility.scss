@@ -6,11 +6,11 @@
 //
 
 .accessible {
-    position: absolute !important;
+    position: absolute !important; /* stylelint-disable-line declaration-no-important */
     width: 1px;
     height: 1px;
     clip: rect(1px, 1px, 1px, 1px);
     // many screen reader and browser combinations announce broken words as they would appear visually
-    word-wrap: normal !important;
+    word-wrap: normal !important; /* stylelint-disable-line declaration-no-important */
     overflow: hidden;
 }

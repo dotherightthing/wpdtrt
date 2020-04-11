@@ -67,10 +67,10 @@ a {
 // https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 .wp-caption {
     max-width: 96%; // Image does not overflow the content area
-    background: #fff;
+    background: var(--color-mono-light);
     text-align: center;
     padding: 5px 3px 10px;
-    border: 1px solid #f0f0f0;
+    border: 1px solid var(--color-mono-light6);
 
     &.alignnone {
         margin: 5px 20px 20px 0;
@@ -105,7 +105,7 @@ a {
 
 // https://codex.wordpress.org/CSS#WordPress_Generated_Classes
 .screen-reader-text {
-    position: absolute !important;
+    position: absolute !important; /* stylelint-disable-line declaration-no-important */
     width: 1px;
     height: 1px;
     clip: rect(1px, 1px, 1px, 1px);
@@ -119,9 +119,9 @@ a {
         z-index: 100000; // Above WP toolbar
         width: auto;
         height: auto;
-        background-color: #f1f1f1;
-        clip: auto !important;
-        color: #21759b;
+        background-color: var(--color-mono-light2);
+        clip: auto !important; /* stylelint-disable-line declaration-no-important */
+        color: var(--color-wp-focus);
         font-size: 14px;
         line-height: normal;
         font-weight: bold;
@@ -152,7 +152,7 @@ a {
             > .comment-author {
                 .avatar {
                     padding: 2px;
-                    border: 1px solid #333;
+                    border: 1px solid var(--color-mono-dark2);
                 }
             }
         }

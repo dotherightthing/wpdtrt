@@ -1,4 +1,4 @@
-// sass-lint:disable-all
+/* stylelint-disable */
 
 /*
 Theme Name: Twenty Sixteen
@@ -210,8 +210,8 @@ abbr[title] {
 
 mark,
 ins {
-	background: #007acc;
-	color: #fff;
+	background: var(--color-link);
+	color: var(--color-mono-light);
 	padding: 2px 4px;
 	text-decoration: none;
 }
@@ -304,7 +304,7 @@ td,
 }
 
 table a {
-	color: #007acc;
+	color: var(--color-link);
 }
 
 table,
@@ -356,7 +356,7 @@ del {
 
 a {
 	box-shadow: 0 1px 0 0 currentColor;
-	color: #007acc;
+	color: var(--color-link);
 	text-decoration: none;
 }
 
@@ -547,3 +547,5 @@ fieldset {
 .rtl table caption {
 	text-align: right;
 }
+
+/* stylelint-enable */
