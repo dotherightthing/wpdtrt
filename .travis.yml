@@ -51,12 +51,12 @@ cache:
     - $HOME/.npm 
 
 before_install:
-  # Install a Second Programming Language (Node, to run Gulp tasks)
+  # Install a Second Programming Language (Node)
   # We need to specify a newer version than the Travis default
   # in order to avoid the build error "Use of const in strict mode"
   # https://docs.travis-ci.com/user/customizing-the-build/#Installing-a-Second-Programming-language
   # https://stackoverflow.com/a/44250453/6850747
-  - nvm install 10.16.2
+  - nvm install 13.12.0
   # Disable XDebug which is only required for Code Coverage reports
   # https://johnblackbourn.com/reducing-travis-ci-build-times-for-wordpress-projects/
   - phpenv config-rm xdebug.ini
