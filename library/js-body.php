@@ -22,7 +22,7 @@ function wpdtrt_js_body() {
 	 * @see https://wordpress.org/ideas/topic/add-theme-version-number-to-stylesheet-url-not-wp-version
 	 */
 	$theme_version = wp_get_theme()->Version;
-	$footer        = 'frontend.js';
+	$footer        = 'frontend';
 
 	/**
 	 * Attach scripts to bottom of the page

@@ -30,7 +30,7 @@ function wpdtrt_js_head() {
 	 *   leaving the associated inline code in the head where we want it.
 	 */
 	wp_register_script( $header,
-		get_template_directory_uri() . '/js/' . $header . '-es5.js',
+		get_template_directory_uri() . '/js/' . $header . '.js',
 		array(),
 		$theme_version,
 		false
