@@ -3,6 +3,8 @@
 .browserslistrc
 .eslintrc
 .sass-lint.yml
+.stylelintignore
+.stylelintrc.json
 *-es5.js
 _wpdtrt-import.scss
 bin/Natural\ Docs
@@ -13,7 +15,11 @@ css
 docs/*
 !docs/.gitkeep
 node_modules
+nodemon.json
 phpcs.xml
+phpunit.xml.dist
 postcss.config.js
+release-*
+release-*.zip
 vendor
 # End
