@@ -71,7 +71,7 @@ before_install:
   # See dotherightthing/generator-wpdtrt-plugin-boilerplate#88
   - composer config -g github-oauth.github.com $GH_TOKEN
   # Install Tree
-  - apt-get install tree
+  - sudo apt-get install tree
 
 # Install dependencies
 # https://docs.travis-ci.com/user/customizing-the-build/#Customizing-the-Installation-Step
