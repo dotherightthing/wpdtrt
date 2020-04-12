@@ -70,6 +70,8 @@ before_install:
   # Unsure if this is required here, it is needed by generated plugins.
   # See dotherightthing/generator-wpdtrt-plugin-boilerplate#88
   - composer config -g github-oauth.github.com $GH_TOKEN
+  # Install Tree
+  - apt-get install tree
 
 # Install dependencies
 # https://docs.travis-ci.com/user/customizing-the-build/#Customizing-the-Installation-Step
@@ -91,6 +93,9 @@ before_script:
 # Run the build scripts
 script:
   - npm run release
+  # List all files in the release directory
+  # -a all files, including dot files
+  - tree -a release
 # Notifications of build results
 # https://docs.travis-ci.com/user/notifications/
 # https://github.com/travis-ci/travis-ci/issues/6387 - $SLACK_AUTH not supported
