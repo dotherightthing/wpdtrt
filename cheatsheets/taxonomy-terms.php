@@ -77,7 +77,6 @@ function wpdtrt_insert_and_set_taxonomy_terms_taxonomyslug() {
 
 			// https://codex.wordpress.org/Function_Reference/wp_insert_term.
 			$term = wp_insert_term(
-
 				/**
 				 * $term
 				 * (int|string) (required) The term to add or update.
