@@ -20,7 +20,7 @@
     "require": {
         "dotherightthing/wpdtrt-debug": "^1.0.0",
         "tgmpa/tgm-plugin-activation": "dev-autoloader",
-        "php": ">=7.2.15"
+        "php": ">=7.2.20"
     },
     "require-dev": {
         "wp-coding-standards/wpcs": "^0.14.1",
