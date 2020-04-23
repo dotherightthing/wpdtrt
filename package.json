@@ -46,10 +46,11 @@
   "homepage": "https://github.com/dotherightthing/wpdtrt",
   "srcDir": "/Volumes/DanBackup/Websites/wpdtrt",
   "author": "Dan Smith <dev@dotherightthing.co.nz>",
-  "dependencies": {
-    "jquery": "1.12.4",
-    "jquery-validation": "^1.18.0",
+  "devDependencies": {
     "wpdtrt-npm-scripts": "github:dotherightthing/wpdtrt-npm-scripts"
   },
-  "devDependencies": {}
+  "dependencies": {
+    "jquery": "1.12.4",
+    "jquery-validation": "^1.18.0"
+  }
 }
