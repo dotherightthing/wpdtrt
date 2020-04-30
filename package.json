@@ -50,7 +50,7 @@
     "wpdtrt-npm-scripts": "github:dotherightthing/wpdtrt-npm-scripts"
   },
   "dependencies": {
-    "jquery": "1.12.4",
+    "jquery": "3.5.0",
     "jquery-validation": "^1.18.0"
   }
 }
